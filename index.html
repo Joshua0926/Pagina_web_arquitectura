@@ -3,51 +3,73 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Estudio de Arquitectura — Servicios & Catálogo</title>
-  <meta name="description" content="Estudio de arquitectura de clase alta. Planos técnicos, diseño arquitectónico, interiorismo y renders 3D. Contáctanos por WhatsApp, correo o llamada." />
-  <meta property="og:title" content="Estudio de Arquitectura — Servicios & Catálogo" />
-  <meta property="og:description" content="Paquetes: Básico, Completo, Premium. Atención de alto nivel. Escríbenos por WhatsApp o correo." />
+  <title>AURÉA — Estudio de Arquitectura & Interiorismo</title>
+  <meta name="description" content="Estudio de arquitectura de alta gama. Planos técnicos, diseño arquitectónico, interiorismo y renders 3D para proyectos que inspiran." />
+  <meta property="og:title" content="AURÉA — Servicios & Catálogo" />
+  <meta property="og:description" content="Paquetes de diseño y arquitectura. Atención de alto nivel. Escríbenos por WhatsApp o correo." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1200&auto=format&fit=crop" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
+    /* 
+      ==========================================================================
+      PALETA DE COLORES: PREDOMINANCIA VERDE OLIVO
+      ==========================================================================
+    */
     :root{
-      --bg:#f7f1e8;           /* beige claro */
-      --bg-2:#efe6d9;         /* beige suave */
-      --fg:#1f1b16;           /* café oscuro */
-      --muted:#7a6a58;        /* taupe */
-      --accent:#b88b5e;       /* camel */
-      --accent-2:#d1b38b;     /* arena */
-      --card:#fffaf2;         /* marfil */
-      --ring: 0 0 0 3px rgba(184,139,94,.25);
-      --shadow: 0 10px 30px rgba(31,27,22,.12);
+      --primary: #4A5A47;                 /* Verde Olivo Oscuro: para secciones principales */
+      --primary-dark: #3e4a3c;            /* Verde Olivo más oscuro para hovers/detalles */
+      --secondary: #2F2F2F;               /* Gris Carbón: para tarjetas y texto principal */
+      --accent: #D4B98B;                  /* Champagne / Dorado Suave: para CTAs y acentos */
+      --accent-2: #e0c5a0;                /* Champagne más claro para gradientes */
+      
+      --bg: #f7f5f2;                      /* Fondo principal (blanco roto cálido) */
+      --bg-2: #efedea;                    /* Fondo secundario para gradientes suaves */
+      --fg-dark: #2F2F2F;                 /* Texto oscuro sobre fondos claros */
+      --fg-light: #f7f5f2;                /* Texto claro sobre fondos oscuros */
+      
+      --card: #ffffff;                    /* Tarjetas en secciones claras */
+      --card-dark: #2F2F2F;               /* Tarjetas en secciones oscuras */
+
+      --ring: 0 0 0 3px rgba(212, 185, 139, .3);
+      --shadow: 0 10px 30px rgba(0, 0, 0, .08);
       --radius: 18px;
       --radius-sm: 14px;
       --space: clamp(14px, 1.5vw, 20px);
     }
+    
+    /* Tipografía Personalizada (requiere archivos locales) */
+    /* @font-face { font-family: 'Lastica'; src: url('/fonts/Lastica.woff2') format('woff2'); } */
+
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--fg);background:linear-gradient(180deg,var(--bg),var(--bg-2));}
+    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--fg-dark);background:var(--bg);}
     img{max-width:100%;display:block}
     a{color:inherit;text-decoration:none}
     .container{max-width:1200px;margin-inline:auto;padding:0 20px}
+    
     /* ————— NAV ————— */
     .skip{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
     .skip:focus{left:12px;top:12px;width:auto;height:auto;padding:.4rem .6rem;background:#fff;border-radius:8px;box-shadow:var(--shadow)}
-    header{position:sticky;top:0;z-index:60;backdrop-filter:saturate(140%) blur(8px);background:rgba(247,241,232,.6);border-bottom:1px solid rgba(0,0,0,.06)}
+    header{position:sticky;top:0;z-index:60;backdrop-filter:saturate(140%) blur(8px);background:rgba(247, 245, 242, .6);border-bottom:1px solid rgba(0,0,0,.06)}
     .nav{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 0}
     .brand{display:flex;align-items:center;gap:12px}
     .mark{width:36px;height:36px;border-radius:12px;background:conic-gradient(from 210deg at 50% 50%, var(--accent), var(--accent-2), var(--bg));box-shadow:inset 0 0 0 1px rgba(0,0,0,.06), var(--shadow)}
-    .brand b{font-family:"Cormorant Garamond",serif;font-size:1.35rem;letter-spacing:.5px}
+    .brand b{font-family: 'Lastica', 'Cormorant Garamond', serif;font-size:1.6rem;letter-spacing: .5px;font-weight: 700;color: var(--primary-dark);}
     .menu{display:flex;gap:4px;align-items:center}
     .menu a{padding:10px 14px;border-radius:10px;font-weight:500;opacity:.9}
-    .menu a.active,.menu a:hover{background:rgba(184,139,94,.12)}
+    .menu a.active,.menu a:hover{background:rgba(74, 90, 71, .1)}
     .cta{display:flex;gap:10px}
-    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:14px;font-weight:600;border:1px solid rgba(0,0,0,.08);box-shadow:var(--shadow);background:#ffffff}
-    .btn:hover{transform:translateY(-1px)}
-    .btn.acc{background:linear-gradient(180deg,var(--accent-2),var(--accent));color:#fff;border:none}
+
+    /* ========================================================== */
+    /* CORRECCIÓN: Se añade color de texto explícito al botón     */
+    /* ========================================================== */
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:14px;font-weight:600;border:1px solid rgba(0,0,0,.08);box-shadow:var(--shadow);background:#ffffff;color: var(--secondary); /* <- ESTA LÍNEA RESUELVE EL PROBLEMA */ transition: transform .2s ease}
+    
+    .btn:hover{transform:translateY(-2px)}
+    .btn.acc{background:linear-gradient(180deg, var(--accent), #c8a97b);color:#fff;border:none}
     .btn.ghost{background:rgba(255,255,255,.6);backdrop-filter:blur(6px)}
     .hamburger{display:none;padding:10px 12px;border-radius:10px;border:1px solid rgba(0,0,0,.08);background:#fff}
     .hamburger svg{display:block}
@@ -58,52 +80,64 @@
       .mobile{display:block;position:fixed;inset:64px 14px auto 14px;background:#fff;border-radius:16px;box-shadow:var(--shadow);padding:10px;z-index:55;border:1px solid rgba(0,0,0,.06)}
       .mobile a{display:block;padding:12px 14px;border-radius:10px}
       .mobile a + a{margin-top:4px}
-      .mobile a:hover{background:rgba(184,139,94,.1)}
+      .mobile a:hover{background:rgba(74, 90, 71, .1)}
     }
+    
+    /* ————— Secciones con fondo oscuro ————— */
+    .dark-section{background-color: var(--primary); color: var(--fg-light);}
+    .dark-section h2, .dark-section h3{color: var(--fg-light);}
+    .dark-section .caps, .dark-section .muted{color: rgba(247, 245, 242, .7);}
+    .dark-section p{color: rgba(247, 245, 242, .9);}
+    .dark-section .pill{background:rgba(247, 245, 242, .1);border-color:rgba(247, 245, 242, .2);color:var(--fg-light);}
+
     /* ————— HERO ————— */
-    .hero{position:relative;isolation:isolate}
+    .hero{position:relative;isolation:isolate; padding:min(8vh,80px) 0;}
     .hero::before{content:"";position:absolute;inset:0;background:
-      radial-gradient(1200px 400px at -10% -20%, rgba(184,139,94,.25), transparent 50%),
-      radial-gradient(900px 400px at 110% 20%, rgba(209,179,139,.18), transparent 50%),
+      radial-gradient(1200px 400px at -10% -20%, rgba(212, 185, 139, .2), transparent 50%),
+      radial-gradient(900px 400px at 110% 20%, rgba(74, 90, 71, .15), transparent 50%),
       repeating-linear-gradient(90deg, rgba(0,0,0,.04) 0 1px, transparent 1px 120px);
       z-index:-1}
-    .hero-inner{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;padding:min(8vh,80px) 0}
-    .eyebrow{font-size:.9rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+    .hero-inner{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;}
+    .eyebrow{font-size:.9rem;letter-spacing:.18em;text-transform:uppercase;color:var(--primary)}
     h1{font-family:"Cormorant Garamond",serif;font-weight:600;letter-spacing:.3px;font-size:clamp(2rem, 3.6vw, 4rem);line-height:1.05;margin:.5rem 0}
-    .lede{font-size:clamp(1rem,1.2vw,1.2rem);color:#4a433a;max-width:60ch}
+    .lede{font-size:clamp(1rem,1.2vw,1.2rem);color: #5e5e5e;max-width:60ch}
     .hero-media{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
     .hero-media img{height:100%;object-fit:cover}
     .hero-ctas{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
-    @media (max-width:980px){
-      .hero-inner{grid-template-columns:1fr;gap:24px}
-    }
-    /* ————— ABOUT ————— */
+    @media (max-width:980px){.hero-inner{grid-template-columns:1fr;gap:24px}}
+    
+    /* ————— ABOUT & SERVICES ————— */
     section{padding:80px 0}
-    .split{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:40px; align-items: center;}
     h2{font-family:"Cormorant Garamond",serif;font-size:clamp(1.6rem,2.6vw,2.6rem);margin:0 0 8px}
     p{line-height:1.7}
     .card{background:var(--card);border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);box-shadow:var(--shadow)}
-    .card.pad{padding:clamp(16px,2vw,24px)}
+    .card.pad{padding:clamp(24px,3vw,32px)}
     .about-img{border-radius:var(--radius);overflow:hidden;min-height:320px}
     .kpi{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
-    .kpi .card{padding:14px;text-align:center}
-    .kpi b{font-family:"Cormorant Garamond",serif;font-size:1.6rem}
+    .kpi .card{background-color: var(--primary-dark); padding:14px;text-align:center}
+    .kpi b{font-family:"Cormorant Garamond",serif;font-size:1.6rem; color: var(--accent)}
     @media (max-width:980px){.split{grid-template-columns:1fr}.kpi{grid-template-columns:repeat(3,1fr)} }
     @media (max-width:640px){.kpi{grid-template-columns:1fr 1fr}}
-    /* ————— SERVICES ————— */
+
     .services{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .service{position:relative;display:flex;flex-direction:column;gap:10px}
+    .service{position:relative;display:flex;flex-direction:column;gap:10px;transition: all .3s ease; background-color: var(--card-dark); border-color: rgba(255,255,255,.1); color: var(--fg-light)}
+    .service:hover{transform: translateY(-5px); box-shadow: 0 12px 35px rgba(0,0,0,.2);}
     .service .head{display:flex;align-items:center;justify-content:space-between}
-    .badge{font-size:.75rem;background:rgba(184,139,94,.15);color:#6b4b2c;padding:6px 10px;border-radius:999px;border:1px solid rgba(0,0,0,.06)}
+    .service .head h3{color: var(--accent);}
+    .badge{font-size:.75rem;background:rgba(212, 185, 139, .15);color:var(--accent);padding:6px 10px;border-radius:999px;border:1px solid rgba(212, 185, 139, .3)}
     .service ul{margin:0;padding-left:20px}
     .service li{margin:8px 0}
     .service li::marker{color:var(--accent)}
-    .service .actions{margin-top:auto;display:flex;gap:10px;flex-wrap:wrap}
+    .service .actions{margin-top:auto;padding-top:10px;display:flex;gap:10px;flex-wrap:wrap}
     .service .btn{box-shadow:none}
-    .service:hover{outline:var(--ring)}
+    .custom-package-cta{margin-top: 40px;padding: 40px;border-radius: var(--radius);text-align:center; background-color: var(--primary-dark);}
+    .custom-package-cta h3{color: var(--accent);}
     @media (max-width:1024px){.services{grid-template-columns:1fr 1fr}}
     @media (max-width:680px){.services{grid-template-columns:1fr}}
+    
     /* ————— CATALOGO (galería) ————— */
+    #catalogo {background: linear-gradient(180deg, var(--bg-2), var(--bg));}
     .gallery{display:grid;grid-template-columns:repeat(12,1fr);gap:10px}
     .g-item{grid-column:span 4;position:relative;border-radius:16px;overflow:hidden}
     .g-item.wide{grid-column:span 8}
@@ -112,36 +146,40 @@
     .g-item button{position:absolute;inset:auto 10px 10px auto;padding:8px 10px;border-radius:10px;border:1px solid rgba(0,0,0,.05);background:rgba(255,255,255,.7);backdrop-filter:blur(6px)}
     @media (max-width:980px){.g-item{grid-column:span 6}.g-item.wide{grid-column:span 12}}
     @media (max-width:640px){.g-item,.g-item.wide{grid-column:span 12}}
+    
     /* ————— CONTACTO ————— */
     .contact-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:20px}
     .contact-methods{display:grid;gap:12px}
     .method{display:flex;align-items:center;gap:12px;padding:12px;border-radius:14px;border:1px solid rgba(0,0,0,.06);background:#fff}
-    .method:hover{outline:var(--ring)}
-    .method svg{flex:0 0 22px}
+    .method:hover{outline:var(--ring); border-color: transparent;}
+    .method svg{flex:0 0 22px; color: var(--primary)}
     form{display:grid;gap:12px}
     input, textarea{padding:12px 14px;border-radius:12px;border:1px solid rgba(0,0,0,.12);background:#fff;font:inherit}
     input:focus,textarea:focus{outline:var(--ring);border-color:transparent}
     textarea{min-height:120px;resize:vertical}
     @media (max-width:980px){.contact-grid{grid-template-columns:1fr}}
+    
     /* ————— FOOTER ————— */
-    footer{padding:26px 0 40px;color:#50483e}
-    .foot{display:flex;justify-content:space-between;gap:16px;align-items:center;border-top:1px solid rgba(0,0,0,.06);padding-top:16px}
-    .foot small{opacity:.8}
+    footer{background-color:var(--secondary); color: var(--fg-light); padding:40px 0;}
+    .foot{display:flex;justify-content:space-between;gap:16px;align-items:center;}
+    .foot small{opacity:.7}
+    .foot .brand b {color: var(--fg-light);}
     @media (max-width:680px){.foot{flex-direction:column;align-items:flex-start}}
+    
     /* ————— Utilities ————— */
-    .section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin-bottom:16px}
-    .muted{color:#6a5e51}
+    .section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin-bottom:24px}
     .spacer{height:8px}
     .hide{display:none}
     .center{text-align:center}
-    .caps{letter-spacing:.2em;text-transform:uppercase;font-size:.8rem;color:var(--muted)}
-    .pill{display:inline-block;background:rgba(0,0,0,.04);padding:6px 10px;border-radius:999px;border:1px solid rgba(0,0,0,.06)}
+    .caps{letter-spacing:.2em;text-transform:uppercase;font-size:.8rem;}
+    .pill{display:inline-block;padding:6px 12px;border-radius:999px;}
+    
     /* ————— Animations ————— */
     .reveal{opacity:0;transform:translateY(12px);transition:opacity .6s ease, transform .6s ease}
     .reveal.in{opacity:1;transform:none}
     @media (prefers-reduced-motion: reduce){
       html{scroll-behavior:auto}
-      .hero-ctas .btn,.service:hover{transform:none}
+      .btn:hover,.service:hover{transform:none}
       .g-item img{transition:none}
       .reveal{transition:none}
     }
@@ -153,7 +191,7 @@
     <div class="container nav">
       <div class="brand">
         <div class="mark" aria-hidden="true"></div>
-        <b>Estudio Arq.</b>
+        <b>AURÉA</b>
       </div>
       <nav class="menu" aria-label="Principal">
         <a href="#inicio" data-nav>Inicio</a>
@@ -179,8 +217,8 @@
   </header>
 
   <!-- HERO -->
-  <section id="inicio" class="hero container">
-    <div class="hero-inner">
+  <section id="inicio" class="hero">
+    <div class="container hero-inner">
       <div>
         <div class="eyebrow">Arquitectura & Interiorismo</div>
         <h1>Diseño de alto nivel para espacios que inspiran.</h1>
@@ -197,14 +235,14 @@
   </section>
 
   <!-- QUIENES SOMOS -->
-  <section id="quienes">
+  <section id="quienes" class="dark-section">
     <div class="container split">
-      <div class="pad card reveal">
-        <h2>Quiénes Somos</h2>
-        <p>Somos un <b>estudio de arquitectura</b> centrado en la calidad y el detalle. Nuestro equipo integra arquitectura, ingeniería e interiorismo para ofrecer soluciones elegantes, eficientes y atemporales.</p>
-        <p>Trabajamos con metodologías claras, comunicación constante y entregables de primer nivel. Creemos en los materiales nobles, las proporciones correctas y la buena luz.</p>
+      <div class="reveal">
+        <div class="caps">Nuestro Estudio</div>
+        <h2>Materiales nobles, proporciones correctas y buena luz.</h2>
+        <p>Somos un <b>estudio de arquitectura</b> centrado en la calidad y el detalle. Nuestro equipo integra arquitectura, ingeniería e interiorismo para ofrecer soluciones elegantes, eficientes y atemporales, trabajando con metodologías claras y comunicación constante.</p>
         <div class="kpi">
-          <div class="card"><b>+12</b><div class="muted">Años de experiencia</div></div>
+          <div class="card"><b>+12</b><div class="muted">Años</div></div>
           <div class="card"><b>+180</b><div class="muted">Proyectos</div></div>
           <div class="card"><b>5★</b><div class="muted">Satisfacción</div></div>
         </div>
@@ -216,7 +254,7 @@
   </section>
 
   <!-- SERVICIOS -->
-  <section id="servicios">
+  <section id="servicios" class="dark-section">
     <div class="container">
       <div class="section-head">
         <div>
@@ -227,51 +265,56 @@
       </div>
       <div class="services">
         <article class="card pad service reveal" data-package="Paquete Básico – Solo planos técnicos">
-          <div class="head"><h3>Básico – Solo planos técnicos</h3><span class="badge">Ideal para obra</span></div>
-          <p class="muted">Incluye documentación técnica completa para construcción.</p>
+          <div class="head"><h3>Básico – Planos técnicos</h3><span class="badge">Ideal para obra</span></div>
+          <p class="muted">Documentación técnica completa para construcción.</p>
           <ul>
-            <li>Plano arquitectónico (distribución general).</li>
-            <li>Planos de agua potable y drenajes.</li>
-            <li>Plano de fuerza (tomas y circuitos eléctricos).</li>
+            <li>Plano arquitectónico.</li>
+            <li>Planos de agua y drenajes.</li>
+            <li>Plano de fuerza (eléctrico).</li>
             <li>Plano de iluminación.</li>
           </ul>
           <div class="actions">
             <a class="btn acc" data-whatsapp>Solicitar por WhatsApp</a>
-            <a class="btn" data-email>Solicitar por correo</a>
+            <a class="btn" data-email>Por correo</a>
           </div>
         </article>
         <article class="card pad service reveal" data-package="Paquete Completo – Diseño + planos">
           <div class="head"><h3>Completo – Diseño + planos</h3><span class="badge">Más solicitado</span></div>
-          <p class="muted">Propuesta de diseño + planos técnicos. Incluye revisión con el cliente.</p>
+          <p class="muted">Propuesta de diseño y planos técnicos. Incluye revisión.</p>
           <ul>
-            <li>Propuesta de diseño arquitectónico (distribución, estilo, acabados sugeridos).</li>
-            <li>Plano arquitectónico.</li>
-            <li>Planos de agua potable y drenajes.</li>
-            <li>Plano de fuerza (eléctrico).</li>
-            <li>Plano de iluminación.</li>
-            <li>1 sesión de revisión/modificación con el cliente.</li>
+            <li>Propuesta de diseño arquitectónico.</li>
+            <li>Planos técnicos completos.</li>
+            <li>Estilo y acabados sugeridos.</li>
+            <li>1 sesión de revisión/modificación.</li>
           </ul>
           <div class="actions">
             <a class="btn acc" data-whatsapp>Solicitar por WhatsApp</a>
-            <a class="btn" data-email>Solicitar por correo</a>
+            <a class="btn" data-email>Por correo</a>
           </div>
         </article>
         <article class="card pad service reveal" data-package="Paquete Premium – Diseño interior / comercial">
-          <div class="head"><h3>Premium – Interior / comercial</h3><span class="badge">Nivel estudio</span></div>
-          <p class="muted">Interiorismo especializado y proyectos comerciales con renders 3D.</p>
+          <div class="head"><h3>Premium – Interiorismo</h3><span class="badge">Nivel estudio</span></div>
+          <p class="muted">Interiorismo y proyectos comerciales con renders 3D.</p>
           <ul>
-            <li>Diseño interior especializado (mobiliario, acabados, materiales, paleta de colores).</li>
-            <li>Diseño comercial (tiendas, oficinas, restaurantes, locales).</li>
-            <li>Planos arquitectónicos y técnicos completos.</li>
-            <li>Renders 3D (cantidad a definir con cliente).</li>
+            <li>Diseño interior o comercial.</li>
+            <li>Planos técnicos completos.</li>
+            <li>Renders 3D fotorrealistas.</li>
             <li>2 sesiones de revisión/modificación.</li>
           </ul>
           <div class="actions">
             <a class="btn acc" data-whatsapp>Solicitar por WhatsApp</a>
-            <a class="btn" data-email>Solicitar por correo</a>
+            <a class="btn" data-email>Por correo</a>
           </div>
         </article>
       </div>
+      
+      <div class="custom-package-cta reveal">
+        <h3>¿No encuentras lo que buscas?</h3>
+        <p class="muted">Cuéntanos tus necesidades y creamos un paquete a la medida de tu proyecto.</p>
+        <div class="spacer"></div>
+        <a href="#" id="custom-package-btn" class="btn acc">Personaliza tu paquete</a>
+      </div>
+
     </div>
   </section>
 
@@ -318,14 +361,14 @@
             <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm8 7.3L20 7H4l8 4.3Zm-8 6.3h16V9.7l-8 4.2-8-4.2V17.6Z"/></svg>
             <div>
               <b>Correo</b>
-              <div class="muted">ventas@gmail.com</div>
+              <div class="muted" id="contact-email-text"></div>
             </div>
           </a>
-          <a class="method" id="cta-call" href="tel:+50212345678">
+          <a class="method" id="cta-call" href="#">
             <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M21 15.5a16 16 0 0 1-5.5-1.1c-.6-.2-1.3 0-1.7.4l-2.4 2.4a18 18 0 0 1-8.2-8.2L5.6 6.6c.4-.4.6-1.1.4-1.7A16 16 0 0 1 4.9-.1 1.7 1.7 0 0 0 3.2 0H2A2 2 0 0 0 0 2a22 22 0 0 0 22 22 2 2 0 0 0 2-2v-1.1c0-.8-.5-1.5-1.2-1.8l-1.7-.6Z"/></svg>
             <div>
               <b>Llamada</b>
-              <div class="muted">+502 1234 5678</div>
+              <div class="muted" id="contact-phone-text"></div>
             </div>
           </a>
         </div>
@@ -344,9 +387,11 @@
     </div>
   </section>
 
-  <footer class="container foot">
-    <div class="brand"><div class="mark" aria-hidden="true"></div><b>Estudio Arq.</b></div>
-    <small>© <span id="year"></span> Estudio de Arquitectura. Todos los derechos reservados.</small>
+  <footer>
+    <div class="container foot">
+      <div class="brand"><div class="mark" aria-hidden="true"></div><b>AURÉA</b></div>
+      <small>© <span id="year"></span> AURÉA Estudio. Todos los derechos reservados.</small>
+    </div>
   </footer>
 
   <!-- LIGHTBOX simple -->
@@ -366,22 +411,29 @@
 
     // Año en footer
     document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Poblar datos de contacto en el HTML
+    document.getElementById('contact-email-text').textContent = COMPANY_EMAIL;
+    document.getElementById('contact-phone-text').textContent = COMPANY_PHONE.replace('+502', '+502 ');
+    document.getElementById('cta-call').href = `tel:${COMPANY_PHONE}`;
 
     // WhatsApp en header y CTA
     document.getElementById('whats-header').href = waLink('Hola, me gustaría información sobre sus paquetes.');
     document.getElementById('cta-whatsapp').href = waLink('Hola, me gustaría una cotización.');
     document.getElementById('cta-mail').href = mailLink('Consulta desde el sitio web','Hola, me gustaría más información.');
-    document.getElementById('cta-call').href = `tel:${COMPANY_PHONE}`;
+    
+    // Link para botón personalizado
+    document.getElementById('custom-package-btn').href = waLink('Hola, me gustaría información sobre un paquete personalizado.');
 
     // Menú móvil
     const hamburger = document.getElementById('hamburger');
     const mobile = document.getElementById('mobile');
     hamburger.addEventListener('click', () => {
-      const isOpen = mobile.classList.toggle('hide');
-      hamburger.setAttribute('aria-expanded', String(!isOpen));
-      document.body.style.overflow = isOpen ? '' : 'hidden';
+      const isHidden = mobile.classList.toggle('hide');
+      hamburger.setAttribute('aria-expanded', String(!isHidden));
+      document.body.style.overflow = isHidden ? '' : 'hidden';
     });
-    mobile.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mobile.classList.add('hide');document.body.style.overflow='';}))
+    mobile.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mobile.classList.add('hide');document.body.style.overflow='';hamburger.setAttribute('aria-expanded','false');}))
 
     // Scroll activo en navegación
     const navLinks = document.querySelectorAll('[data-nav]');
@@ -391,12 +443,12 @@
       sections.forEach(sec=>{ if (sec.getBoundingClientRect().top <= 120) current = '#' + sec.id; });
       navLinks.forEach(a=> a.classList.toggle('active', a.getAttribute('href') === current));
     };
-    window.addEventListener('scroll', setActive); setActive();
+    window.addEventListener('scroll', setActive, {passive:true}); setActive();
 
     // Animaciones reveal
     const io = new IntersectionObserver((entries)=>{
       entries.forEach(e=>{ if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target);} })
-    }, {threshold:.14});
+    }, {threshold:.1});
     document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
     // Botones de cada servicio → WhatsApp/Email pre-rellenado
@@ -405,12 +457,6 @@
       const msg = `Hola, estoy interesado(a) en el ${pack}. ¿Podrían brindarme más información?`;
       card.querySelector('[data-whatsapp]').href = waLink(msg);
       card.querySelector('[data-email]').href = mailLink(`Interés: ${pack}`, msg);
-      card.querySelectorAll('[data-whatsapp],[data-email]').forEach(btn=>btn.setAttribute('role','button'))
-      // Al hacer clic desde catálogo/hero, llenamos el paquete en el formulario
-      card.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
-        const inp = document.getElementById('paquete');
-        if (inp) inp.value = pack;
-      }));
     });
 
     // Formulario → abrir cliente de correo con contenido formateado
@@ -420,7 +466,11 @@
       const email = document.getElementById('email').value.trim();
       const paquete = document.getElementById('paquete').value.trim() || 'Sin especificar';
       const mensaje = document.getElementById('mensaje').value.trim();
-      const subject = `Contacto web — ${paquete}`;
+      if(!nombre || !email) {
+        alert('Por favor, completa tu nombre y correo.');
+        return;
+      }
+      const subject = `Contacto web [AURÉA] — ${paquete}`;
       const body = `Nombre: ${nombre}\nCorreo: ${email}\nPaquete: ${paquete}\n\nMensaje:\n${mensaje}`;
       window.location.href = mailLink(subject, body);
     });

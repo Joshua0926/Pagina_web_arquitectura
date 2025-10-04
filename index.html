@@ -10,64 +10,42 @@
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1200&auto=format&fit=crop" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
-    /* 
-      ==========================================================================
-      PALETA DE COLORES: PREDOMINANCIA VERDE OLIVO
-      ==========================================================================
-    */
     :root{
-      --primary: #4A5A47;                 /* Verde Olivo Oscuro: para secciones principales */
-      --primary-dark: #3e4a3c;            /* Verde Olivo más oscuro para hovers/detalles */
-      --secondary: #2F2F2F;               /* Gris Carbón: para tarjetas y texto principal */
-      --accent: #D4B98B;                  /* Champagne / Dorado Suave: para CTAs y acentos */
-      --accent-2: #e0c5a0;                /* Champagne más claro para gradientes */
-      
-      --bg: #f7f5f2;                      /* Fondo principal (blanco roto cálido) */
-      --bg-2: #efedea;                    /* Fondo secundario para gradientes suaves */
-      --fg-dark: #2F2F2F;                 /* Texto oscuro sobre fondos claros */
-      --fg-light: #f7f5f2;                /* Texto claro sobre fondos oscuros */
-      
-      --card: #ffffff;                    /* Tarjetas en secciones claras */
-      --card-dark: #2F2F2F;               /* Tarjetas en secciones oscuras */
-
+      --primary: #4A5A47;
+      --primary-dark: #3e4a3c;
+      --secondary: #2F2F2F;
+      --accent: #D4B98B;
+      --accent-2: #e0c5a0;
+      --bg: #f7f5f2;
+      --bg-2: #efedea;
+      --fg-dark: #2F2F2F;
+      --fg-light: #f7f5f2;
+      --card: #ffffff;
+      --card-dark: #2F2F2F;
       --ring: 0 0 0 3px rgba(212, 185, 139, .3);
       --shadow: 0 10px 30px rgba(0, 0, 0, .08);
       --radius: 18px;
       --radius-sm: 14px;
       --space: clamp(14px, 1.5vw, 20px);
     }
-    
-    /* Tipografía Personalizada (requiere archivos locales) */
-    /* @font-face { font-family: 'Lastica'; src: url('/fonts/Lastica.woff2') format('woff2'); } */
-
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--fg-dark);background:var(--bg);}
     img{max-width:100%;display:block}
     a{color:inherit;text-decoration:none}
     .container{max-width:1200px;margin-inline:auto;padding:0 20px}
-    
-    /* ————— NAV ————— */
-    .skip{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
-    .skip:focus{left:12px;top:12px;width:auto;height:auto;padding:.4rem .6rem;background:#fff;border-radius:8px;box-shadow:var(--shadow)}
     header{position:sticky;top:0;z-index:60;backdrop-filter:saturate(140%) blur(8px);background:rgba(247, 245, 242, .6);border-bottom:1px solid rgba(0,0,0,.06)}
     .nav{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 0}
-    .brand{display:flex;align-items:center;gap:12px}
-    .mark{width:36px;height:36px;border-radius:12px;background:conic-gradient(from 210deg at 50% 50%, var(--accent), var(--accent-2), var(--bg));box-shadow:inset 0 0 0 1px rgba(0,0,0,.06), var(--shadow)}
-    .brand b{font-family: 'Lastica', 'Cormorant Garamond', serif;font-size:1.6rem;letter-spacing: .5px;font-weight: 700;color: var(--primary-dark);}
+    .brand{display:flex;align-items:center;}
+    .brand-logo {height: 65px; width: auto;}
     .menu{display:flex;gap:4px;align-items:center}
     .menu a{padding:10px 14px;border-radius:10px;font-weight:500;opacity:.9}
     .menu a.active,.menu a:hover{background:rgba(74, 90, 71, .1)}
     .cta{display:flex;gap:10px}
-
-    /* ========================================================== */
-    /* CORRECCIÓN: Se añade color de texto explícito al botón     */
-    /* ========================================================== */
-    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:14px;font-weight:600;border:1px solid rgba(0,0,0,.08);box-shadow:var(--shadow);background:#ffffff;color: var(--secondary); /* <- ESTA LÍNEA RESUELVE EL PROBLEMA */ transition: transform .2s ease}
-    
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:14px;font-weight:600;border:1px solid rgba(0,0,0,.08);box-shadow:var(--shadow);background:#ffffff;color: var(--secondary); transition: transform .2s ease}
     .btn:hover{transform:translateY(-2px)}
     .btn.acc{background:linear-gradient(180deg, var(--accent), #c8a97b);color:#fff;border:none}
     .btn.ghost{background:rgba(255,255,255,.6);backdrop-filter:blur(6px)}
@@ -82,15 +60,11 @@
       .mobile a + a{margin-top:4px}
       .mobile a:hover{background:rgba(74, 90, 71, .1)}
     }
-    
-    /* ————— Secciones con fondo oscuro ————— */
     .dark-section{background-color: var(--primary); color: var(--fg-light);}
     .dark-section h2, .dark-section h3{color: var(--fg-light);}
     .dark-section .caps, .dark-section .muted{color: rgba(247, 245, 242, .7);}
     .dark-section p{color: rgba(247, 245, 242, .9);}
     .dark-section .pill{background:rgba(247, 245, 242, .1);border-color:rgba(247, 245, 242, .2);color:var(--fg-light);}
-
-    /* ————— HERO ————— */
     .hero{position:relative;isolation:isolate; padding:min(8vh,80px) 0;}
     .hero::before{content:"";position:absolute;inset:0;background:
       radial-gradient(1200px 400px at -10% -20%, rgba(212, 185, 139, .2), transparent 50%),
@@ -105,28 +79,23 @@
     .hero-media img{height:100%;object-fit:cover}
     .hero-ctas{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
     @media (max-width:980px){.hero-inner{grid-template-columns:1fr;gap:24px}}
-    
-    /* ————— ABOUT & SERVICES ————— */
     section{padding:80px 0}
-    .split{display:grid;grid-template-columns:1fr 1fr;gap:40px; align-items: center;}
     h2{font-family:"Cormorant Garamond",serif;font-size:clamp(1.6rem,2.6vw,2.6rem);margin:0 0 8px}
     p{line-height:1.7}
     .card{background:var(--card);border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);box-shadow:var(--shadow)}
     .card.pad{padding:clamp(24px,3vw,32px)}
-    .about-img{border-radius:var(--radius);overflow:hidden;min-height:320px}
-    .kpi{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+    .about-content {max-width: 800px; margin: 0 auto; text-align: center;}
+    .kpi{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
     .kpi .card{background-color: var(--primary-dark); padding:14px;text-align:center}
     .kpi b{font-family:"Cormorant Garamond",serif;font-size:1.6rem; color: var(--accent)}
-    @media (max-width:980px){.split{grid-template-columns:1fr}.kpi{grid-template-columns:repeat(3,1fr)} }
     @media (max-width:640px){.kpi{grid-template-columns:1fr 1fr}}
-
     .services{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
     .service{position:relative;display:flex;flex-direction:column;gap:10px;transition: all .3s ease; background-color: var(--card-dark); border-color: rgba(255,255,255,.1); color: var(--fg-light)}
     .service:hover{transform: translateY(-5px); box-shadow: 0 12px 35px rgba(0,0,0,.2);}
     .service .head{display:flex;align-items:center;justify-content:space-between}
     .service .head h3{color: var(--accent);}
     .badge{font-size:.75rem;background:rgba(212, 185, 139, .15);color:var(--accent);padding:6px 10px;border-radius:999px;border:1px solid rgba(212, 185, 139, .3)}
-    .service ul{margin:0;padding-left:20px}
+    .service ul{margin:0;padding-left:20px; text-align: left;}
     .service li{margin:8px 0}
     .service li::marker{color:var(--accent)}
     .service .actions{margin-top:auto;padding-top:10px;display:flex;gap:10px;flex-wrap:wrap}
@@ -135,8 +104,6 @@
     .custom-package-cta h3{color: var(--accent);}
     @media (max-width:1024px){.services{grid-template-columns:1fr 1fr}}
     @media (max-width:680px){.services{grid-template-columns:1fr}}
-    
-    /* ————— CATALOGO (galería) ————— */
     #catalogo {background: linear-gradient(180deg, var(--bg-2), var(--bg));}
     .gallery{display:grid;grid-template-columns:repeat(12,1fr);gap:10px}
     .g-item{grid-column:span 4;position:relative;border-radius:16px;overflow:hidden}
@@ -146,8 +113,6 @@
     .g-item button{position:absolute;inset:auto 10px 10px auto;padding:8px 10px;border-radius:10px;border:1px solid rgba(0,0,0,.05);background:rgba(255,255,255,.7);backdrop-filter:blur(6px)}
     @media (max-width:980px){.g-item{grid-column:span 6}.g-item.wide{grid-column:span 12}}
     @media (max-width:640px){.g-item,.g-item.wide{grid-column:span 12}}
-    
-    /* ————— CONTACTO ————— */
     .contact-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:20px}
     .contact-methods{display:grid;gap:12px}
     .method{display:flex;align-items:center;gap:12px;padding:12px;border-radius:14px;border:1px solid rgba(0,0,0,.06);background:#fff}
@@ -158,23 +123,16 @@
     input:focus,textarea:focus{outline:var(--ring);border-color:transparent}
     textarea{min-height:120px;resize:vertical}
     @media (max-width:980px){.contact-grid{grid-template-columns:1fr}}
-    
-    /* ————— FOOTER ————— */
     footer{background-color:var(--secondary); color: var(--fg-light); padding:40px 0;}
     .foot{display:flex;justify-content:space-between;gap:16px;align-items:center;}
     .foot small{opacity:.7}
-    .foot .brand b {color: var(--fg-light);}
     @media (max-width:680px){.foot{flex-direction:column;align-items:flex-start}}
-    
-    /* ————— Utilities ————— */
     .section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin-bottom:24px}
     .spacer{height:8px}
     .hide{display:none}
     .center{text-align:center}
     .caps{letter-spacing:.2em;text-transform:uppercase;font-size:.8rem;}
     .pill{display:inline-block;padding:6px 12px;border-radius:999px;}
-    
-    /* ————— Animations ————— */
     .reveal{opacity:0;transform:translateY(12px);transition:opacity .6s ease, transform .6s ease}
     .reveal.in{opacity:1;transform:none}
     @media (prefers-reduced-motion: reduce){
@@ -186,13 +144,13 @@
   </style>
 </head>
 <body>
-  <a href="#inicio" class="skip">Saltar a contenido</a>
+  <a href="#inicio" class="skip"></a>
   <header>
     <div class="container nav">
-      <div class="brand">
-        <div class="mark" aria-hidden="true"></div>
-        <b>AURÉA</b>
-      </div>
+      <a href="#inicio" class="brand">
+        <img src="logo.png" alt="Logotipo de AURÉA" class="brand-logo">
+      </a>
+      
       <nav class="menu" aria-label="Principal">
         <a href="#inicio" data-nav>Inicio</a>
         <a href="#quienes" data-nav>Quienes Somos</a>
@@ -236,8 +194,8 @@
 
   <!-- QUIENES SOMOS -->
   <section id="quienes" class="dark-section">
-    <div class="container split">
-      <div class="reveal">
+    <div class="container">
+      <div class="about-content reveal">
         <div class="caps">Nuestro Estudio</div>
         <h2>Materiales nobles, proporciones correctas y buena luz.</h2>
         <p>Somos un <b>estudio de arquitectura</b> centrado en la calidad y el detalle. Nuestro equipo integra arquitectura, ingeniería e interiorismo para ofrecer soluciones elegantes, eficientes y atemporales, trabajando con metodologías claras y comunicación constante.</p>
@@ -246,9 +204,6 @@
           <div class="card"><b>+180</b><div class="muted">Proyectos</div></div>
           <div class="card"><b>5★</b><div class="muted">Satisfacción</div></div>
         </div>
-      </div>
-      <div class="about-img reveal">
-        <img alt="Oficina de arquitectura" src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=1600&auto=format&fit=crop" width="1200" height="900" loading="lazy" />
       </div>
     </div>
   </section>
@@ -275,7 +230,6 @@
           </ul>
           <div class="actions">
             <a class="btn acc" data-whatsapp>Solicitar por WhatsApp</a>
-            <a class="btn" data-email>Por correo</a>
           </div>
         </article>
         <article class="card pad service reveal" data-package="Paquete Completo – Diseño + planos">
@@ -289,7 +243,6 @@
           </ul>
           <div class="actions">
             <a class="btn acc" data-whatsapp>Solicitar por WhatsApp</a>
-            <a class="btn" data-email>Por correo</a>
           </div>
         </article>
         <article class="card pad service reveal" data-package="Paquete Premium – Diseño interior / comercial">
@@ -303,7 +256,6 @@
           </ul>
           <div class="actions">
             <a class="btn acc" data-whatsapp>Solicitar por WhatsApp</a>
-            <a class="btn" data-email>Por correo</a>
           </div>
         </article>
       </div>
@@ -332,9 +284,9 @@
         <figure class="g-item wide reveal"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1600&auto=format&fit=crop" alt="Fachada contemporánea" loading="lazy"><button data-lightbox>Ver</button></figure>
         <figure class="g-item reveal"><img src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?q=80&w=1600&auto=format&fit=crop" alt="Lobby minimalista" loading="lazy"><button data-lightbox>Ver</button></figure>
         <figure class="g-item reveal"><img src="https://tecnolite.lat/blog/wp-content/uploads/2011/07/Sala-c%C3%A1lida-big.jpg" alt="Sala interior cálida" loading="lazy"><button data-lightbox>Ver</button></figure>
-        <figure class="g-item reveal"><img src="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1600&auto=format&fit=crop" alt="Cocina de autor" loading="lazy"><button data-lightbox>Ver</button></figure>
+        <figure class="g-item reveal"><img src="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1600&auto-format&fit=crop" alt="Cocina de autor" loading="lazy"><button data-lightbox>Ver</button></figure>
         <figure class="g-item reveal"><img src="https://www.vbobilbao.com/wp-content/uploads/2024/03/vbobilbao-diseno-interiores-con-luz-artificial-01.jpg" alt="Detalle de iluminación" loading="lazy"><button data-lightbox>Ver</button></figure>
-        <figure class="g-item reveal"><img src="https://images.unsplash.com/photo-1536376072261-38c75010e6c9?q=80&w=1600&auto=format&fit=crop" alt="Oficina boutique" loading="lazy"><button data-lightbox>Ver</button></figure>
+        <figure class="g-item reveal"><img src="https://images.unsplash.com/photo-1536376072261-38c75010e6c9?q=80&w=1600&auto-format&fit=crop" alt="Oficina boutique" loading="lazy"><button data-lightbox>Ver</button></figure>
       </div>
     </div>
   </section>
@@ -372,60 +324,67 @@
             </div>
           </a>
         </div>
-        <form id="contact-form" class="card pad" novalidate>
-          <div><label class="caps" for="nombre">Nombre</label><input id="nombre" name="nombre" required placeholder="Tu nombre" /></div>
-          <div><label class="caps" for="email">Correo</label><input id="email" name="email" type="email" required placeholder="tucorreo@dominio.com" /></div>
-          <div><label class="caps" for="paquete">Paquete de interés</label>
-            <input id="paquete" name="paquete" placeholder="Ej. Paquete Completo" />
+        
+        <form action="https://formspree.io/f/movkljng" method="POST" class="card pad">
+          <div>
+            <label class="caps" for="nombre">Nombre</label>
+            <input id="nombre" name="Nombre" required placeholder="Tu nombre" />
           </div>
-          <div><label class="caps" for="mensaje">Mensaje</label><textarea id="mensaje" name="mensaje" placeholder="Cuéntanos sobre tu proyecto"></textarea></div>
+          <div>
+            <label class="caps" for="email">Correo</label>
+            <input id="email" name="Correo" type="email" required placeholder="tucorreo@dominio.com" />
+          </div>
+          <div>
+            <label class="caps" for="paquete">Paquete de interés</label>
+            <input id="paquete" name="Paquete" placeholder="Ej. Paquete Completo" />
+          </div>
+          <div>
+            <label class="caps" for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="Mensaje" placeholder="Cuéntanos sobre tu proyecto"></textarea>
+          </div>
+          
+          <!-- Campo oculto para redirigir a la página de gracias -->
+          <input type="hidden" name="_next" value="gracias.html">
+          
           <div class="spacer"></div>
-          <button class="btn acc" type="submit">Enviar</button>
-          <small class="muted">* Se abrirá tu app de correo con el mensaje listo para enviar.</small>
+          <button class="btn acc" type="submit">Enviar Mensaje</button>
         </form>
+
       </div>
     </div>
   </section>
 
   <footer>
     <div class="container foot">
-      <div class="brand"><div class="mark" aria-hidden="true"></div><b>AURÉA</b></div>
+      <a href="#inicio" class="brand">
+        <img src="logo.png" alt="Logotipo de AURÉA" class="brand-logo">
+      </a>
       <small>© <span id="year"></span> AURÉA Estudio. Todos los derechos reservados.</small>
     </div>
   </footer>
 
-  <!-- LIGHTBOX simple -->
   <dialog id="lightbox" style="border:none;border-radius:16px;max-width:min(95vw,1200px);padding:0;box-shadow:var(--shadow)">
     <img alt="Vista ampliada" src="" id="lightbox-img">
   </dialog>
 
   <script>
-    // ===== CONFIGURACIÓN RÁPIDA (cámbialo por tus datos) =====
-    const COMPANY_EMAIL = 'joshuaosoriotally@gmail.com';
-    const WHATSAPP_NUMBER = '50250367150'; // Incluye código de país, sin + ni espacios
-    const COMPANY_PHONE = '+50250367150';
+    const COMPANY_EMAIL = 'aurea.infot@gmail.com';
+    const WHATSAPP_NUMBER = '50233667439';
+    const COMPANY_PHONE = '+50233667439';
+    const ALL_PHONES_DISPLAY = '+502 3366 7439 / +502 4816 9666';
 
-    // ===== UTILIDAD: construir enlaces =====
     const waLink = (text) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
     const mailLink = (subject, body) => `mailto:${COMPANY_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-    // Año en footer
     document.getElementById('year').textContent = new Date().getFullYear();
-    
-    // Poblar datos de contacto en el HTML
     document.getElementById('contact-email-text').textContent = COMPANY_EMAIL;
-    document.getElementById('contact-phone-text').textContent = COMPANY_PHONE.replace('+502', '+502 ');
+    document.getElementById('contact-phone-text').textContent = ALL_PHONES_DISPLAY;
     document.getElementById('cta-call').href = `tel:${COMPANY_PHONE}`;
-
-    // WhatsApp en header y CTA
     document.getElementById('whats-header').href = waLink('Hola, me gustaría información sobre sus paquetes.');
     document.getElementById('cta-whatsapp').href = waLink('Hola, me gustaría una cotización.');
     document.getElementById('cta-mail').href = mailLink('Consulta desde el sitio web','Hola, me gustaría más información.');
-    
-    // Link para botón personalizado
     document.getElementById('custom-package-btn').href = waLink('Hola, me gustaría información sobre un paquete personalizado.');
 
-    // Menú móvil
     const hamburger = document.getElementById('hamburger');
     const mobile = document.getElementById('mobile');
     hamburger.addEventListener('click', () => {
@@ -435,7 +394,6 @@
     });
     mobile.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mobile.classList.add('hide');document.body.style.overflow='';hamburger.setAttribute('aria-expanded','false');}))
 
-    // Scroll activo en navegación
     const navLinks = document.querySelectorAll('[data-nav]');
     const sections = [...navLinks].map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
     const setActive = () => {
@@ -445,13 +403,11 @@
     };
     window.addEventListener('scroll', setActive, {passive:true}); setActive();
 
-    // Animaciones reveal
     const io = new IntersectionObserver((entries)=>{
       entries.forEach(e=>{ if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target);} })
     }, {threshold:.1});
     document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-    // Botones de cada servicio → WhatsApp/Email pre-rellenado
     document.querySelectorAll('.service').forEach(card=>{
       const pack = card.dataset.package;
       const msg = `Hola, estoy interesado(a) en el ${pack}. ¿Podrían brindarme más información?`;
@@ -459,23 +415,6 @@
       card.querySelector('[data-email]').href = mailLink(`Interés: ${pack}`, msg);
     });
 
-    // Formulario → abrir cliente de correo con contenido formateado
-    document.getElementById('contact-form').addEventListener('submit', (e)=>{
-      e.preventDefault();
-      const nombre = document.getElementById('nombre').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const paquete = document.getElementById('paquete').value.trim() || 'Sin especificar';
-      const mensaje = document.getElementById('mensaje').value.trim();
-      if(!nombre || !email) {
-        alert('Por favor, completa tu nombre y correo.');
-        return;
-      }
-      const subject = `Contacto web [AURÉA] — ${paquete}`;
-      const body = `Nombre: ${nombre}\nCorreo: ${email}\nPaquete: ${paquete}\n\nMensaje:\n${mensaje}`;
-      window.location.href = mailLink(subject, body);
-    });
-
-    // Lightbox simple para galería
     const dlg = document.getElementById('lightbox');
     const img = document.getElementById('lightbox-img');
     document.querySelectorAll('[data-lightbox]').forEach(btn=>{

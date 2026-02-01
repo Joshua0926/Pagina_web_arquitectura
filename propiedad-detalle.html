@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Detalle de Propiedad — AURÉA</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .detail-layout { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; margin-top: 40px; }
+        .carousel { 
+            position: relative; 
+            border-radius: 20px; 
+            overflow: hidden; 
+            height: 500px;
+            background: #eee;
+        }
+        .carousel img { width: 100%; height: 100%; object-fit: cover; display: none; animation: fadeIn 0.5s ease-in-out; }
+        .carousel img.active { display: block; }
+        .carousel-nav { position: absolute; bottom: 20px; right: 20px; display: flex; gap: 10px; }
+
+        /* Estilo de los botones Nav */
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .nav-btn.prev { left: 20px; }
+        .nav-btn.next { right: 20px; }
+
+        @keyframes fadeIn {
+            from { opacity: 0.8; }
+            to { opacity: 1; }
+        }
+        
+        .specs-grid { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 15px; 
+            margin: 20px 0;
+            padding: 20px;
+            background: var(--bg-2);
+            border-radius: 14px;
+        }
+        .spec-item { text-align: center; }
+        .spec-item b { display: block; font-size: 1.2rem; color: var(--primary); }
+        .spec-item span { font-size: 0.7rem; text-transform: uppercase; opacity: 0.7; }
+
+        @media (max-width: 980px) {
+            .detail-layout { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <a href="index.html" class="brand"><img src="logo.png" class="brand-logo"></a>
+            <nav class="menu">
+                <a href="index.html">Propiedades</a>
+                <a href="remodelaciones.html">Remodelaciones</a>
+                <a href="asesoria.html">Asesoría</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 60px 20px;">
+        <a href="index.html" style="margin-bottom: 20px; display: inline-block;">← Volver al catálogo</a>
+        
+        <div class="detail-layout">
+            <div class="detail-main">
+                <div class="carousel" id="carousel">
+                    <!-- JS cargará las imágenes -->
+                    <!-- Botones de Navegación -->
+                    <button class="nav-btn prev" onclick="changeSlide(-1)" aria-label="Imagen anterior">❮</button>
+                    <button class="nav-btn next" onclick="changeSlide(1)" aria-label="Siguiente imagen">❯</button>
+                </div>
+                <div id="carousel-dots" style="margin-top:10px; display:flex; gap:5px; justify-content:center"></div>
+            </div>
+
+            <div class="detail-side">
+                <div class="caps" id="prop-loc">Ubicación</div>
+                <h1 id="prop-name" style="font-size: 2.5rem;">Nombre</h1>
+                <h2 id="prop-price" style="color: var(--accent);">$000,000</h2>
+                
+                <div class="specs-grid" id="prop-specs">
+                    <!-- Cargado por JS -->
+                </div>
+
+                <p id="prop-desc" class="lede">Cargando descripción...</p>
+
+                <div class="card pad" style="margin-top: 30px;">
+                    <h3>¿Te interesa esta propiedad?</h3>
+                    <p>Déjanos tus datos o escríbenos directamente por WhatsApp para agendar una visita.</p>
+                    <a id="btn-wa" href="#" class="btn acc" style="width: 100%; justify-content: center;">Contactar por WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+      <div class="container foot">
+        <a href="index.html" class="brand">
+          <img src="logo.png" alt="Logotipo de AURÉA" class="brand-logo">
+        </a>
+        <small>© <span id="year"></span> AURÉA Estudio. Todos los derechos reservados.</small>
+      </div>
+    </footer>
+
+    <script src="js/propiedades.js"></script>
+    <script>
+        // Obtener ID de la URL
+        const params = new URLSearchParams(window.location.search);
+        const propId = params.get('id');
+        const prop = propiedades.find(p => p.id === propId);
+
+        if (prop) {
+            document.title = `${prop.nombre} — AURÉA`;
+            document.getElementById('prop-name').textContent = prop.nombre;
+            document.getElementById('prop-price').textContent = prop.price || prop.precio;
+            document.getElementById('prop-loc').textContent = prop.ubicacion;
+            document.getElementById('prop-desc').textContent = prop.descripcionLarga;
+            document.getElementById('btn-wa').href = `https://wa.me/50233667439?text=Hola, me interesa la propiedad: ${prop.nombre}`;
+
+            // Cargar Specs
+            document.getElementById('prop-specs').innerHTML = `
+                <div class="spec-item"><b>${prop.specs.cuartos}</b><span>Habitaciones</span></div>
+                <div class="spec-item"><b>${prop.specs.baños}</b><span>Baños</span></div>
+                <div class="spec-item"><b>${prop.specs.parqueos}</b><span>Parqueos</span></div>
+            `;
+
+            // Cargar Carrusel
+            const carousel = document.getElementById('carousel');
+            prop.imagenes.forEach((imgSrc, index) => {
+                const img = document.createElement('img');
+                img.src = imgSrc;
+                if (index === 0) img.className = 'active';
+                carousel.appendChild(img);
+            });
+
+            // Lógica simple de carrusel automático
+            let currentIdx = 0;
+            let images = [];
+            let slideInterval;
+
+            // Función para inicializar el carrusel
+            function initCarousel(prop) {
+                const carousel = document.getElementById('carousel');
+                
+                prop.imagenes.forEach((imgSrc, index) => {
+                    const img = document.createElement('img');
+                    img.src = imgSrc;
+                    if (index === 0) img.className = 'active';
+                    // Insertamos antes de los botones
+                    carousel.insertBefore(img, carousel.querySelector('.nav-btn'));
+                });
+
+                images = carousel.querySelectorAll('img');
+                startAutoSlide();
+            }
+
+            function showSlide(index) {
+                // Quitar clase activa actual
+                images[currentIdx].classList.remove('active');
+                
+                // Calcular nuevo índice
+                currentIdx = (index + images.length) % images.length;
+                
+                // Añadir clase activa al nuevo
+                images[currentIdx].classList.add('active');
+            }
+
+            // Función para botones manuales
+            function changeSlide(direction) {
+                showSlide(currentIdx + direction);
+                resetAutoSlide(); // Reiniciar el contador para que no salte rápido
+            }
+
+            function startAutoSlide() {
+                slideInterval = setInterval(() => {
+                    showSlide(currentIdx + 1);
+                }, 5000);
+            }
+
+            function resetAutoSlide() {
+                clearInterval(slideInterval);
+                startAutoSlide();
+            }
+
+            // Ejecutar al cargar la propiedad
+            if (prop) {
+                initCarousel(prop);
+            }
+        }
+    </script>
+</body>
+</html>

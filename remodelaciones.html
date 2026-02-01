@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Remodelaciones & Interiorismo — AURÉA</title>
+  <meta name="description" content="Estudio de arquitectura de alta gama. Planos técnicos, diseño arquitectónico e interiorismo." />
+  
+  <!-- Enlace al CSS externo -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="brand">
+        <img src="logo.png" alt="Logotipo de AURÉA" class="brand-logo">
+      </a>
+      
+      <nav class="menu" aria-label="Principal">
+        <a href="index.html">Propiedades</a>
+        <a href="remodelaciones.html" class="active">Remodelaciones</a>
+        <a href="asesoria.html">Asesoría</a>
+      </nav>
+
+      <div class="cta">
+        <a class="btn ghost" id="whats-header" href="#">WhatsApp</a>
+        <button class="hamburger" aria-label="Abrir menú" id="hamburger" aria-expanded="false">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menú Móvil -->
+    <div class="container mobile hide" id="mobile">
+      <a href="index.html">Propiedades</a>
+      <a href="remodelaciones.html">Remodelaciones</a>
+      <a href="asesoria.html">Asesoría</a>
+    </div>
+  </header>
+
+  <!-- HERO REMODELACIONES -->
+  <section id="inicio" class="hero">
+    <div class="container hero-inner" style="display: grid; grid-template-columns: 1.2fr .8fr; gap: 40px; align-items: center;">
+      <div>
+        <div class="eyebrow">Arquitectura & Interiorismo</div>
+        <h1>Diseño de alto nivel para espacios que inspiran.</h1>
+        <p class="lede">Paquetes hechos a tu medida: desde <b>planos técnicos</b> hasta <b>diseño interior y comercial</b> con <b>renders 3D</b>.</p>
+        <div class="hero-ctas" style="display: flex; gap: 12px; margin-top: 18px; flex-wrap: wrap;">
+          <a href="#servicios" class="btn acc">Ver paquetes de diseño</a>
+          <a href="asesoria.html" class="btn">Solicitar asesoría</a>
+        </div>
+      </div>
+      <div class="hero-media" style="border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow);">
+        <img alt="Render arquitectónico" src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=1600&auto=format&fit=crop" style="width: 100%; height: 500px; object-fit: cover;">
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS (PAQUETES) -->
+  <section id="servicios" class="dark-section">
+    <div class="container">
+      <div class="section-head" style="display: flex; align-items: flex-end; justify-content: space-between; gap: 10px; margin-bottom: 40px;">
+        <div>
+          <div class="caps">Servicios</div>
+          <h2>Nuestros Paquetes</h2>
+        </div>
+        <div class="pill" style="color: white; border-color: rgba(255,255,255,0.2)">Transparencia • Calidad • Puntualidad</div>
+      </div>
+
+      <div class="services" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+        <article class="card pad service reveal" data-package="Paquete Básico">
+          <div class="head" style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 15px;">
+            <h3>Básico – Planos</h3><span class="badge">Obra</span>
+          </div>
+          <p class="muted">Documentación técnica completa para construcción.</p>
+          <ul style="margin: 20px 0; padding-left: 20px;">
+            <li>Plano arquitectónico.</li>
+            <li>Planos de agua y drenajes.</li>
+            <li>Plano de fuerza e iluminación.</li>
+          </ul>
+          <a class="btn acc" style="width: 100%; justify-content: center;" data-whatsapp>Solicitar información</a>
+        </article>
+
+        <article class="card pad service reveal" data-package="Paquete Completo">
+          <div class="head" style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 15px;">
+            <h3>Completo – Diseño</h3><span class="badge">Popular</span>
+          </div>
+          <p class="muted">Propuesta de diseño y planos técnicos. Incluye revisión.</p>
+          <ul style="margin: 20px 0; padding-left: 20px;">
+            <li>Diseño arquitectónico.</li>
+            <li>Planos técnicos completos.</li>
+            <li>Estilo y acabados sugeridos.</li>
+          </ul>
+          <a class="btn acc" style="width: 100%; justify-content: center;" data-whatsapp>Solicitar información</a>
+        </article>
+
+        <article class="card pad service reveal" data-package="Paquete Premium">
+          <div class="head" style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 15px;">
+            <h3>Premium – Interior</h3><span class="badge">Estudio</span>
+          </div>
+          <p class="muted">Interiorismo y proyectos comerciales con renders 3D.</p>
+          <ul style="margin: 20px 0; padding-left: 20px;">
+            <li>Diseño interior o comercial.</li>
+            <li>Planos técnicos completos.</li>
+            <li>Renders 3D fotorrealistas.</li>
+          </ul>
+          <a class="btn acc" style="width: 100%; justify-content: center;" data-whatsapp>Solicitar información</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUIENES SOMOS -->
+  <section id="quienes">
+    <div class="container">
+      <div style="max-width: 800px; margin: 0 auto; text-align: center;" class="reveal">
+        <div class="caps">Nuestro Estudio</div>
+        <h2>Materiales nobles, proporciones correctas y buena luz.</h2>
+        <p class="lede">Somos un equipo multidisciplinario que integra arquitectura e ingeniería para ofrecer soluciones elegantes, eficientes y atemporales.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATALOGO / GALERIA -->
+  <section id="catalogo" style="background-color: var(--bg-2);">
+    <div class="container">
+      <div class="section-head" style="margin-bottom: 40px;">
+        <div class="caps">Portafolio</div>
+        <h2>Obras & Renders</h2>
+      </div>
+      
+      <div class="gallery" style="display: grid; grid-template-columns: repeat(12, 1fr); gap: 15px;">
+        <figure class="g-item reveal" style="grid-column: span 8; height: 350px; overflow: hidden; border-radius: 16px; cursor: pointer;" data-lightbox>
+            <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1600" style="width: 100%; height: 100%; object-fit: cover;">
+        </figure>
+        <figure class="g-item reveal" style="grid-column: span 4; height: 350px; overflow: hidden; border-radius: 16px; cursor: pointer;" data-lightbox>
+            <img src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?q=80&w=1600" style="width: 100%; height: 100%; object-fit: cover;">
+        </figure>
+        <figure class="g-item reveal" style="grid-column: span 4; height: 350px; overflow: hidden; border-radius: 16px; cursor: pointer;" data-lightbox>
+            <img src="https://tecnolite.lat/blog/wp-content/uploads/2011/07/Sala-c%C3%A1lida-big.jpg" style="width: 100%; height: 100%; object-fit: cover;">
+        </figure>
+        <figure class="g-item reveal" style="grid-column: span 4; height: 350px; overflow: hidden; border-radius: 16px; cursor: pointer;" data-lightbox>
+            <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1600&auto=format&fit=crop" style="width: 100%; height: 100%; object-fit: cover;">
+        </figure>
+        <figure class="g-item reveal" style="grid-column: span 4; height: 350px; overflow: hidden; border-radius: 16px; cursor: pointer;" data-lightbox>
+            <img src="https://www.vbobilbao.com/wp-content/uploads/2024/03/vbobilbao-diseno-interiores-con-luz-artificial-01.jpg" style="width: 100%; height: 100%; object-fit: cover;">
+        </figure>
+        <figure class="g-item reveal" style="grid-column: span 4; height: 350px; overflow: hidden; border-radius: 16px; cursor: pointer;" data-lightbox>
+            <img src="https://images.unsplash.com/photo-1536376072261-38c75010e6c9?q=80&w=1600&auto=format&fit=crop" style="width: 100%; height: 100%; object-fit: cover;">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container foot">
+      <a href="index.html" class="brand">
+        <img src="logo.png" alt="Logotipo de AURÉA" class="brand-logo">
+      </a>
+      <small>© <span id="year"></span> AURÉA Estudio. Todos los derechos reservados.</small>
+    </div>
+  </footer>
+
+  <!-- Lightbox para imágenes -->
+  <dialog id="lightbox" style="border:none; border-radius:16px; max-width:min(95vw,1200px); padding:0; box-shadow:var(--shadow)">
+    <img alt="Vista ampliada" src="" id="lightbox-img" style="max-height: 80vh; width: auto; display: block;">
+    <button onclick="this.parentElement.close()" style="position: absolute; top: 10px; right: 10px; background: white; border-radius: 50%; width: 40px; height: 40px; border: none; cursor: pointer; font-weight: bold;">✕</button>
+  </dialog>
+
+  <script>
+    const WHATSAPP_NUMBER = '50233667439';
+    const waLink = (text) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('whats-header').href = waLink('Hola, me gustaría información sobre remodelaciones.');
+
+    // Menú móvil
+    const hamburger = document.getElementById('hamburger');
+    const mobile = document.getElementById('mobile');
+    hamburger.addEventListener('click', () => {
+      mobile.classList.toggle('hide');
+    });
+
+    // Animación al hacer scroll
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if (e.isIntersecting) { e.target.classList.add('in'); } })
+    }, {threshold:.1});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+    // WhatsApp Dinámico para paquetes
+    document.querySelectorAll('.service').forEach(card=>{
+      const pack = card.dataset.package;
+      card.querySelector('[data-whatsapp]').href = waLink(`Hola, me interesa el ${pack}. ¿Podrían darme más información?`);
+    });
+
+    // Lightbox
+    const dlg = document.getElementById('lightbox');
+    const img = document.getElementById('lightbox-img');
+    document.querySelectorAll('[data-lightbox]').forEach(el=>{
+      el.addEventListener('click', (e)=>{
+        img.src = el.querySelector('img').src;
+        dlg.showModal();
+      });
+    });
+    dlg.addEventListener('click', (e)=>{ if (e.target === dlg) dlg.close(); });
+  </script>
+</body>
+</html>

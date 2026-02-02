@@ -51,9 +51,11 @@
           <a href="asesoria.html" class="btn">Solicitar asesoría</a>
         </div>
       </div>
+      <!--
       <div class="hero-media" style="border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow);">
         <img alt="Render arquitectónico" src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=1600&auto=format&fit=crop" style="width: 100%; height: 500px; object-fit: cover;">
       </div>
+      -->
     </div>
   </section>
 
@@ -125,31 +127,37 @@
   <!-- CATALOGO / GALERIA -->
   <section id="catalogo" style="background-color: var(--bg-2);">
     <div class="container">
-      <div class="section-head" style="margin-bottom: 40px;">
+        <div class="section-head" style="margin-bottom: 40px;">
         <div class="caps">Portafolio</div>
         <h2>Obras & Renders</h2>
-      </div>
-      
-      <div class="gallery" style="display: grid; grid-template-columns: repeat(12, 1fr); gap: 15px;">
-        <figure class="g-item reveal" style="grid-column: span 8; height: 350px; overflow: hidden; border-radius: 16px; cursor: pointer;" data-lightbox>
-            <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1600" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        
+        <div class="gallery">
+        <!-- Usamos w-8 para imágenes anchas y w-4 para pequeñas (en laptop) -->
+        <figure class="g-item w-8 reveal" data-lightbox>
+            <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1600" alt="Fachada">
         </figure>
-        <figure class="g-item reveal" style="grid-column: span 4; height: 350px; overflow: hidden; border-radius: 16px; cursor: pointer;" data-lightbox>
-            <img src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?q=80&w=1600" style="width: 100%; height: 100%; object-fit: cover;">
+
+        <figure class="g-item w-4 reveal" data-lightbox>
+            <img src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?q=80&w=1600" alt="Lobby">
         </figure>
-        <figure class="g-item reveal" style="grid-column: span 4; height: 350px; overflow: hidden; border-radius: 16px; cursor: pointer;" data-lightbox>
-            <img src="https://tecnolite.lat/blog/wp-content/uploads/2011/07/Sala-c%C3%A1lida-big.jpg" style="width: 100%; height: 100%; object-fit: cover;">
+
+        <figure class="g-item w-4 reveal" data-lightbox>
+            <img src="https://tecnolite.lat/blog/wp-content/uploads/2011/07/Sala-c%C3%A1lida-big.jpg" alt="Sala">
         </figure>
-        <figure class="g-item reveal" style="grid-column: span 4; height: 350px; overflow: hidden; border-radius: 16px; cursor: pointer;" data-lightbox>
-            <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1600&auto=format&fit=crop" style="width: 100%; height: 100%; object-fit: cover;">
+
+        <figure class="g-item w-4 reveal" data-lightbox>
+            <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1600" alt="Cocina">
         </figure>
-        <figure class="g-item reveal" style="grid-column: span 4; height: 350px; overflow: hidden; border-radius: 16px; cursor: pointer;" data-lightbox>
-            <img src="https://www.vbobilbao.com/wp-content/uploads/2024/03/vbobilbao-diseno-interiores-con-luz-artificial-01.jpg" style="width: 100%; height: 100%; object-fit: cover;">
+
+        <figure class="g-item w-4 reveal" data-lightbox>
+            <img src="https://www.vbobilbao.com/wp-content/uploads/2024/03/vbobilbao-diseno-interiores-con-luz-artificial-01.jpg" alt="Iluminación">
         </figure>
-        <figure class="g-item reveal" style="grid-column: span 4; height: 350px; overflow: hidden; border-radius: 16px; cursor: pointer;" data-lightbox>
-            <img src="https://images.unsplash.com/photo-1536376072261-38c75010e6c9?q=80&w=1600&auto=format&fit=crop" style="width: 100%; height: 100%; object-fit: cover;">
+
+        <figure class="g-item w-12 reveal" data-lightbox> <!-- Esta ocupará todo el ancho siempre -->
+            <img src="https://images.unsplash.com/photo-1536376072261-38c75010e6c9?q=80&w=1600" alt="Oficina">
         </figure>
-      </div>
+        </div>
     </div>
   </section>
 

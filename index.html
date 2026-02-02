@@ -102,6 +102,14 @@
     <script src="js/propiedades.js"></script>
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Menú móvil
+        const hamburger = document.getElementById('hamburger');
+        const mobile = document.getElementById('mobile');
+        hamburger.addEventListener('click', () => {
+          mobile.classList.toggle('hide');
+        });
+        
         // Lógica para cargar las tarjetas
         const grid = document.getElementById('grid-propiedades');
         

@@ -59,70 +59,55 @@
     </div>
   </section>
 
- <!-- SECCIÓN DE PAQUETES ACTUALIZADA -->
+  <!-- SERVICIOS (PAQUETES) -->
   <section id="servicios" class="dark-section">
     <div class="container">
-      <div class="section-head" style="margin-bottom: 40px;">
+      <div class="section-head" style="display: flex; align-items: flex-end; justify-content: space-between; gap: 10px; margin-bottom: 40px;">
         <div>
-          <div class="caps">Especialidades</div>
-          <h2>Nuestros Servicios</h2>
+          <div class="caps">Servicios</div>
+          <h2>Nuestros Paquetes</h2>
         </div>
+        <div class="pill" style="color: white; border-color: rgba(255,255,255,0.2)">Transparencia • Calidad • Puntualidad</div>
       </div>
 
-      <div class="services-grid">
-        <!-- OFICINAS -->
-        <article class="package-card reveal" data-package="Oficinas">
-          <div class="bg-img" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200');"></div>
-          <div class="package-content">
-            <span class="badge">Workspaces</span>
-            <h3>Oficinas</h3>
-            <p>Optimización de espacios corporativos para la productividad y el confort.</p>
-            <a class="btn acc" data-whatsapp style="width:100%; justify-content:center;">Consultar</a>
+      <div class="services" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+        <article class="card pad service reveal" data-package="Paquete Básico">
+          <div class="head" style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 15px;">
+            <h3>Básico – Planos</h3><span class="badge">Obra</span>
           </div>
+          <p class="muted">Documentación técnica completa para construcción.</p>
+          <ul style="margin: 20px 0; padding-left: 20px;">
+            <li>Plano arquitectónico.</li>
+            <li>Planos de agua y drenajes.</li>
+            <li>Plano de fuerza e iluminación.</li>
+          </ul>
+          <a class="btn acc" style="width: 100%; justify-content: center;" data-whatsapp>Solicitar información</a>
         </article>
 
-        <!-- COMERCIALES -->
-        <article class="package-card reveal" data-package="Comerciales">
-          <div class="bg-img" style="background-image: url('https://images.unsplash.com/photo-1534723452862-4c874018d66d?q=80&w=1200');"></div>
-          <div class="package-content">
-            <span class="badge">Retail</span>
-            <h3>Comerciales</h3>
-            <p>Diseño estratégico para potenciar la identidad de tu marca.</p>
-            <a class="btn acc" data-whatsapp style="width:100%; justify-content:center;">Consultar</a>
+        <article class="card pad service reveal" data-package="Paquete Completo">
+          <div class="head" style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 15px;">
+            <h3>Completo – Diseño</h3><span class="badge">Popular</span>
           </div>
+          <p class="muted">Propuesta de diseño y planos técnicos. Incluye revisión.</p>
+          <ul style="margin: 20px 0; padding-left: 20px;">
+            <li>Diseño arquitectónico.</li>
+            <li>Planos técnicos completos.</li>
+            <li>Estilo y acabados sugeridos.</li>
+          </ul>
+          <a class="btn acc" style="width: 100%; justify-content: center;" data-whatsapp>Solicitar información</a>
         </article>
 
-        <!-- ILUMINACIÓN -->
-        <article class="package-card reveal" data-package="Iluminación">
-          <div class="bg-img" style="background-image: url('https://nexoinmobiliario.pe/blog/wp-content/uploads/2020/05/consejos-iluminacion-interiores-hogar.jpg');"></div>
-          <div class="package-content">
-            <span class="badge">Atmósfera</span>
-            <h3>Iluminación</h3>
-            <p>Cálculo lumínico para resaltar cada detalle arquitectónico.</p>
-            <a class="btn acc" data-whatsapp style="width:100%; justify-content:center;">Consultar</a>
+        <article class="card pad service reveal" data-package="Paquete Premium">
+          <div class="head" style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 15px;">
+            <h3>Premium – Interior</h3><span class="badge">Estudio</span>
           </div>
-        </article>
-
-        <!-- VIVIENDAS -->
-        <article class="package-card reveal" data-package="Viviendas">
-          <div class="bg-img" style="background-image: url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1200');"></div>
-          <div class="package-content">
-            <span class="badge">Hogares</span>
-            <h3>Viviendas</h3>
-            <p>Transformación residencial con acabados de alta gama.</p>
-            <a class="btn acc" data-whatsapp style="width:100%; justify-content:center;">Consultar</a>
-          </div>
-        </article>
-
-        <!-- CONSTRUCCIÓN -->
-        <article class="package-card reveal" data-package="Construcción">
-          <div class="bg-img" style="background-image: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1200');"></div>
-          <div class="package-content">
-            <span class="badge">Obra Gris</span>
-            <h3>Construcción</h3>
-            <p>Ejecución técnica y supervisión profesional de obras civiles.</p>
-            <a class="btn acc" data-whatsapp style="width:100%; justify-content:center;">Consultar</a>
-          </div>
+          <p class="muted">Interiorismo y proyectos comerciales con renders 3D.</p>
+          <ul style="margin: 20px 0; padding-left: 20px;">
+            <li>Diseño interior o comercial.</li>
+            <li>Planos técnicos completos.</li>
+            <li>Renders 3D fotorrealistas.</li>
+          </ul>
+          <a class="btn acc" style="width: 100%; justify-content: center;" data-whatsapp>Solicitar información</a>
         </article>
       </div>
     </div>
@@ -194,22 +179,30 @@
   <script>
     const WHATSAPP_NUMBER = '50233667439';
     const waLink = (text) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+
     document.getElementById('year').textContent = new Date().getFullYear();
     document.getElementById('whats-header').href = waLink('Hola, me gustaría información sobre remodelaciones.');
 
+    // Menú móvil
     const hamburger = document.getElementById('hamburger');
     const mobile = document.getElementById('mobile');
-    hamburger.addEventListener('click', () => mobile.classList.toggle('hide'));
+    hamburger.addEventListener('click', () => {
+      mobile.classList.toggle('hide');
+    });
 
+    // Animación al hacer scroll
     const io = new IntersectionObserver((entries)=>{
       entries.forEach(e=>{ if (e.isIntersecting) { e.target.classList.add('in'); } })
     }, {threshold:.1});
     document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-    document.querySelectorAll('.package-card').forEach(card=>{
-      card.querySelector('[data-whatsapp]').href = waLink(`Hola, me interesa el servicio de: ${card.dataset.package}.`);
+    // WhatsApp Dinámico para paquetes
+    document.querySelectorAll('.service').forEach(card=>{
+      const pack = card.dataset.package;
+      card.querySelector('[data-whatsapp]').href = waLink(`Hola, me interesa el ${pack}. ¿Podrían darme más información?`);
     });
 
+    // Lightbox
     const dlg = document.getElementById('lightbox');
     const img = document.getElementById('lightbox-img');
     document.querySelectorAll('[data-lightbox]').forEach(el=>{

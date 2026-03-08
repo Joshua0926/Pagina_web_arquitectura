@@ -30,6 +30,177 @@
 const productos = [
 
   // ══════════════════════════════════════════════════════════════════════════
+  // AIRE ACONDICIONADO
+  // ══════════════════════════════════════════════════════════════════════════
+  {
+    id: "aire-acondicionado-01",
+    nombre: "Mini Split · York",
+    categoria: "Aire Acondicionado",
+    precio: 2500,
+    moneda: "GTQ",
+    descripcion: "Mini Split de 12,000 BTU con tecnología inverter.",
+    descripcionLarga: "Mini Split de 12,000 BTU con tecnología inverter para máxima eficiencia energética. Ideal para habitaciones de hasta 25m². Incluye unidad interior, unidad exterior, control remoto y kit de instalación básica. Garantía de 5 años en compresor y 2 años en partes eléctricas.",
+    imagenes: [
+      "https://i0.wp.com/www.estpace-company.com/wp-content/uploads/2024/09/york-triple-inverter.jpg?resize=1024%2C1024&ssl=1",
+      "https://refrigeracionmartinez.com.gt/wp-content/uploads/2024/11/imagen_2024-11-11_181246691-300x300.png"
+    ],
+    disponible: true,
+    destacado: false,
+    specs: {
+      "Capacidad": "12,000 BTU",
+      "Tecnología": "Inverter",
+      "Área recomendada": "Hasta 25m²",
+      "Incluye": "Unidad interior, unidad exterior, control remoto, kit de instalación",
+      "Garantía": "5 años en compresor, 2 años en partes eléctricas"
+    },
+    tags: ["aire acondicionado", "mini split", "york", "inverter", "eficiencia energética"]
+  },
+
+  {
+    id: "aire-acondicionado-02",
+    nombre: "Mini Split · Samsung",
+    categoria: "Aire Acondicionado",
+    precio: 2700,
+    moneda: "GTQ",
+    descripcion: "Mini Split de 12,000 BTU con tecnología inverter.",
+    descripcionLarga: "Mini Split de 12,000 BTU con tecnología inverter para máxima eficiencia energética. Ideal para habitaciones de hasta 25m². Incluye unidad interior, unidad exterior, control remoto y kit de instalación básica. Garantía de 5 años en compresor y 2 años en partes eléctricas.",
+    imagenes: [
+      "https://i0.wp.com/www.estpace-company.com/wp-content/uploads/2024/04/Mini-Split-Marca-Samsung.webp?resize=1024%2C1024&ssl=1",
+      "https://iprpartesyrepuestos.com/wp-content/uploads/2020/10/614-0057-4-1-700x700.jpg"
+    ],
+    disponible: true,
+    destacado: false,
+    specs: {
+      "Capacidad": "12,000 BTU",
+      "Tecnología": "Inverter",
+      "Área recomendada": "Hasta 25m²",
+      "Incluye": "Unidad interior, unidad exterior, control remoto, kit de instalación",
+      "Garantía": "5 años en compresor, 2 años en partes eléctricas"
+    },
+    tags: ["aire acondicionado", "mini split", "samsung", "inverter", "eficiencia energética"]
+  },
+
+  {
+    id: "aire-acondicionado-03",
+    nombre: "Mini Split · Carrier",
+    categoria: "Aire Acondicionado",
+    precio: 2400,
+    moneda: "GTQ",
+    descripcion: "Mini Split de 12,000 BTU con tecnología inverter.",
+    descripcionLarga: "Mini Split de 12,000 BTU con tecnología inverter para máxima eficiencia energética. Ideal para habitaciones de hasta 25m². Incluye unidad interior, unidad exterior, control remoto y kit de instalación básica. Garantía de 5 años en compresor y 2 años en partes eléctricas.",
+    imagenes: [
+      "https://i0.wp.com/www.estpace-company.com/wp-content/uploads/2024/04/Mini-Split-Marca-Carrier.webp?resize=1024%2C1024&ssl=1",
+      "https://www.carriercca.com/imagebank/Carrier/20_seer2/lo/01_main.jpg"
+    ],
+    disponible: true,
+    destacado: false,
+    specs: {
+      "Capacidad": "12,000 BTU",
+      "Tecnología": "Inverter",
+      "Área recomendada": "Hasta 25m²",
+      "Incluye": "Unidad interior, unidad exterior, control remoto, kit de instalación",
+      "Garantía": "5 años en compresor, 2 años en partes eléctricas"
+    },
+    tags: ["aire acondicionado", "mini split", "carrier", "inverter", "eficiencia energética"]
+  },
+
+  {
+    id: "aire-acondicionado-04",
+    nombre: "Mini Split · Lennox",
+    categoria: "Aire Acondicionado",
+    precio: 2800,
+    moneda: "GTQ",
+    descripcion: "Mini Split de 12,000 BTU con tecnología inverter.",
+    descripcionLarga: "Mini Split de 12,000 BTU con tecnología inverter para máxima eficiencia energética. Ideal para habitaciones de hasta 25m². Incluye unidad interior, unidad exterior, control remoto y kit de instalación básica. Garantía de 5 años en compresor y 2 años en partes eléctricas.",
+    imagenes: [
+      "https://i0.wp.com/www.estpace-company.com/wp-content/uploads/2024/04/Mini-Split-Marca-Lenox.webp?resize=1024%2C1024&ssl=1",
+      "https://refrigeracionmartinez.com.gt/wp-content/uploads/2024/10/imagen_2024-10-14_220756230.png"
+    ],
+    disponible: true,
+    destacado: false,
+    specs: {
+      "Capacidad": "12,000 BTU",
+      "Tecnología": "Inverter",
+      "Área recomendada": "Hasta 25m²",
+      "Incluye": "Unidad interior, unidad exterior, control remoto, kit de instalación",
+      "Garantía": "5 años en compresor, 2 años en partes eléctricas"
+    },
+    tags: ["aire acondicionado", "mini split", "lennox", "inverter", "eficiencia energética"]
+  },
+
+  {
+    id: "aire-acondicionado-05",
+    nombre: "Cassette · York",
+    categoria: "Aire Acondicionado",
+    precio: 3500,
+    moneda: "GTQ",
+    descripcion: "Cassette de 12,000 BTU con tecnología inverter.",
+    descripcionLarga: "Cassette de 12,000 BTU con tecnología inverter para máxima eficiencia energética. Ideal para habitaciones de hasta 25m². Incluye unidad interior, unidad exterior, control remoto y kit de instalación básica. Garantía de 5 años en compresor y 2 años en partes eléctricas.",
+    imagenes: [
+      "https://i0.wp.com/www.estpace-company.com/wp-content/uploads/2024/04/Cassette-York.webp?resize=1024%2C1024&ssl=1",
+      "https://climaproyectos.com.mx/wp-content/uploads/2025/07/CASSETTE-YORK-R32.png"
+    ],
+    disponible: true,
+    destacado: false,
+    specs: {
+      "Capacidad": "12,000 BTU",
+      "Tecnología": "Inverter",
+      "Área recomendada": "Hasta 25m²",
+      "Incluye": "Unidad interior, unidad exterior, control remoto, kit de instalación",
+      "Garantía": "5 años en compresor, 2 años en partes eléctricas"
+    },
+    tags: ["aire acondicionado", "mini split", "york", "inverter", "eficiencia energética"]
+  },
+
+  {
+    id: "aire-acondicionado-06",
+    nombre: "Cassette · Samsung",
+    categoria: "Aire Acondicionado",
+    precio: 3250,
+    moneda: "GTQ",
+    descripcion: "Cassette de 12,000 BTU con tecnología inverter.",
+    descripcionLarga: "Cassette de 12,000 BTU con tecnología inverter para máxima eficiencia energética. Ideal para habitaciones de hasta 25m². Incluye unidad interior, unidad exterior, control remoto y kit de instalación básica. Garantía de 5 años en compresor y 2 años en partes eléctricas.",
+    imagenes: [
+      "https://i0.wp.com/www.estpace-company.com/wp-content/uploads/2024/09/cassette-samsung-ac090kn4dkheu-345-1500x1500w-1.jpg?zoom=2&resize=500%2C350&ssl=1",
+      "https://images.samsung.com/is/image/samsung/p6pim/co/ac036mn4pkh-cb/gallery/co-360-cassette-460116-ac036mn4pkh-cb-536635040?$720_576_JPG$"
+    ],
+    disponible: true,
+    destacado: false,
+    specs: {
+      "Capacidad": "12,000 BTU",
+      "Tecnología": "Inverter",
+      "Área recomendada": "Hasta 25m²",
+      "Incluye": "Unidad interior, unidad exterior, control remoto, kit de instalación",
+      "Garantía": "5 años en compresor, 2 años en partes eléctricas"
+    },
+    tags: ["aire acondicionado", "mini split", "samsung", "inverter", "eficiencia energética"]
+  },
+
+  {
+    id: "aire-acondicionado-07",
+    nombre: "Cassette · Carrier",
+    categoria: "Aire Acondicionado",
+    precio: 3250,
+    moneda: "GTQ",
+    descripcion: "Cassette de 12,000 BTU con tecnología inverter.",
+    descripcionLarga: "Cassette de 12,000 BTU con tecnología inverter para máxima eficiencia energética. Ideal para habitaciones de hasta 25m². Incluye unidad interior, unidad exterior, control remoto y kit de instalación básica. Garantía de 5 años en compresor y 2 años en partes eléctricas.",
+    imagenes: [
+      "https://i0.wp.com/www.estpace-company.com/wp-content/uploads/2024/04/Cassette-Carrier.webp?resize=1024%2C1024&ssl=1",
+      "https://eldawliagroup.com/wp-content/uploads/2024/11/%D9%83%D8%A7%D8%B1%D9%8A%D9%8A%D8%B1-%D9%83%D8%A7%D8%B3%D9%8A%D8%AA-%D8%B3%D8%A8%D9%84%D9%8A%D8%AA-%D8%AF%D9%8A%D9%83%D9%88%D8%B1-%D8%A7%D9%86%D9%81%D8%B1%D8%AA%D8%B1-%D8%A8%D8%A7%D8%B1%D8%AF-%D8%B3%D8%A7%D8%AE%D9%86.webp"
+    ],
+    disponible: true,
+    destacado: false,
+    specs: {
+      "Capacidad": "12,000 BTU",
+      "Tecnología": "Inverter",
+      "Área recomendada": "Hasta 25m²",
+      "Incluye": "Unidad interior, unidad exterior, control remoto, kit de instalación",
+      "Garantía": "5 años en compresor, 2 años en partes eléctricas"
+    },
+    tags: ["aire acondicionado", "mini split", "carrier", "inverter", "eficiencia energética"]
+  },
+
+  // ══════════════════════════════════════════════════════════════════════════
   // ARTE
   // ══════════════════════════════════════════════════════════════════════════
   {
@@ -377,7 +548,7 @@ const productos = [
  * CATEGORÍAS — Lista maestra para filtros y navegación
  * Agrega aquí si creas una categoría nueva
  */
-const CATEGORIAS = ["Arte", "Decoración", "Mobiliario", "Iluminación", "Textiles"];
+const CATEGORIAS = ["Aire Acondicionado", "Arte", "Decoración", "Mobiliario", "Iluminación", "Textiles"];
 
 /**
  * CONFIGURACIÓN DE LA TIENDA

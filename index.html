@@ -1,136 +1,291 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>AURÉA — Bienes Raíces</title>
-    <!-- Reutilizamos tus estilos base y agregamos los nuevos -->
-    <link rel="stylesheet" href="css/style.css"> 
-    <style>
-        /* Estilos específicos para el catálogo de propiedades */
-        .hero-propiedades {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1600') no-repeat center center/cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
-        }
-        .hero-content { max-width: 800px; padding: 20px; }
-        .hero-content h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); margin-bottom: 20px; }
-
-        .propiedades-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
-            padding: 60px 0;
-        }
-        .prop-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
-            cursor: pointer;
-        }
-        .prop-card:hover { transform: translateY(-10px); }
-        .prop-img { height: 250px; overflow: hidden; }
-        .prop-img img { width: 100%; height: 100%; object-fit: cover; }
-        .prop-info { padding: 25px; }
-        .prop-info h3 { margin: 0 0 10px 0; color: var(--primary); }
-        .prop-info p { font-size: 0.9rem; color: #666; margin-bottom: 15px; }
-        .prop-meta { display: flex; gap: 15px; font-size: 0.8rem; color: var(--accent); font-weight: 600; text-transform: uppercase; }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AURÉA — Bienes Raíces de Lujo</title>
+  <meta name="description" content="Propiedades exclusivas con arquitectura excepcional en Guatemala. AURÉA — Bienes Raíces." />
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header>
-        <div class="container nav">
-            <a href="index.html" class="brand">
-                <img src="logo.png" alt="AURÉA" class="brand-logo">
-            </a>
-            <nav class="menu">
-                <a href="index.html" class="active">Propiedades</a>
-                <a href="remodelaciones.html">Remodelaciones</a>
-                <a href="asesoria.html">Asesoría</a>
-            </nav>
-            <div class="cta">
-                <!--<a class="btn acc" href="asesoria.html">Contacto</a>-->
-                <button class="hamburger" aria-label="Abrir menú" id="hamburger" aria-expanded="false">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-                </button>
-            </div>
-        </div>
 
-        <!-- Menú Móvil -->
-        <div class="container mobile hide" id="mobile">
+  <!-- Cursor personalizado -->
+  <div class="cursor-dot"  id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- ======================================================================
+       MENÚ MÓVIL FULLSCREEN
+  ====================================================================== -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html"        onclick="closeMobile()">Propiedades</a>
+    <a href="remodelaciones.html" onclick="closeMobile()">Remodelaciones</a>
+    <a href="asesoria.html"     onclick="closeMobile()">Asesoría</a>
+    <p class="mobile-menu-footer">AURÉA · Guatemala · Est. 2020</p>
+  </div>
+
+  <!-- ======================================================================
+       HEADER
+  ====================================================================== -->
+  <header id="header">
+    <div class="container nav">
+      <a href="index.html" class="brand">
+        <img src="logo.png" alt="AURÉA" class="brand-logo">
+      </a>
+      <nav class="menu">
+        <a href="index.html" class="active">Propiedades</a>
+        <a href="remodelaciones.html">Remodelaciones</a>
+        <a href="asesoria.html">Asesoría</a>
+      </nav>
+      <div class="cta">
+        <a href="asesoria.html" class="btn">Agendar visita</a>
+        <button class="hamburger" id="hamburger" aria-label="Menú" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- ======================================================================
+       HERO — PANTALLA COMPLETA
+  ====================================================================== -->
+  <section class="hero-full" id="hero">
+    <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2000');"></div>
+
+    <!-- Contador flotante -->
+    <div class="hero-counter reveal">
+      <div class="num" id="propCount">6</div>
+      <div class="lbl">Propiedades<br>Exclusivas</div>
+    </div>
+
+    <div class="container hero-content">
+      <div class="eyebrow reveal">Grupo Auréa — Guatemala</div>
+      <h1 class="reveal delay-1">Encuentra el espacio<br>donde <span class="italic-accent">tu historia</span> comienza.</h1>
+      <p class="lede reveal delay-2">Seleccionamos propiedades con arquitectura excepcional<br>y potencial de vida inigualable.</p>
+      <div class="reveal delay-3" style="display:flex;gap:14px;flex-wrap:wrap;">
+        <a href="#catalogo" class="btn acc">Ver catálogo</a>
+        <a href="asesoria.html" class="btn light">Hablar con un asesor</a>
+      </div>
+    </div>
+
+    <!-- Indicador de scroll -->
+    <div class="scroll-indicator">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+
+  <!-- ======================================================================
+       CATÁLOGO DE PROPIEDADES
+  ====================================================================== -->
+  <section id="catalogo" style="padding:0;">
+    <div style="padding: clamp(60px,8vw,110px) 0 clamp(30px,4vw,50px);">
+      <div class="container">
+        <div class="section-head">
+          <div class="reveal">
+            <div class="eyebrow">Catálogo</div>
+            <span class="gold-line"></span>
+            <h2>Propiedades Disponibles</h2>
+          </div>
+          <p class="lede reveal delay-1" style="max-width:38ch;text-align:right;">
+            Cada propiedad es seleccionada por su arquitectura, ubicación y potencial de inversión.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Grid de tarjetas (generado por JS) -->
+    <div class="propiedades-grid" id="grid-propiedades"></div>
+  </section>
+
+
+  <!-- ======================================================================
+       MANIFESTO / QUIÉNES SOMOS
+  ====================================================================== -->
+  <section style="background: var(--bg-2);">
+    <div class="container">
+      <div class="manifesto-grid">
+        <!-- Cita -->
+        <div class="reveal">
+          <div class="manifesto-number">01</div>
+          <blockquote class="manifesto-quote">
+            "Materiales nobles, proporciones correctas y buena luz. Eso es todo lo que un gran espacio necesita."
+            <cite class="manifesto-cite">— Principio fundacional de AURÉA</cite>
+          </blockquote>
+          <span class="gold-line" style="margin-top:28px;"></span>
+          <p class="lede" style="margin-top:20px;">
+            Somos un equipo multidisciplinario que integra arquitectura, diseño e ingeniería para ofrecer soluciones elegantes, eficientes y atemporales.
+          </p>
+        </div>
+        <!-- Stats -->
+        <div class="stats-grid reveal delay-2">
+          <div class="stat-box">
+            <div class="stat-num">12+</div>
+            <div class="stat-label">Años de experiencia</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">80+</div>
+            <div class="stat-label">Proyectos entregados</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">6</div>
+            <div class="stat-label">Propiedades activas</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">100%</div>
+            <div class="stat-label">Clientes satisfechos</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================================================
+       CTA FINAL
+  ====================================================================== -->
+  <section class="dark-section" style="text-align:center;">
+    <div class="container" style="max-width:680px;margin-inline:auto;">
+      <div class="reveal">
+        <div class="eyebrow">¿Listo para empezar?</div>
+        <span class="gold-line center"></span>
+        <h2 style="color:var(--fg-light);margin:12px 0 20px;">Hablemos de tu próximo hogar</h2>
+        <p style="color:rgba(245,242,236,0.6);margin-bottom:36px;">
+          Nuestros asesores están disponibles para guiarte en cada paso del proceso, con la discreción y atención que mereces.
+        </p>
+        <a href="asesoria.html" class="btn acc">Agendar una asesoría</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================================================
+       FOOTER
+  ====================================================================== -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="logo.png" alt="AURÉA" class="footer-logo">
+          <p>Bienes raíces y diseño arquitectónico de alto nivel en Guatemala. Propiedades únicas para personas con visión.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navegación</h4>
           <a href="index.html">Propiedades</a>
           <a href="remodelaciones.html">Remodelaciones</a>
           <a href="asesoria.html">Asesoría</a>
         </div>
-    </header>
-
-    <section class="hero-propiedades">
-        <div class="hero-content">
-            <div class="eyebrow" style="color: var(--accent)">Grupo Aurea Guatemala</div>
-            <h1>Encuentra el espacio donde tu historia comienza.</h1>
-            <p>Seleccionamos propiedades con arquitectura excepcional y potencial de vida inigualable.</p>
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <a href="https://wa.me/50233667439">WhatsApp</a>
+          <a href="mailto:aurea.infot@gmail.com">aurea.infot@gmail.com</a>
+          <a href="tel:+50233667439">+502 3366 7439</a>
         </div>
-    </section>
-
-    <section class="container">
-        <div class="section-head" style="margin-top: 60px;">
-            <div>
-                <div class="caps">Catálogo</div>
-                <h2>Propiedades Disponibles</h2>
-            </div>
-        </div>
-        <div class="propiedades-grid" id="grid-propiedades">
-            <!-- Se llena dinámicamente con JS -->
-        </div>
-    </section>
-
-    <footer>
-      <div class="container foot">
-        <a href="index.html" class="brand">
-          <img src="logo.png" alt="Logotipo de AURÉA" class="brand-logo">
-        </a>
-        <small>© <span id="year"></span> AURÉA Estudio. Todos los derechos reservados.</small>
       </div>
-    </footer>
+      <div class="footer-bottom">
+        <small>© <span id="year"></span> AURÉA Estudio. Todos los derechos reservados.</small>
+        <span class="footer-accent">Diseño con propósito.</span>
+      </div>
+    </div>
+  </footer>
 
-    <script src="js/propiedades.js"></script>
-    <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
 
-        // Menú móvil
-        const hamburger = document.getElementById('hamburger');
-        const mobile = document.getElementById('mobile');
-        hamburger.addEventListener('click', () => {
-          mobile.classList.toggle('hide');
-        });
-        
-        // Lógica para cargar las tarjetas
-        const grid = document.getElementById('grid-propiedades');
-        
-        propiedades.forEach(prop => {
-            const card = document.createElement('div');
-            card.className = 'prop-card';
-            card.onclick = () => window.location.href = `propiedad-detalle.html?id=${prop.id}`;
-            
-            card.innerHTML = `
-                <div class="prop-img">
-                    <img src="${prop.imagenes[0]}" alt="${prop.nombre}">
-                </div>
-                <div class="prop-info">
-                    <div class="prop-meta">${prop.ubicacion}</div>
-                    <h3>${prop.nombre}</h3>
-                    <p>${prop.descripcionCorta}</p>
-                    <div class="btn ghost" style="width:100%; justify-content:center">Ver detalles</div>
-                </div>
-            `;
-            grid.appendChild(card);
-        });
-    </script>
+  <!-- ======================================================================
+       SCRIPTS
+  ====================================================================== -->
+  <script src="js/propiedades.js"></script>
+  <script>
+    /* ── Año ── */
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    /* ── Cursor personalizado ── */
+    const dot  = document.getElementById('cursorDot');
+    const ring = document.getElementById('cursorRing');
+    let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+
+    document.addEventListener('mousemove', e => {
+      mouseX = e.clientX; mouseY = e.clientY;
+      dot.style.left = mouseX + 'px';
+      dot.style.top  = mouseY + 'px';
+    });
+    // El ring sigue con suavidad (lerp)
+    function animateCursor() {
+      ringX += (mouseX - ringX) * 0.12;
+      ringY += (mouseY - ringY) * 0.12;
+      ring.style.left = ringX + 'px';
+      ring.style.top  = ringY + 'px';
+      requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+
+    // Hover sobre elementos interactivos
+    document.querySelectorAll('a, button, .prop-card').forEach(el => {
+      el.addEventListener('mouseenter', () => ring.classList.add('hovered'));
+      el.addEventListener('mouseleave', () => ring.classList.remove('hovered'));
+    });
+
+    /* ── Header scroll ── */
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    /* ── Hero: animación de entrada de imagen ── */
+    setTimeout(() => document.getElementById('hero').classList.add('loaded'), 100);
+
+    /* ── Menú móvil ── */
+    const hamburger  = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    function closeMobile() {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    /* ── Scroll Reveal ── */
+    const revealObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revealObs.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+    /* ── Generar tarjetas de propiedades ── */
+    const grid = document.getElementById('grid-propiedades');
+    document.getElementById('propCount').textContent = propiedades.length;
+
+    propiedades.forEach((prop, i) => {
+      const card = document.createElement('div');
+      card.className = 'prop-card reveal' + (i <= 1 ? ' in' : '');
+      card.onclick = () => window.location.href = `propiedad-detalle.html?id=${prop.id}`;
+
+      card.innerHTML = `
+        <div class="prop-img">
+          <img src="${prop.imagenes[0]}" alt="${prop.nombre}" loading="${i === 0 ? 'eager' : 'lazy'}">
+        </div>
+        <div class="price-badge">${prop.precio}</div>
+        <div class="prop-overlay">
+          <div class="prop-location">${prop.ubicacion}</div>
+          <h3>${prop.nombre}</h3>
+          <p class="prop-desc">${prop.descripcionCorta}</p>
+          <div class="prop-cta">
+            <span class="prop-cta-link">
+              Ver propiedad
+              <span class="arrow-line"></span>
+            </span>
+          </div>
+        </div>
+      `;
+      grid.appendChild(card);
+
+      // Observar cada tarjeta para reveal
+      if (i > 1) revealObs.observe(card);
+    });
+  </script>
 </body>
 </html>

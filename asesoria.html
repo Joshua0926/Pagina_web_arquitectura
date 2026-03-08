@@ -17,7 +17,8 @@
        MENÚ MÓVIL FULLSCREEN
   ====================================================================== -->
   <div class="mobile-menu" id="mobileMenu">
-    <a href="index.html"          onclick="closeMobile()">Propiedades</a>
+    <a href="index.html"          onclick="closeMobile()">Inicio</a>
+    <a href="propiedades.html"    onclick="closeMobile()">Propiedades</a>
     <a href="remodelaciones.html" onclick="closeMobile()">Remodelaciones</a>
     <a href="tienda.html"         onclick="closeMobile()">Tienda</a>
     <a href="asesoria.html"       onclick="closeMobile()">Asesoría</a>
@@ -33,7 +34,8 @@
         <img src="logo.png" alt="Logotipo de AURÉA" class="brand-logo">
       </a>
       <nav class="menu" aria-label="Principal">
-        <a href="index.html">Propiedades</a>
+        <a href="index.html">Inicio</a>
+        <a href="propiedades.html">Propiedades</a>
         <a href="remodelaciones.html">Remodelaciones</a>
         <a href="tienda.html">Tienda</a>
         <a href="asesoria.html" class="active">Asesoría</a>
@@ -204,7 +206,7 @@
           Propiedades únicas y objetos de diseño seleccionados con el criterio exigente del estudio AURÉA.
         </p>
         <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-          <a href="index.html" class="btn acc">Ver propiedades</a>
+          <a href="propiedades.html" class="btn acc">Ver propiedades</a>
           <a href="tienda.html" class="btn light">Ir a la tienda</a>
         </div>
       </div>
@@ -224,7 +226,8 @@
         </div>
         <div class="footer-col">
           <h4>Navegación</h4>
-          <a href="index.html">Propiedades</a>
+          <a href="index.html">Inicio</a>
+          <a href="propiedades.html">Propiedades</a>
           <a href="remodelaciones.html">Remodelaciones</a>
           <a href="tienda.html">Tienda</a>
           <a href="asesoria.html">Asesoría</a>
@@ -319,14 +322,6 @@
       { threshold: 0.08 }
     );
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-    /* ── Feedback visual en envío del formulario ── */
-    document.getElementById('contactForm').addEventListener('submit', function() {
-      const btn = this.querySelector('[type="submit"]');
-      btn.textContent = 'Enviando…';
-      btn.disabled = true;
-    });
   </script>
-
 </body>
 </html>

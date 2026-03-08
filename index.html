@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AURÉA — Bienes Raíces de Lujo</title>
-  <meta name="description" content="Propiedades exclusivas con arquitectura excepcional en Guatemala. AURÉA — Bienes Raíces." />
+  <title>AURÉA — Arquitectura & Bienes Raíces de Lujo</title>
+  <meta name="description" content="AURÉA — Arquitectura, diseño interior y bienes raíces de lujo en Guatemala. Un estudio para quienes entienden el valor de lo excepcional." />
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -17,7 +17,8 @@
        MENÚ MÓVIL FULLSCREEN
   ====================================================================== -->
   <div class="mobile-menu" id="mobileMenu">
-    <a href="index.html"          onclick="closeMobile()">Propiedades</a>
+    <a href="index.html"          onclick="closeMobile()">Inicio</a>
+    <a href="propiedades.html"    onclick="closeMobile()">Propiedades</a>
     <a href="remodelaciones.html" onclick="closeMobile()">Remodelaciones</a>
     <a href="tienda.html"         onclick="closeMobile()">Tienda</a>
     <a href="asesoria.html"       onclick="closeMobile()">Asesoría</a>
@@ -25,7 +26,7 @@
   </div>
 
   <!-- ======================================================================
-       HEADER
+       HEADER — transparente sobre hero, sólido al hacer scroll
   ====================================================================== -->
   <header id="header">
     <div class="container nav">
@@ -33,7 +34,8 @@
         <img src="logo.png" alt="AURÉA" class="brand-logo">
       </a>
       <nav class="menu">
-        <a href="index.html" class="active">Propiedades</a>
+        <a href="index.html" class="active">Inicio</a>
+        <a href="propiedades.html">Propiedades</a>
         <a href="remodelaciones.html">Remodelaciones</a>
         <a href="tienda.html">Tienda</a>
         <a href="asesoria.html">Asesoría</a>
@@ -52,20 +54,24 @@
        HERO — PANTALLA COMPLETA
   ====================================================================== -->
   <section class="hero-full" id="hero">
-    <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2000');"></div>
+    <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2400');"></div>
 
-    <!-- Contador flotante -->
-    <div class="hero-counter reveal">
-      <div class="num" id="propCount">6</div>
-      <div class="lbl">Propiedades<br>Exclusivas</div>
+    <!-- Texto decorativo flotante -->
+    <div class="hero-word-deco">AURÉA</div>
+
+    <!-- Línea vertical izquierda -->
+    <div class="hero-side-line">
+      <span>Est. 2020</span>
+      <div class="v-line"></div>
+      <span>Guatemala</span>
     </div>
 
     <div class="container hero-content">
-      <div class="eyebrow reveal">Grupo Auréa — Guatemala</div>
-      <h1 class="reveal delay-1">Encuentra el espacio<br>donde <span class="italic-accent">tu historia</span> comienza.</h1>
-      <p class="lede reveal delay-2">Seleccionamos propiedades con arquitectura excepcional<br>y potencial de vida inigualable.</p>
-      <div class="reveal delay-3" style="display:flex;gap:14px;flex-wrap:wrap;">
-        <a href="#catalogo" class="btn acc">Ver catálogo</a>
+      <div class="eyebrow reveal">Grupo Auréa — Arquitectura & Diseño</div>
+      <h1 class="reveal delay-1">El lujo es la<br>precisión de lo <span class="italic-accent">intangible.</span></h1>
+      <p class="lede reveal delay-2">Concebimos espacios donde la arquitectura,<br>el diseño y la vida extraordinaria convergen.</p>
+      <div class="reveal delay-3 hero-cta-row">
+        <a href="propiedades.html" class="btn acc">Explorar propiedades</a>
         <a href="asesoria.html" class="btn light">Hablar con un asesor</a>
       </div>
     </div>
@@ -79,67 +85,324 @@
 
 
   <!-- ======================================================================
-       CATÁLOGO DE PROPIEDADES
+       SERVICIOS — CARDS EDITORIALES
   ====================================================================== -->
-  <section id="catalogo" style="padding:0;">
-    <div style="padding: clamp(60px,8vw,110px) 0 clamp(30px,4vw,50px);">
-      <div class="container">
-        <div class="section-head">
-          <div class="reveal">
-            <div class="eyebrow">Catálogo</div>
-            <span class="gold-line"></span>
-            <h2>Propiedades Disponibles</h2>
-          </div>
-          <p class="lede reveal delay-1" style="max-width:38ch;text-align:right;">
-            Cada propiedad es seleccionada por su arquitectura, ubicación y potencial de inversión.
-          </p>
+  <section class="home-services" id="servicios">
+    <div class="container">
+      <div class="section-head reveal-split">
+        <div>
+          <div class="eyebrow">Lo que hacemos</div>
+          <span class="gold-line"></span>
+          <h2>Cuatro disciplinas.<br><span class="italic-accent">Un solo estándar.</span></h2>
         </div>
+        <p class="lede" style="max-width:36ch;align-self:flex-end;text-align:right;">
+          Cada servicio está diseñado para personas que no aceptan compromisos con la excelencia.
+        </p>
       </div>
     </div>
 
-    <!-- Grid de tarjetas (generado por JS) -->
-    <div class="propiedades-grid" id="grid-propiedades"></div>
+    <!-- Grid de servicios 2x2 editorial -->
+    <div class="services-home-grid">
+
+      <!-- 1. Propiedades -->
+      <a href="propiedades.html" class="svc-card reveal">
+        <div class="svc-bg" style="background-image:url('https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=1400');"></div>
+        <div class="svc-overlay"></div>
+        <div class="svc-number">01</div>
+        <div class="svc-content">
+          <div class="svc-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+          </div>
+          <div class="eyebrow" style="color:var(--accent)">Bienes Raíces</div>
+          <h3>Propiedades<br>Exclusivas</h3>
+          <p>Residencias y espacios únicos seleccionados por su arquitectura, ubicación y valor de inversión.</p>
+          <div class="svc-cta">
+            <span>Ver propiedades</span>
+            <span class="arrow-line"></span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 2. Remodelaciones -->
+      <a href="remodelaciones.html" class="svc-card reveal delay-1">
+        <div class="svc-bg" style="background-image:url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=1400');"></div>
+        <div class="svc-overlay"></div>
+        <div class="svc-number">02</div>
+        <div class="svc-content">
+          <div class="svc-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+              <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+            </svg>
+          </div>
+          <div class="eyebrow" style="color:var(--accent)">Arquitectura</div>
+          <h3>Remodelaciones<br>& Diseño</h3>
+          <p>Transformamos espacios existentes en obras de arquitectura contemporánea con acabados de lujo.</p>
+          <div class="svc-cta">
+            <span>Ver proyectos</span>
+            <span class="arrow-line"></span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 3. Tienda -->
+      <a href="tienda.html" class="svc-card reveal delay-2">
+        <div class="svc-bg" style="background-image:url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=1400');"></div>
+        <div class="svc-overlay"></div>
+        <div class="svc-number">03</div>
+        <div class="svc-content">
+          <div class="svc-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+              <line x1="3" y1="6" x2="21" y2="6"/>
+              <path d="M16 10a4 4 0 0 1-8 0"/>
+            </svg>
+          </div>
+          <div class="eyebrow" style="color:var(--accent)">Objetos de Diseño</div>
+          <h3>Tienda<br>Curada</h3>
+          <p>Arte, mobiliario y objetos de diseño seleccionados para espacios excepcionales.</p>
+          <div class="svc-cta">
+            <span>Explorar tienda</span>
+            <span class="arrow-line"></span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 4. Asesoría -->
+      <a href="asesoria.html" class="svc-card reveal delay-3">
+        <div class="svc-bg" style="background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1400');"></div>
+        <div class="svc-overlay"></div>
+        <div class="svc-number">04</div>
+        <div class="svc-content">
+          <div class="svc-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <div class="eyebrow" style="color:var(--accent)">Consultoría</div>
+          <h3>Asesoría<br>Personalizada</h3>
+          <p>Acompañamiento experto en cada decisión. Discreción, criterio y atención a cada detalle.</p>
+          <div class="svc-cta">
+            <span>Agendar sesión</span>
+            <span class="arrow-line"></span>
+          </div>
+        </div>
+      </a>
+
+    </div>
   </section>
 
 
   <!-- ======================================================================
-       MANIFESTO / QUIÉNES SOMOS
+       MANIFESTO / FILOSOFÍA — SECCIÓN OSCURA
   ====================================================================== -->
-  <section style="background: var(--bg-2);">
+  <section class="dark-section home-manifesto">
     <div class="container">
-      <div class="manifesto-grid">
-        <!-- Cita -->
+      <div class="manifesto-home-grid">
+
         <div class="reveal">
-          <div class="manifesto-number">01</div>
-          <blockquote class="manifesto-quote">
-            "Materiales nobles, proporciones correctas y buena luz. Eso es todo lo que un gran espacio necesita."
-            <cite class="manifesto-cite">— Principio fundacional de AURÉA</cite>
+          <div class="eyebrow">Nuestra filosofía</div>
+          <span class="gold-line"></span>
+          <blockquote class="manifesto-quote" style="color:var(--fg-light);">
+            "No construimos casas. Creamos los escenarios donde las vidas extraordinarias encuentran su forma."
           </blockquote>
-          <span class="gold-line" style="margin-top:28px;"></span>
-          <p class="lede" style="margin-top:20px;">
-            Somos un equipo multidisciplinario que integra arquitectura, diseño e ingeniería para ofrecer soluciones elegantes, eficientes y atemporales.
-          </p>
+          <cite style="display:block;margin-top:20px;font-family:var(--font-body);font-style:normal;font-size:0.65rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(245,242,236,0.3);">
+            — Principio fundacional de AURÉA
+          </cite>
         </div>
-        <!-- Stats -->
-        <div class="stats-grid reveal delay-2">
-          <div class="stat-box">
-            <div class="stat-num">12+</div>
-            <div class="stat-label">Años de experiencia</div>
+
+        <div class="stats-grid reveal delay-2" style="background:rgba(255,255,255,0.04);">
+          <div class="stat-box" style="background:rgba(255,255,255,0.02);">
+            <div class="stat-num" style="color:var(--accent);">12+</div>
+            <div class="stat-label" style="color:rgba(245,242,236,0.35);">Años de experiencia</div>
           </div>
-          <div class="stat-box">
-            <div class="stat-num">80+</div>
-            <div class="stat-label">Proyectos entregados</div>
+          <div class="stat-box" style="background:rgba(255,255,255,0.02);">
+            <div class="stat-num" style="color:var(--accent);">80+</div>
+            <div class="stat-label" style="color:rgba(245,242,236,0.35);">Proyectos entregados</div>
           </div>
-          <div class="stat-box">
-            <div class="stat-num">6</div>
-            <div class="stat-label">Propiedades activas</div>
+          <div class="stat-box" style="background:rgba(255,255,255,0.02);">
+            <div class="stat-num" style="color:var(--accent);">6</div>
+            <div class="stat-label" style="color:rgba(245,242,236,0.35);">Propiedades activas</div>
           </div>
-          <div class="stat-box">
-            <div class="stat-num">100%</div>
-            <div class="stat-label">Clientes satisfechos</div>
+          <div class="stat-box" style="background:rgba(255,255,255,0.02);">
+            <div class="stat-num" style="color:var(--accent);">100%</div>
+            <div class="stat-label" style="color:rgba(245,242,236,0.35);">Clientes satisfechos</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================================================
+       PROPIEDAD DESTACADA — FEATURE SECTION
+  ====================================================================== -->
+  <section class="home-featured">
+    <div class="container">
+      <div class="featured-label reveal">
+        <div class="eyebrow">Propiedad destacada</div>
+        <span class="gold-line"></span>
+      </div>
+    </div>
+
+    <div class="featured-split">
+      <!-- Imagen -->
+      <div class="featured-img-col reveal">
+        <div class="featured-img-wrap">
+          <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?q=80&w=1400" alt="Villa Los Ruinas — Antigua Guatemala" loading="lazy">
+          <div class="featured-price-tag">$890,000</div>
+        </div>
+      </div>
+
+      <!-- Info -->
+      <div class="featured-info-col reveal delay-2">
+        <div class="featured-meta">
+          <span class="eyebrow">Antigua Guatemala</span>
+        </div>
+        <h2>Villa<br><span class="italic-accent">Los Ruinas</span></h2>
+        <p class="lede" style="margin:20px 0 28px;">Una joya arquitectónica situada frente a ruinas históricas. Esta propiedad integra muros de piedra original con estructuras de acero y vidrio.</p>
+
+        <div class="featured-specs">
+          <div class="fspec">
+            <span class="fspec-val">5</span>
+            <span class="fspec-lbl">Habitaciones</span>
+          </div>
+          <div class="fspec-div"></div>
+          <div class="fspec">
+            <span class="fspec-val">5.5</span>
+            <span class="fspec-lbl">Baños</span>
+          </div>
+          <div class="fspec-div"></div>
+          <div class="fspec">
+            <span class="fspec-val">2</span>
+            <span class="fspec-lbl">Parqueos</span>
+          </div>
+        </div>
+
+        <a href="propiedad-detalle.html?id=villa-antigua" class="btn acc" style="margin-top:36px;">
+          Ver propiedad completa
+          <span class="arrow-line"></span>
+        </a>
+        <a href="propiedades.html" class="btn" style="margin-top:10px;">Ver todas las propiedades</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================================================
+       PROCESO — CÓMO TRABAJAMOS
+  ====================================================================== -->
+  <section style="background:var(--bg-2);">
+    <div class="container">
+      <div class="section-head">
+        <div class="reveal">
+          <div class="eyebrow">Proceso</div>
+          <span class="gold-line"></span>
+          <h2>Cómo trabajamos</h2>
+        </div>
+        <p class="lede reveal delay-1" style="max-width:36ch;text-align:right;align-self:flex-end;">
+          Un proceso diseñado para que cada decisión sea la correcta.
+        </p>
+      </div>
+
+      <div class="process-grid">
+        <div class="process-step reveal">
+          <div class="process-num">I</div>
+          <div class="process-body">
+            <h4>Primera consulta</h4>
+            <p>Escuchamos tus objetivos, estilo de vida y visión. Sin presiones, sin compromisos. Solo conversación y claridad.</p>
+          </div>
+        </div>
+        <div class="process-step reveal delay-1">
+          <div class="process-num">II</div>
+          <div class="process-body">
+            <h4>Propuesta curada</h4>
+            <p>Seleccionamos las opciones que realmente se alinean contigo. Calidad sobre cantidad, siempre.</p>
+          </div>
+        </div>
+        <div class="process-step reveal delay-2">
+          <div class="process-num">III</div>
+          <div class="process-body">
+            <h4>Visitas & evaluación</h4>
+            <p>Te acompañamos personalmente. Cada detalle arquitectónico, cada espacio, evaluado bajo tu criterio.</p>
+          </div>
+        </div>
+        <div class="process-step reveal delay-3">
+          <div class="process-num">IV</div>
+          <div class="process-body">
+            <h4>Cierre & entrega</h4>
+            <p>Coordinamos cada aspecto legal, financiero y técnico. Tu único trabajo es elegir y disfrutar.</p>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================================================
+       TESTIMONIOS
+  ====================================================================== -->
+  <section class="home-testimonials dark-section">
+    <div class="container">
+      <div class="reveal" style="text-align:center;margin-bottom:clamp(40px,6vw,70px);">
+        <div class="eyebrow">Testimonios</div>
+        <span class="gold-line center"></span>
+        <h2 style="color:var(--fg-light);">Lo que dicen<br><span class="italic-accent">nuestros clientes</span></h2>
+      </div>
+
+      <div class="testimonials-track" id="testimonialsTrack">
+
+        <div class="testimonial-card active">
+          <div class="testi-quote-mark">"</div>
+          <p class="testi-text">AURÉA transformó completamente la forma en que entendía el proceso de compra de una propiedad. No es una transacción. Es una experiencia de diseño en sí misma.</p>
+          <div class="testi-author">
+            <div class="testi-initials">RC</div>
+            <div>
+              <strong>Ricardo C.</strong>
+              <small>Empresario — Ciudad de Guatemala</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testi-quote-mark">"</div>
+          <p class="testi-text">La remodelación de nuestra residencia superó cada expectativa. Cada material elegido, cada proporción, cada detalle fue pensado con una precisión que pocas veces se ve.</p>
+          <div class="testi-author">
+            <div class="testi-initials">ML</div>
+            <div>
+              <strong>María L.</strong>
+              <small>Arquitecta — Antigua Guatemala</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testi-quote-mark">"</div>
+          <p class="testi-text">La discreción, la atención y el criterio estético del equipo AURÉA son incomparables. Encontraron el penthouse exacto que buscaba antes de que yo supiera que lo buscaba.</p>
+          <div class="testi-author">
+            <div class="testi-initials">AV</div>
+            <div>
+              <strong>Alejandro V.</strong>
+              <small>Inversionista — Zona 10, Guatemala</small>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Dots de navegación -->
+      <div class="testi-dots" id="testiDots">
+        <button class="tdot active" onclick="goTestimonial(0)"></button>
+        <button class="tdot" onclick="goTestimonial(1)"></button>
+        <button class="tdot" onclick="goTestimonial(2)"></button>
+      </div>
+
     </div>
   </section>
 
@@ -147,16 +410,22 @@
   <!-- ======================================================================
        CTA FINAL
   ====================================================================== -->
-  <section class="dark-section" style="text-align:center;">
-    <div class="container" style="max-width:680px;margin-inline:auto;">
+  <section style="text-align:center; background:var(--bg);">
+    <div class="container" style="max-width:720px;margin-inline:auto;">
       <div class="reveal">
-        <div class="eyebrow">¿Listo para empezar?</div>
+        <div class="eyebrow">¿Listo para comenzar?</div>
         <span class="gold-line center"></span>
-        <h2 style="color:var(--fg-light);margin:12px 0 20px;">Hablemos de tu próximo hogar</h2>
-        <p style="color:rgba(245,242,236,0.6);margin-bottom:36px;">
-          Nuestros asesores están disponibles para guiarte en cada paso del proceso, con la discreción y atención que mereces.
+        <h2 style="margin:12px 0 20px;">Hablemos de tu próximo<br><span class="italic-accent">espacio excepcional</span></h2>
+        <p class="lede" style="margin-bottom:40px;max-width:46ch;margin-inline:auto;">
+          Nuestros asesores están disponibles para guiarte con la discreción y atención que mereces.
         </p>
-        <a href="asesoria.html" class="btn acc">Agendar una asesoría</a>
+        <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+          <a href="asesoria.html" class="btn acc">Agendar una asesoría</a>
+          <a href="https://wa.me/50233667439" class="btn" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 3.5A10.5 10.5 0 0 0 3.4 16.9L2 22l5.3-1.4A10.5 10.5 0 1 0 20 3.5Z"/></svg>
+            WhatsApp directo
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -170,11 +439,12 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <img src="logo.png" alt="AURÉA" class="footer-logo">
-          <p>Bienes raíces y diseño arquitectónico de alto nivel en Guatemala. Propiedades únicas para personas con visión.</p>
+          <p>Arquitectura, bienes raíces y diseño de alto nivel en Guatemala. Espacios únicos para personas con visión.</p>
         </div>
         <div class="footer-col">
           <h4>Navegación</h4>
-          <a href="index.html">Propiedades</a>
+          <a href="index.html">Inicio</a>
+          <a href="propiedades.html">Propiedades</a>
           <a href="remodelaciones.html">Remodelaciones</a>
           <a href="tienda.html">Tienda</a>
           <a href="asesoria.html">Asesoría</a>
@@ -197,44 +467,37 @@
   <!-- ======================================================================
        SCRIPTS
   ====================================================================== -->
-  <script src="js/propiedades.js"></script>
   <script>
-    /* ── Año ── */
     document.getElementById('year').textContent = new Date().getFullYear();
 
     /* ── Cursor personalizado ── */
     const dot  = document.getElementById('cursorDot');
     const ring = document.getElementById('cursorRing');
     let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
-
     document.addEventListener('mousemove', e => {
       mouseX = e.clientX; mouseY = e.clientY;
       dot.style.left = mouseX + 'px';
       dot.style.top  = mouseY + 'px';
     });
-    /* El ring sigue con suavidad (lerp) */
-    function animateCursor() {
+    (function animateCursor() {
       ringX += (mouseX - ringX) * 0.12;
       ringY += (mouseY - ringY) * 0.12;
       ring.style.left = ringX + 'px';
       ring.style.top  = ringY + 'px';
       requestAnimationFrame(animateCursor);
-    }
-    animateCursor();
-
-    /* Hover sobre elementos interactivos */
-    document.querySelectorAll('a, button, .prop-card').forEach(el => {
+    })();
+    document.querySelectorAll('a, button, .svc-card').forEach(el => {
       el.addEventListener('mouseenter', () => ring.classList.add('hovered'));
       el.addEventListener('mouseleave', () => ring.classList.remove('hovered'));
     });
 
-    /* ── Header scroll ── */
+    /* ── Header scroll transparente → sólido ── */
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => {
       header.classList.toggle('scrolled', window.scrollY > 60);
     }, { passive: true });
 
-    /* ── Hero: animación de entrada de imagen ── */
+    /* ── Hero: animación entrada imagen ── */
     setTimeout(() => document.getElementById('hero').classList.add('loaded'), 100);
 
     /* ── Menú móvil ── */
@@ -257,40 +520,45 @@
       entries.forEach(e => {
         if (e.isIntersecting) { e.target.classList.add('in'); revealObs.unobserve(e.target); }
       });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.08 });
     document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
-    /* ── Generar tarjetas de propiedades ── */
-    const grid = document.getElementById('grid-propiedades');
-    document.getElementById('propCount').textContent = propiedades.length;
-
-    propiedades.forEach((prop, i) => {
-      const card = document.createElement('div');
-      card.className = 'prop-card reveal' + (i <= 1 ? ' in' : '');
-      card.onclick = () => window.location.href = `propiedad-detalle.html?id=${prop.id}`;
-
-      card.innerHTML = `
-        <div class="prop-img">
-          <img src="${prop.imagenes[0]}" alt="${prop.nombre}" loading="${i === 0 ? 'eager' : 'lazy'}">
-        </div>
-        <div class="price-badge">${prop.precio}</div>
-        <div class="prop-overlay">
-          <div class="prop-location">${prop.ubicacion}</div>
-          <h3>${prop.nombre}</h3>
-          <p class="prop-desc">${prop.descripcionCorta}</p>
-          <div class="prop-cta">
-            <span class="prop-cta-link">
-              Ver propiedad
-              <span class="arrow-line"></span>
-            </span>
-          </div>
-        </div>
-      `;
-      grid.appendChild(card);
-
-      /* Observar cada tarjeta para reveal */
-      if (i > 1) revealObs.observe(card);
+    /* ── Section head split reveal ── */
+    document.querySelectorAll('.reveal-split').forEach(el => {
+      el.classList.add('reveal');
+      revealObs.observe(el);
     });
+
+    /* ── Testimoniales ── */
+    let currentTesti = 0;
+    const testiCards = document.querySelectorAll('.testimonial-card');
+    const testiDots  = document.querySelectorAll('.tdot');
+    let testiTimer;
+
+    function goTestimonial(idx) {
+      testiCards[currentTesti].classList.remove('active');
+      testiDots[currentTesti].classList.remove('active');
+      currentTesti = idx;
+      testiCards[currentTesti].classList.add('active');
+      testiDots[currentTesti].classList.add('active');
+    }
+
+    function nextTestimonial() {
+      goTestimonial((currentTesti + 1) % testiCards.length);
+    }
+
+    function resetTestiTimer() {
+      clearInterval(testiTimer);
+      testiTimer = setInterval(nextTestimonial, 6000);
+    }
+
+    // Exponer para los botones inline
+    window.goTestimonial = function(idx) {
+      goTestimonial(idx);
+      resetTestiTimer();
+    };
+
+    resetTestiTimer();
   </script>
 </body>
 </html>

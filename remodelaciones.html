@@ -17,7 +17,8 @@
        MENÚ MÓVIL FULLSCREEN
   ====================================================================== -->
   <div class="mobile-menu" id="mobileMenu">
-    <a href="index.html"          onclick="closeMobile()">Propiedades</a>
+    <a href="index.html"          onclick="closeMobile()">Inicio</a>
+    <a href="propiedades.html"    onclick="closeMobile()">Propiedades</a>
     <a href="remodelaciones.html" onclick="closeMobile()">Remodelaciones</a>
     <a href="tienda.html"         onclick="closeMobile()">Tienda</a>
     <a href="asesoria.html"       onclick="closeMobile()">Asesoría</a>
@@ -33,7 +34,8 @@
         <img src="logo.png" alt="Logotipo de AURÉA" class="brand-logo">
       </a>
       <nav class="menu" aria-label="Principal">
-        <a href="index.html">Propiedades</a>
+        <a href="index.html">Inicio</a>
+        <a href="propiedades.html">Propiedades</a>
         <a href="remodelaciones.html" class="active">Remodelaciones</a>
         <a href="tienda.html">Tienda</a>
         <a href="asesoria.html">Asesoría</a>
@@ -272,7 +274,8 @@
         </div>
         <div class="footer-col">
           <h4>Navegación</h4>
-          <a href="index.html">Propiedades</a>
+          <a href="index.html">Inicio</a>
+          <a href="propiedades.html">Propiedades</a>
           <a href="remodelaciones.html">Remodelaciones</a>
           <a href="tienda.html">Tienda</a>
           <a href="asesoria.html">Asesoría</a>
@@ -380,10 +383,9 @@
         dialog.showModal();
       });
     });
-
-    /* Cerrar el lightbox al hacer clic en el fondo */
-    dialog.addEventListener('click', e => { if (e.target === dialog) dialog.close(); });
+    dialog.addEventListener('click', e => {
+      if (e.target === dialog) dialog.close();
+    });
   </script>
-
 </body>
 </html>

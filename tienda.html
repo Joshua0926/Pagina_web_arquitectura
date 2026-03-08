@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tienda — AURÉA</title>
+  <meta name="description" content="Arte, mobiliario, iluminación y accesorios de diseño seleccionados por AURÉA para espacios excepcionales." />
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="cursor-dot"  id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Menú móvil fullscreen -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html"          onclick="closeMobile()">Propiedades</a>
+    <a href="remodelaciones.html" onclick="closeMobile()">Remodelaciones</a>
+    <a href="tienda.html"         onclick="closeMobile()">Tienda</a>
+    <a href="asesoria.html"       onclick="closeMobile()">Asesoría</a>
+    <p class="mobile-menu-footer">AURÉA · Guatemala · Est. 2020</p>
+  </div>
+
+  <!-- Drawer de filtros (móvil) -->
+  <div class="filter-drawer" id="filterDrawer">
+    <div class="filter-drawer-backdrop" onclick="closeDrawer()"></div>
+    <div class="filter-drawer-panel">
+      <div>
+        <div class="eyebrow">Filtrar por</div>
+        <h3>Categoría</h3>
+      </div>
+      <div class="drawer-cats" id="drawerCats">
+        <!-- Generado por JS -->
+      </div>
+      <button class="drawer-close" onclick="closeDrawer()">← Cerrar filtros</button>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       HEADER
+  ====================================================================== -->
+  <header id="header">
+    <div class="container nav">
+      <a href="index.html" class="brand">
+        <img src="logo.png" alt="AURÉA" class="brand-logo">
+      </a>
+      <nav class="menu">
+        <a href="index.html">Propiedades</a>
+        <a href="remodelaciones.html">Remodelaciones</a>
+        <a href="tienda.html" class="active">Tienda</a>
+        <a href="asesoria.html">Asesoría</a>
+      </nav>
+      <div class="cta">
+        <a href="asesoria.html" class="btn">Asesoría</a>
+        <button class="hamburger" id="hamburger" aria-label="Menú" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================================================================
+       HERO
+  ====================================================================== -->
+  <section class="hero-tienda">
+    <div class="container">
+      <div style="max-width:700px;">
+        <div class="eyebrow reveal">Objetos de diseño</div>
+        <span class="gold-line reveal delay-1"></span>
+        <h1 class="reveal delay-1">
+          Piezas únicas para<br>espacios con <span class="italic-accent">carácter.</span>
+        </h1>
+        <p class="lede reveal delay-2" style="margin-top:18px;">
+          Arte original, mobiliario artesanal e iluminación de autor, seleccionados por el criterio exigente del estudio AURÉA.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       BARRA DE CONTROLES (sticky)
+  ====================================================================== -->
+  <div class="shop-controls" id="shopControls">
+    <div class="container shop-controls-inner">
+
+      <!-- Búsqueda -->
+      <div class="search-box">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+        <input
+          type="search"
+          id="searchInput"
+          placeholder="Buscar productos…"
+          autocomplete="off"
+          spellcheck="false"
+        >
+      </div>
+
+      <!-- Filtros por categoría (desktop) -->
+      <div class="filter-tabs" id="filterTabs">
+        <button class="filter-tab active" data-cat="Todos">Todos</button>
+        <!-- Generados por JS -->
+      </div>
+
+      <!-- Botón de filtro (móvil) -->
+      <button class="filter-drawer-btn" id="filterDrawerBtn" aria-label="Abrir filtros">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/>
+        </svg>
+        Filtrar
+      </button>
+
+      <!-- Ordenar por -->
+      <select class="sort-select" id="sortSelect">
+        <option value="default">Orden predeterminado</option>
+        <option value="precio-asc">Precio: menor a mayor</option>
+        <option value="precio-desc">Precio: mayor a menor</option>
+        <option value="nombre-asc">Nombre: A–Z</option>
+        <option value="destacados">Destacados primero</option>
+      </select>
+
+      <!-- Contador -->
+      <span class="results-count" id="resultsCount">— productos</span>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       CATÁLOGO DE PRODUCTOS
+  ====================================================================== -->
+  <section style="padding:0; padding-top: 2px;">
+    <div class="productos-grid" id="productosGrid">
+      <!-- Generado por JS -->
+    </div>
+    <!-- Paginación -->
+    <div class="container">
+      <div class="pagination" id="pagination"></div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       BANNER EDITORIAL
+  ====================================================================== -->
+  <section class="dark-section" style="text-align:center; padding: clamp(70px,9vw,110px) 0;">
+    <div class="container" style="max-width:660px; margin-inline:auto;">
+      <div class="reveal">
+        <div class="eyebrow">¿Tienes algo en mente?</div>
+        <span class="gold-line center"></span>
+        <h2 style="color:var(--fg-light);margin:14px 0 18px;">
+          Diseñamos piezas a medida
+        </h2>
+        <p style="color:rgba(245,242,236,0.55);margin-bottom:36px;">
+          Si no encuentras lo que buscas, podemos crearlo. Nuestro equipo diseña y produce mobiliario, iluminación y objetos únicos bajo pedido.
+        </p>
+        <a href="asesoria.html" class="btn acc">Solicitar pieza a medida</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       FOOTER
+  ====================================================================== -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="logo.png" alt="AURÉA" class="footer-logo">
+          <p>Arte, mobiliario y objetos de diseño para espacios excepcionales.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navegación</h4>
+          <a href="index.html">Propiedades</a>
+          <a href="remodelaciones.html">Remodelaciones</a>
+          <a href="tienda.html">Tienda</a>
+          <a href="asesoria.html">Asesoría</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <a href="https://wa.me/50233667439">WhatsApp</a>
+          <a href="mailto:aurea.infot@gmail.com">aurea.infot@gmail.com</a>
+          <a href="tel:+50233667439">+502 3366 7439</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <small>© <span id="year"></span> AURÉA Estudio. Todos los derechos reservados.</small>
+        <span class="footer-accent">Diseño con propósito.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======================================================================
+       SCRIPTS
+  ====================================================================== -->
+  <script src="js/productos.js"></script>
+  <script>
+    /* ── Año ── */
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    /* ══════════════════════════════════════════════════════════════════════
+       CURSOR
+    ══════════════════════════════════════════════════════════════════════ */
+    const dot  = document.getElementById('cursorDot');
+    const ring = document.getElementById('cursorRing');
+    let mx=0,my=0,rx=0,ry=0;
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      dot.style.cssText = `left:${mx}px;top:${my}px`;
+    });
+    (function loop() {
+      rx += (mx-rx)*0.12; ry += (my-ry)*0.12;
+      ring.style.cssText = `left:${rx}px;top:${ry}px`;
+      requestAnimationFrame(loop);
+    })();
+    function addHover(selector) {
+      document.querySelectorAll(selector).forEach(el => {
+        el.addEventListener('mouseenter', () => ring.classList.add('hovered'));
+        el.addEventListener('mouseleave', () => ring.classList.remove('hovered'));
+      });
+    }
+    addHover('a, button, .producto-card, input, select');
+
+    /* ══════════════════════════════════════════════════════════════════════
+       HEADER SCROLL
+    ══════════════════════════════════════════════════════════════════════ */
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', scrollY > 60);
+    }, { passive: true });
+
+    /* ══════════════════════════════════════════════════════════════════════
+       MENÚ MÓVIL
+    ══════════════════════════════════════════════════════════════════════ */
+    const hamburger  = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    function closeMobile() {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    /* ══════════════════════════════════════════════════════════════════════
+       DRAWER DE FILTROS (móvil)
+    ══════════════════════════════════════════════════════════════════════ */
+    const filterDrawer = document.getElementById('filterDrawer');
+    document.getElementById('filterDrawerBtn').addEventListener('click', () => {
+      filterDrawer.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+    function closeDrawer() {
+      filterDrawer.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    /* ══════════════════════════════════════════════════════════════════════
+       LÓGICA DE LA TIENDA
+    ══════════════════════════════════════════════════════════════════════ */
+    let estadoTienda = {
+      categoriaActiva: 'Todos',
+      busqueda: '',
+      orden: 'default',
+      pagina: 1,
+      ppp: TIENDA_CONFIG.productosPorPagina  // productos por página
+    };
+
+    /* Construir filtros de categoría */
+    const filterTabsEl = document.getElementById('filterTabs');
+    const drawerCatsEl = document.getElementById('drawerCats');
+
+    CATEGORIAS.forEach(cat => {
+      // Tab desktop
+      const tab = document.createElement('button');
+      tab.className = 'filter-tab';
+      tab.dataset.cat = cat;
+      tab.textContent = cat;
+      filterTabsEl.appendChild(tab);
+
+      // Botón drawer móvil
+      const dBtn = document.createElement('button');
+      dBtn.className = 'drawer-cat';
+      dBtn.dataset.cat = cat;
+      dBtn.textContent = cat;
+      drawerCatsEl.appendChild(dBtn);
+    });
+
+    /* Aplicar filtro de categoría */
+    function setCat(cat) {
+      estadoTienda.categoriaActiva = cat;
+      estadoTienda.pagina = 1;
+      // Actualizar tabs desktop
+      document.querySelectorAll('.filter-tab').forEach(t => {
+        t.classList.toggle('active', t.dataset.cat === cat);
+      });
+      // Actualizar drawer
+      document.querySelectorAll('.drawer-cat').forEach(t => {
+        t.classList.toggle('active', t.dataset.cat === cat);
+      });
+      renderTienda();
+    }
+
+    // Eventos en tabs y drawer
+    document.querySelectorAll('.filter-tab, .drawer-cat').forEach(btn => {
+      btn.addEventListener('click', () => {
+        setCat(btn.dataset.cat);
+        if (filterDrawer.classList.contains('open')) closeDrawer();
+      });
+    });
+
+    /* Búsqueda con debounce */
+    let searchTimer;
+    document.getElementById('searchInput').addEventListener('input', e => {
+      clearTimeout(searchTimer);
+      searchTimer = setTimeout(() => {
+        estadoTienda.busqueda = e.target.value.trim().toLowerCase();
+        estadoTienda.pagina = 1;
+        renderTienda();
+      }, 280);
+    });
+
+    /* Orden */
+    document.getElementById('sortSelect').addEventListener('change', e => {
+      estadoTienda.orden = e.target.value;
+      estadoTienda.pagina = 1;
+      renderTienda();
+    });
+
+    /* Filtrar y ordenar productos */
+    function getProductosFiltrados() {
+      let lista = [...productos];
+
+      // Filtro categoría
+      if (estadoTienda.categoriaActiva !== 'Todos') {
+        lista = lista.filter(p => p.categoria === estadoTienda.categoriaActiva);
+      }
+
+      // Filtro búsqueda (nombre, descripción, tags, categoría)
+      if (estadoTienda.busqueda) {
+        const q = estadoTienda.busqueda;
+        lista = lista.filter(p =>
+          p.nombre.toLowerCase().includes(q) ||
+          p.descripcion.toLowerCase().includes(q) ||
+          p.categoria.toLowerCase().includes(q) ||
+          (p.tags && p.tags.some(t => t.includes(q)))
+        );
+      }
+
+      // Ordenar
+      switch (estadoTienda.orden) {
+        case 'precio-asc':    lista.sort((a,b) => a.precio - b.precio);                      break;
+        case 'precio-desc':   lista.sort((a,b) => b.precio - a.precio);                      break;
+        case 'nombre-asc':    lista.sort((a,b) => a.nombre.localeCompare(b.nombre));          break;
+        case 'destacados':    lista.sort((a,b) => (b.destacado?1:0) - (a.destacado?1:0));    break;
+      }
+
+      return lista;
+    }
+
+    /* Formatear precio */
+    function formatPrecio(p) {
+      return 'Q ' + p.precio.toLocaleString('es-GT');
+    }
+
+    /* Renderizar una tarjeta de producto */
+    function crearTarjetaProducto(prod) {
+      const card = document.createElement('div');
+      card.className = 'producto-card reveal';
+
+      const tieneSegundaImg = prod.imagenes.length > 1;
+      const agotado = !prod.disponible;
+
+      card.innerHTML = `
+        <div class="prod-img-wrap">
+          <img src="${prod.imagenes[0]}" alt="${prod.nombre}" loading="lazy">
+          ${tieneSegundaImg ? `
+          <div class="prod-img-hover">
+            <img src="${prod.imagenes[1]}" alt="${prod.nombre} — alternativa" loading="lazy">
+          </div>` : ''}
+          ${agotado ? '<div class="prod-badge agotado">Agotado</div>' : (prod.destacado ? '<div class="prod-badge destacado">Destacado</div>' : '')}
+          ${!agotado ? `
+          <div class="prod-actions">
+            <button class="prod-action-btn" title="Ver detalle"
+              onclick="event.stopPropagation(); window.location.href='producto-detalle.html?id=${prod.id}'">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </button>
+            <button class="prod-action-btn" title="Consultar por WhatsApp"
+              onclick="event.stopPropagation(); consultarProducto('${prod.id}')">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20 3.5A10.5 10.5 0 0 0 3.4 16.9L2 22l5.3-1.4A10.5 10.5 0 1 0 20 3.5Z"/>
+              </svg>
+            </button>
+          </div>` : ''}
+        </div>
+        <div class="prod-info">
+          <div class="prod-categoria">${prod.categoria}</div>
+          <h3 class="prod-nombre">${prod.nombre}</h3>
+          <p class="prod-descripcion">${prod.descripcion}</p>
+          <div class="prod-footer">
+            <div class="prod-precio ${agotado ? 'agotado' : ''}">
+              ${formatPrecio(prod)} <small>${prod.moneda}</small>
+            </div>
+            <span class="prod-ver-btn">
+              ${agotado ? 'Agotado' : 'Ver más'}
+              <span class="mini-arrow"></span>
+            </span>
+          </div>
+        </div>
+      `;
+
+      // Click en tarjeta → ir a detalle
+      card.addEventListener('click', () => {
+        window.location.href = `producto-detalle.html?id=${prod.id}`;
+      });
+
+      return card;
+    }
+
+    /* Consultar producto por WhatsApp */
+    function consultarProducto(id) {
+      const prod = productos.find(p => p.id === id);
+      if (!prod) return;
+      const msg = TIENDA_CONFIG.mensajeWa(prod);
+      window.open(`https://wa.me/${TIENDA_CONFIG.whatsappNumero}?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+    window.consultarProducto = consultarProducto; // exponer globalmente
+
+    /* Renderizar paginación */
+    function renderPaginacion(total) {
+      const { pagina, ppp } = estadoTienda;
+      const totalPags = Math.ceil(total / ppp);
+      const paginacionEl = document.getElementById('pagination');
+      paginacionEl.innerHTML = '';
+
+      if (totalPags <= 1) return;
+
+      // Botón anterior
+      const prev = document.createElement('button');
+      prev.className = 'page-btn';
+      prev.innerHTML = '←';
+      prev.disabled = pagina === 1;
+      prev.onclick = () => { estadoTienda.pagina--; renderTienda(); scrollToGrid(); };
+      paginacionEl.appendChild(prev);
+
+      // Números de página
+      for (let i = 1; i <= totalPags; i++) {
+        const btn = document.createElement('button');
+        btn.className = 'page-btn' + (i === pagina ? ' active' : '');
+        btn.textContent = i;
+        btn.onclick = () => { estadoTienda.pagina = i; renderTienda(); scrollToGrid(); };
+        paginacionEl.appendChild(btn);
+      }
+
+      // Botón siguiente
+      const next = document.createElement('button');
+      next.className = 'page-btn';
+      next.innerHTML = '→';
+      next.disabled = pagina === totalPags;
+      next.onclick = () => { estadoTienda.pagina++; renderTienda(); scrollToGrid(); };
+      paginacionEl.appendChild(next);
+    }
+
+    function scrollToGrid() {
+      document.getElementById('shopControls').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    /* Render principal */
+    function renderTienda() {
+      const lista = getProductosFiltrados();
+      const total = lista.length;
+      const { pagina, ppp } = estadoTienda;
+      const inicio = (pagina - 1) * ppp;
+      const paginaActual = lista.slice(inicio, inicio + ppp);
+
+      // Contador
+      document.getElementById('resultsCount').textContent =
+        `${total} ${total === 1 ? 'producto' : 'productos'}`;
+
+      // Grid
+      const grid = document.getElementById('productosGrid');
+      grid.innerHTML = '';
+
+      if (paginaActual.length === 0) {
+        const empty = document.createElement('div');
+        empty.className = 'empty-state';
+        empty.innerHTML = `
+          <div class="empty-icon">∅</div>
+          <h3>Sin resultados</h3>
+          <p>No encontramos productos que coincidan con tu búsqueda.<br>Intenta con otros términos o categorías.</p>
+        `;
+        grid.appendChild(empty);
+      } else {
+        paginaActual.forEach(prod => {
+          const card = crearTarjetaProducto(prod);
+          grid.appendChild(card);
+        });
+      }
+
+      renderPaginacion(total);
+
+      // Scroll reveal para nuevas tarjetas
+      const revObs = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revObs.unobserve(e.target); } });
+      }, { threshold: 0.05 });
+      grid.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
+    }
+
+    /* ── Scroll reveal general ── */
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    /* ── Inicializar ── */
+    renderTienda();
+
+    /* Soporte para URL params: ?cat=Arte */
+    const urlCat = new URLSearchParams(location.search).get('cat');
+    if (urlCat && CATEGORIAS.includes(urlCat)) setCat(urlCat);
+  </script>
+</body>
+</html>

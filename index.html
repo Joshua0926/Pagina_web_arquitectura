@@ -17,9 +17,10 @@
        MENÚ MÓVIL FULLSCREEN
   ====================================================================== -->
   <div class="mobile-menu" id="mobileMenu">
-    <a href="index.html"        onclick="closeMobile()">Propiedades</a>
+    <a href="index.html"          onclick="closeMobile()">Propiedades</a>
     <a href="remodelaciones.html" onclick="closeMobile()">Remodelaciones</a>
-    <a href="asesoria.html"     onclick="closeMobile()">Asesoría</a>
+    <a href="tienda.html"         onclick="closeMobile()">Tienda</a>
+    <a href="asesoria.html"       onclick="closeMobile()">Asesoría</a>
     <p class="mobile-menu-footer">AURÉA · Guatemala · Est. 2020</p>
   </div>
 
@@ -34,6 +35,7 @@
       <nav class="menu">
         <a href="index.html" class="active">Propiedades</a>
         <a href="remodelaciones.html">Remodelaciones</a>
+        <a href="tienda.html">Tienda</a>
         <a href="asesoria.html">Asesoría</a>
       </nav>
       <div class="cta">
@@ -174,6 +176,7 @@
           <h4>Navegación</h4>
           <a href="index.html">Propiedades</a>
           <a href="remodelaciones.html">Remodelaciones</a>
+          <a href="tienda.html">Tienda</a>
           <a href="asesoria.html">Asesoría</a>
         </div>
         <div class="footer-col">
@@ -209,7 +212,7 @@
       dot.style.left = mouseX + 'px';
       dot.style.top  = mouseY + 'px';
     });
-    // El ring sigue con suavidad (lerp)
+    /* El ring sigue con suavidad (lerp) */
     function animateCursor() {
       ringX += (mouseX - ringX) * 0.12;
       ringY += (mouseY - ringY) * 0.12;
@@ -219,7 +222,7 @@
     }
     animateCursor();
 
-    // Hover sobre elementos interactivos
+    /* Hover sobre elementos interactivos */
     document.querySelectorAll('a, button, .prop-card').forEach(el => {
       el.addEventListener('mouseenter', () => ring.classList.add('hovered'));
       el.addEventListener('mouseleave', () => ring.classList.remove('hovered'));
@@ -251,7 +254,9 @@
 
     /* ── Scroll Reveal ── */
     const revealObs = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revealObs.unobserve(e.target); } });
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('in'); revealObs.unobserve(e.target); }
+      });
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
@@ -283,7 +288,7 @@
       `;
       grid.appendChild(card);
 
-      // Observar cada tarjeta para reveal
+      /* Observar cada tarjeta para reveal */
       if (i > 1) revealObs.observe(card);
     });
   </script>

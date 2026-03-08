@@ -4,55 +4,22 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Asesoría & Contacto — AURÉA</title>
-  <meta name="description" content="Asesoría profesional en bienes raíces, diseño arquitectónico y remodelaciones en Guatemala." />
+  <meta name="description" content="Contáctanos para asesoría en bienes raíces, diseño arquitectónico o remodelaciones." />
   <link rel="stylesheet" href="css/style.css">
-  <style>
-    /* Estilos adicionales solo para la página de asesoría */
-    .hero-asesoria {
-      padding: clamp(130px,18vh,200px) 0 clamp(60px,8vw,100px);
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-asesoria::before {
-      content: 'CONTACTO';
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -52%);
-      font-family: var(--font-display);
-      font-size: clamp(80px, 16vw, 200px);
-      font-weight: 300;
-      color: rgba(74,90,71,0.04);
-      white-space: nowrap;
-      pointer-events: none;
-      user-select: none;
-      letter-spacing: -0.02em;
-    }
-    /* Línea vertical decorativa en el formulario */
-    .form-section-title {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 28px;
-    }
-    .form-section-title .vline {
-      width: 1px;
-      height: 36px;
-      background: var(--accent);
-    }
-    .form-section-title h3 {
-      font-size: clamp(1.3rem,2vw,1.8rem);
-      font-weight: 300;
-    }
-  </style>
 </head>
 <body>
 
+  <!-- Cursor personalizado -->
   <div class="cursor-dot"  id="cursorDot"></div>
   <div class="cursor-ring" id="cursorRing"></div>
 
+  <!-- ======================================================================
+       MENÚ MÓVIL FULLSCREEN
+  ====================================================================== -->
   <div class="mobile-menu" id="mobileMenu">
     <a href="index.html"          onclick="closeMobile()">Propiedades</a>
     <a href="remodelaciones.html" onclick="closeMobile()">Remodelaciones</a>
+    <a href="tienda.html"         onclick="closeMobile()">Tienda</a>
     <a href="asesoria.html"       onclick="closeMobile()">Asesoría</a>
     <p class="mobile-menu-footer">AURÉA · Guatemala</p>
   </div>
@@ -63,16 +30,17 @@
   <header id="header">
     <div class="container nav">
       <a href="index.html" class="brand">
-        <img src="logo.png" alt="AURÉA" class="brand-logo">
+        <img src="logo.png" alt="Logotipo de AURÉA" class="brand-logo">
       </a>
-      <nav class="menu">
+      <nav class="menu" aria-label="Principal">
         <a href="index.html">Propiedades</a>
         <a href="remodelaciones.html">Remodelaciones</a>
+        <a href="tienda.html">Tienda</a>
         <a href="asesoria.html" class="active">Asesoría</a>
       </nav>
       <div class="cta">
-        <a id="waHeader" href="#" class="btn">WhatsApp</a>
-        <button class="hamburger" id="hamburger" aria-label="Menú">
+        <a class="btn" id="whats-header" href="#">WhatsApp</a>
+        <button class="hamburger" aria-label="Abrir menú" id="hamburger" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
       </div>
@@ -81,11 +49,11 @@
 
 
   <!-- ======================================================================
-       HERO
+       HERO — EDITORIAL
   ====================================================================== -->
-  <section class="hero-asesoria">
-    <div class="container">
-      <div style="max-width:700px;">
+  <section class="hero-editorial">
+    <div class="container hero-editorial-inner">
+      <div>
         <div class="eyebrow reveal">Asesoría Profesional</div>
         <span class="gold-line reveal delay-1"></span>
         <h1 class="reveal delay-1">Hablemos de tu<br><span class="italic-accent">próximo proyecto.</span></h1>
@@ -96,9 +64,11 @@
     </div>
   </section>
 
+  <div style="width:100%;height:1px;background:var(--border);"></div>
+
 
   <!-- ======================================================================
-       CONTACTO SPLIT — Métodos + Formulario
+       CONTACTO SPLIT — Métodos de contacto + Formulario
   ====================================================================== -->
   <section style="padding:0;">
     <div class="contact-split">
@@ -108,9 +78,12 @@
         <div class="eyebrow">Canales directos</div>
         <span class="gold-line"></span>
         <h2 style="color:var(--fg-light);margin:16px 0 8px;">Estamos<br>disponibles.</h2>
-        <p>Respuesta garantizada en menos de 24 horas. Para asuntos urgentes, WhatsApp es la vía más rápida.</p>
+        <p style="color:rgba(245,242,236,0.55);margin-bottom:36px;">
+          Respuesta garantizada en menos de 24 horas. Para asuntos urgentes, WhatsApp es la vía más rápida.
+        </p>
 
-        <a class="contact-method" id="ctaWhatsapp" href="#">
+        <!-- WhatsApp -->
+        <a class="contact-method" id="cta-whatsapp" href="#">
           <div class="method-icon">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
               <path d="M20 3.5A10.5 10.5 0 0 0 3.4 16.9L2 22l5.3-1.4A10.5 10.5 0 1 0 20 3.5Zm-8.3 15.3c-1.7 0-3.3-.5-4.7-1.5l-.3-.2-2.8.7.8-2.7-.2-.3a8 8 0 1 1 7.2 4Zm4.4-5.4c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.6.1-.7.8-.9.9-.3.2-.6.1a6.7 6.7 0 0 1-2-1.2 7.5 7.5 0 0 1-1.4-1.7c-.2-.3 0-.5.1-.6l.3-.4.2-.3c.1-.2.1-.3 0-.5 0-.1-.6-1.6-.9-2.2-.3-.6-.5-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.1 3c.1.2 2 3 4.9 4.2.7.3 1.2.4 1.6.5.7.2 1.3.2 1.7.1.5-.1 1.4-.6 1.6-1.2.2-.6.2-1 .1-1.2-.1-.2-.3-.2-.6-.4Z"/>
@@ -122,7 +95,8 @@
           </div>
         </a>
 
-        <a class="contact-method" id="ctaMail" href="#">
+        <!-- Correo electrónico -->
+        <a class="contact-method" id="cta-mail" href="#">
           <div class="method-icon">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5">
               <rect x="2" y="4" width="20" height="16" rx="2"/>
@@ -131,11 +105,12 @@
           </div>
           <div class="method-text">
             <b style="color:var(--fg-light);">Correo Electrónico</b>
-            <small id="emailTxt">aurea.infot@gmail.com</small>
+            <small id="contact-email-text">aurea.infot@gmail.com</small>
           </div>
         </a>
 
-        <a class="contact-method" id="ctaCall" href="#">
+        <!-- Teléfono -->
+        <a class="contact-method" id="cta-call" href="#">
           <div class="method-icon">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5">
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92Z"/>
@@ -143,33 +118,31 @@
           </div>
           <div class="method-text">
             <b style="color:var(--fg-light);">Llamada Directa</b>
-            <small id="phoneTxt">+502 3366 7439 / +502 4816 9666</small>
+            <small id="contact-phone-text">+502 3366 7439 / +502 4816 9666</small>
           </div>
         </a>
 
-        <!-- Decorativo: frase en la parte inferior del panel -->
         <div style="margin-top:auto;padding-top:48px;">
-          <p style="font-family:var(--font-display);font-style:italic;font-size:1.1rem;color:rgba(245,242,236,0.35);line-height:1.6;">
+          <p style="font-family:var(--font-display);font-style:italic;font-size:1.1rem;color:rgba(245,242,236,0.3);line-height:1.6;">
             "La arquitectura de lujo comienza con una conversación honesta."
           </p>
         </div>
       </div>
 
       <!-- Panel claro: formulario -->
+      <!--
+        El formulario usa Formspree para recibir los mensajes por correo
+        sin necesidad de backend propio.
+        El campo _next redirige a una página de agradecimiento tras el envío.
+      -->
       <div class="contact-panel reveal delay-2">
-        <div class="form-section-title">
-          <div class="vline"></div>
-          <div>
-            <div class="caps" style="margin-bottom:6px;">Formulario de contacto</div>
-            <h3>Cuéntanos tu visión</h3>
-          </div>
+        <div style="margin-bottom:28px;">
+          <div class="eyebrow" style="margin-bottom:10px;">Formulario de contacto</div>
+          <span class="gold-line"></span>
+          <h3 style="margin-top:14px;">Cuéntanos tu visión</h3>
         </div>
 
-        <form
-          action="https://formspree.io/f/movkljng"
-          method="POST"
-          class="luxury-form"
-          id="contactForm">
+        <form action="https://formspree.io/f/movkljng" method="POST" class="luxury-form" id="contactForm">
 
           <div class="form-row">
             <div class="form-group">
@@ -188,6 +161,7 @@
               <option value="Compra de Propiedad">Comprar una propiedad</option>
               <option value="Remodelación / Diseño">Remodelación o Diseño</option>
               <option value="Inversión">Inversión Inmobiliaria</option>
+              <option value="Tienda / Producto">Consulta sobre producto de la tienda</option>
               <option value="Asesoría General">Asesoría General</option>
               <option value="Otro">Otro asunto</option>
             </select>
@@ -198,13 +172,14 @@
             <textarea id="mensaje" name="Mensaje" placeholder="Cuéntanos más sobre tu búsqueda o proyecto…"></textarea>
           </div>
 
+          <!-- Redirección tras envío exitoso -->
           <input type="hidden" name="_next" value="gracias.html">
 
           <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;">
             <button class="btn acc" type="submit" style="flex:1;justify-content:center;padding:16px 28px;">
               Enviar mensaje
             </button>
-            <a id="waForm" href="#" class="btn" style="flex:1;justify-content:center;padding:16px 28px;white-space:nowrap;">
+            <a id="wa-form" href="#" class="btn" style="flex:1;justify-content:center;padding:16px 28px;white-space:nowrap;">
               Contactar por WhatsApp
             </a>
           </div>
@@ -217,18 +192,21 @@
 
 
   <!-- ======================================================================
-       CTA — PROPIEDADES
+       CTA SECUNDARIO
   ====================================================================== -->
   <section class="dark-section" style="text-align:center;">
     <div class="container" style="max-width:660px;margin-inline:auto;">
       <div class="reveal">
         <div class="eyebrow">También te puede interesar</div>
         <span class="gold-line center"></span>
-        <h2 style="color:var(--fg-light);margin:14px 0 18px;">Explora nuestro catálogo de propiedades</h2>
+        <h2 style="color:var(--fg-light);margin:14px 0 18px;">Explora nuestro catálogo</h2>
         <p style="color:rgba(245,242,236,0.55);margin-bottom:36px;">
-          Propiedades únicas seleccionadas por su arquitectura, ubicación y potencial de inversión en Guatemala.
+          Propiedades únicas y objetos de diseño seleccionados con el criterio exigente del estudio AURÉA.
         </p>
-        <a href="index.html" class="btn acc">Ver propiedades</a>
+        <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+          <a href="index.html" class="btn acc">Ver propiedades</a>
+          <a href="tienda.html" class="btn light">Ir a la tienda</a>
+        </div>
       </div>
     </div>
   </section>
@@ -242,17 +220,18 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <img src="logo.png" alt="AURÉA" class="footer-logo">
-          <p>Bienes raíces y arquitectura de alto nivel en Guatemala. Propiedades únicas para personas con visión.</p>
+          <p>Bienes raíces, arquitectura y objetos de diseño de alto nivel en Guatemala.</p>
         </div>
         <div class="footer-col">
           <h4>Navegación</h4>
           <a href="index.html">Propiedades</a>
           <a href="remodelaciones.html">Remodelaciones</a>
+          <a href="tienda.html">Tienda</a>
           <a href="asesoria.html">Asesoría</a>
         </div>
         <div class="footer-col">
           <h4>Contacto</h4>
-          <a id="waFooter" href="#">WhatsApp</a>
+          <a id="wa-footer" href="#">WhatsApp</a>
           <a href="mailto:aurea.infot@gmail.com">aurea.infot@gmail.com</a>
           <a href="tel:+50233667439">+502 3366 7439</a>
         </div>
@@ -269,61 +248,85 @@
        SCRIPTS
   ====================================================================== -->
   <script>
-    /* Constantes de contacto */
-    const EMAIL   = 'aurea.infot@gmail.com';
-    const WA_NUM  = '50233667439';
-    const PHONE   = '+50233667439';
-    const PHONES  = '+502 3366 7439 / +502 4816 9666';
-    const waLink  = t => `https://wa.me/${WA_NUM}?text=${encodeURIComponent(t)}`;
-    const mailto  = (s,b) => `mailto:${EMAIL}?subject=${encodeURIComponent(s)}&body=${encodeURIComponent(b)}`;
+    /* ── Constantes de contacto ──
+       Para actualizar números o emails, basta con cambiar estas constantes. */
+    const COMPANY_EMAIL      = 'aurea.infot@gmail.com';
+    const WHATSAPP_NUMBER    = '50233667439';       /* Sin "+" ni espacios */
+    const COMPANY_PHONE      = '+50233667439';      /* Para href="tel:..." */
+    const ALL_PHONES_DISPLAY = '+502 3366 7439 / +502 4816 9666';
 
-    document.getElementById('year').textContent       = new Date().getFullYear();
-    document.getElementById('emailTxt').textContent   = EMAIL;
-    document.getElementById('phoneTxt').textContent   = PHONES;
+    /* Helpers para generar URLs de WhatsApp y mailto */
+    const waLink   = (text)          => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+    const mailLink = (subject, body) => `mailto:${COMPANY_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-    document.getElementById('waHeader').href    = waLink('Hola, necesito asesoría profesional.');
-    document.getElementById('ctaWhatsapp').href = waLink('Hola, me gustaría agendar una asesoría.');
-    document.getElementById('ctaMail').href     = mailto('Consulta de Asesoría', 'Hola, me gustaría más información sobre sus servicios.');
-    document.getElementById('ctaCall').href     = `tel:${PHONE}`;
-    document.getElementById('waForm').href      = waLink('Hola, me gustaría agendar una asesoría con AURÉA.');
-    document.getElementById('waFooter').href    = waLink('Hola, necesito asesoría profesional.');
+    /* ── Año dinámico en el footer ── */
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-    /* Cursor */
-    const dot = document.getElementById('cursorDot'), ring = document.getElementById('cursorRing');
-    let mx=0,my=0,rx=0,ry=0;
-    document.addEventListener('mousemove', e=>{ mx=e.clientX; my=e.clientY; dot.style.cssText=`left:${mx}px;top:${my}px`; });
-    (function loop(){ rx+=(mx-rx)*0.12; ry+=(my-ry)*0.12; ring.style.cssText=`left:${rx}px;top:${ry}px`; requestAnimationFrame(loop); })();
-    document.querySelectorAll('a,button,input,textarea,select').forEach(el=>{
-      el.addEventListener('mouseenter',()=>ring.classList.add('hovered'));
-      el.addEventListener('mouseleave',()=>ring.classList.remove('hovered'));
+    /* ── Textos de contacto dinámicos ── */
+    document.getElementById('contact-email-text').textContent = COMPANY_EMAIL;
+    document.getElementById('contact-phone-text').textContent = ALL_PHONES_DISPLAY;
+
+    /* ── Links de los métodos de contacto ── */
+    document.getElementById('whats-header').href  = waLink('Hola, necesito asesoría profesional.');
+    document.getElementById('cta-whatsapp').href  = waLink('Hola, me gustaría agendar una asesoría.');
+    document.getElementById('cta-mail').href      = mailLink('Consulta de Asesoría', 'Hola, me gustaría más información sobre sus servicios.');
+    document.getElementById('cta-call').href      = `tel:${COMPANY_PHONE}`;
+    document.getElementById('wa-form').href       = waLink('Hola, me gustaría agendar una asesoría con AURÉA.');
+    document.getElementById('wa-footer').href     = waLink('Hola, necesito asesoría profesional.');
+
+    /* ── Cursor personalizado ── */
+    const dot  = document.getElementById('cursorDot');
+    const ring = document.getElementById('cursorRing');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      dot.style.left = mx + 'px'; dot.style.top = my + 'px';
+    });
+    (function loop() {
+      rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
+      ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+      requestAnimationFrame(loop);
+    })();
+    document.querySelectorAll('a, button, input, textarea, select').forEach(el => {
+      el.addEventListener('mouseenter', () => ring.classList.add('hovered'));
+      el.addEventListener('mouseleave', () => ring.classList.remove('hovered'));
     });
 
-    /* Header scroll */
+    /* ── Header scroll ── */
     const header = document.getElementById('header');
-    window.addEventListener('scroll', ()=> header.classList.toggle('scrolled', scrollY>60), {passive:true});
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
 
-    /* Menú móvil */
+    /* ── Menú móvil ── */
     const hamburger  = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
-    hamburger.addEventListener('click', ()=>{
+    hamburger.addEventListener('click', () => {
       const open = mobileMenu.classList.toggle('open');
       hamburger.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', open);
       document.body.style.overflow = open ? 'hidden' : '';
     });
-    function closeMobile(){ mobileMenu.classList.remove('open'); hamburger.classList.remove('open'); document.body.style.overflow=''; }
+    function closeMobile() {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      document.body.style.overflow = '';
+    }
 
-    /* Scroll reveal */
-    const obs = new IntersectionObserver(entries=>{
-      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); }});
-    }, {threshold:0.08});
-    document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+    /* ── Animación de entrada al hacer scroll ── */
+    const revealObserver = new IntersectionObserver(
+      entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revealObserver.unobserve(e.target); } }),
+      { threshold: 0.08 }
+    );
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-    /* Envío del formulario: feedback visual */
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
+    /* ── Feedback visual en envío del formulario ── */
+    document.getElementById('contactForm').addEventListener('submit', function() {
       const btn = this.querySelector('[type="submit"]');
       btn.textContent = 'Enviando…';
       btn.disabled = true;
     });
   </script>
+
 </body>
 </html>

@@ -11,15 +11,17 @@
   <div class="cursor-dot"  id="cursorDot"></div>
   <div class="cursor-ring" id="cursorRing"></div>
 
+  <!-- Menú móvil fullscreen -->
   <div class="mobile-menu" id="mobileMenu">
     <a href="index.html"          onclick="closeMobile()">Propiedades</a>
     <a href="remodelaciones.html" onclick="closeMobile()">Remodelaciones</a>
+    <a href="tienda.html"         onclick="closeMobile()">Tienda</a>
     <a href="asesoria.html"       onclick="closeMobile()">Asesoría</a>
     <p class="mobile-menu-footer">AURÉA · Guatemala</p>
   </div>
 
   <!-- ======================================================================
-       HEADER
+       HEADER — siempre sólido en esta página
   ====================================================================== -->
   <header id="header" class="scrolled">
     <div class="container nav">
@@ -29,6 +31,7 @@
       <nav class="menu">
         <a href="index.html">Propiedades</a>
         <a href="remodelaciones.html">Remodelaciones</a>
+        <a href="tienda.html">Tienda</a>
         <a href="asesoria.html">Asesoría</a>
       </nav>
       <div class="cta">
@@ -54,8 +57,8 @@
         <div class="carousel">
           <div class="carousel-track" id="carousel">
             <!-- Imágenes inyectadas por JS -->
-            <button class="cnav prev" onclick="changeSlide(-1)" aria-label="Anterior">❮</button>
-            <button class="cnav next" onclick="changeSlide(1)"  aria-label="Siguiente">❯</button>
+            <button class="cnav prev" onclick="changeSlide(-1)" aria-label="Anterior">&#10094;</button>
+            <button class="cnav next" onclick="changeSlide(1)"  aria-label="Siguiente">&#10095;</button>
           </div>
           <div class="carousel-thumbs" id="thumbs"></div>
         </div>
@@ -64,6 +67,7 @@
       <!-- Columna derecha: Info -->
       <div class="detail-info" id="detailInfo">
         <div class="eyebrow" id="propLoc">Cargando…</div>
+        <span class="gold-line"></span>
         <h1 id="propName">—</h1>
         <div class="detail-price" id="propPrice">$000,000</div>
 
@@ -71,17 +75,24 @@
 
         <p class="detail-desc" id="propDesc">Cargando descripción…</p>
 
-        <a id="btnWa" href="#" class="btn acc" style="width:100%;justify-content:center;padding:18px 30px;">
+        <a id="btnWa" href="#" class="btn acc" style="width:100%;justify-content:center;padding:18px 30px;gap:12px;">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
             <path d="M20 3.5A10.5 10.5 0 0 0 3.4 16.9L2 22l5.3-1.4A10.5 10.5 0 1 0 20 3.5Z"/>
           </svg>
           Contactar por WhatsApp
         </a>
 
-        <div style="margin-top:20px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.08);">
-          <a href="asesoria.html" class="btn light" style="width:100%;justify-content:center;">
+        <div style="margin-top:12px;">
+          <a href="asesoria.html" class="btn" style="width:100%;justify-content:center;padding:16px 30px;">
             Agendar visita presencial
           </a>
+        </div>
+
+        <div style="margin-top:28px;padding:20px;background:var(--bg-2);border:1px solid var(--border);">
+          <div class="eyebrow" style="margin-bottom:8px;">¿Cómo funciona?</div>
+          <p style="font-size:0.82rem;line-height:1.8;color:var(--fg-mid);margin:0;">
+            Contáctanos por WhatsApp e indicaremos disponibilidad, condiciones y coordinaremos una visita a la propiedad con tu asesor asignado.
+          </p>
         </div>
       </div>
 
@@ -103,12 +114,14 @@
           <h4>Navegación</h4>
           <a href="index.html">Propiedades</a>
           <a href="remodelaciones.html">Remodelaciones</a>
+          <a href="tienda.html">Tienda</a>
           <a href="asesoria.html">Asesoría</a>
         </div>
         <div class="footer-col">
           <h4>Contacto</h4>
           <a href="https://wa.me/50233667439">WhatsApp</a>
           <a href="mailto:aurea.infot@gmail.com">aurea.infot@gmail.com</a>
+          <a href="tel:+50233667439">+502 3366 7439</a>
         </div>
       </div>
       <div class="footer-bottom">
@@ -127,12 +140,20 @@
     document.getElementById('year').textContent = new Date().getFullYear();
 
     /* ── Cursor ── */
-    const dot = document.getElementById('cursorDot');
+    const dot  = document.getElementById('cursorDot');
     const ring = document.getElementById('cursorRing');
     let mx = 0, my = 0, rx = 0, ry = 0;
-    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; dot.style.cssText = `left:${mx}px;top:${my}px`; });
-    (function loop() { rx += (mx-rx)*0.12; ry += (my-ry)*0.12; ring.style.cssText = `left:${rx}px;top:${ry}px`; requestAnimationFrame(loop); })();
-    document.querySelectorAll('a,button').forEach(el => {
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      dot.style.left = mx + 'px';
+      dot.style.top  = my + 'px';
+    });
+    (function loop() {
+      rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
+      ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+      requestAnimationFrame(loop);
+    })();
+    document.querySelectorAll('a, button').forEach(el => {
       el.addEventListener('mouseenter', () => ring.classList.add('hovered'));
       el.addEventListener('mouseleave', () => ring.classList.remove('hovered'));
     });
@@ -145,7 +166,11 @@
       hamburger.classList.toggle('open', open);
       document.body.style.overflow = open ? 'hidden' : '';
     });
-    function closeMobile() { mobileMenu.classList.remove('open'); hamburger.classList.remove('open'); document.body.style.overflow=''; }
+    function closeMobile() {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      document.body.style.overflow = '';
+    }
 
     /* ── Leer propiedad de la URL ── */
     const propId = new URLSearchParams(window.location.search).get('id');
@@ -154,20 +179,22 @@
     if (!prop) {
       document.getElementById('propName').textContent = 'Propiedad no encontrada';
     } else {
-      document.title = `${prop.nombre} — AURÉA`;
+      /* Título de la pestaña */
+      document.title = prop.nombre + ' — AURÉA';
+
+      /* Datos básicos */
       document.getElementById('propLoc').textContent   = prop.ubicacion;
       document.getElementById('propName').textContent  = prop.nombre;
       document.getElementById('propPrice').textContent = prop.precio;
       document.getElementById('propDesc').textContent  = prop.descripcionLarga;
       document.getElementById('btnWa').href =
-        `https://wa.me/50233667439?text=${encodeURIComponent('Hola, me interesa la propiedad: ' + prop.nombre)}`;
+        'https://wa.me/50233667439?text=' + encodeURIComponent('Hola, me interesa la propiedad: ' + prop.nombre);
 
       /* Specs */
-      document.getElementById('propSpecs').innerHTML = `
-        <div class="spec-box"><b>${prop.specs.cuartos}</b><small>Habitaciones</small></div>
-        <div class="spec-box"><b>${prop.specs.baños}</b><small>Baños</small></div>
-        <div class="spec-box"><b>${prop.specs.parqueos}</b><small>Parqueos</small></div>
-      `;
+      document.getElementById('propSpecs').innerHTML =
+        '<div class="spec-box"><b>' + prop.specs.cuartos  + '</b><small>Habitaciones</small></div>' +
+        '<div class="spec-box"><b>' + prop.specs.baños    + '</b><small>Baños</small></div>' +
+        '<div class="spec-box"><b>' + prop.specs.parqueos + '</b><small>Parqueos</small></div>';
 
       /* ── Carrusel ── */
       let current = 0;
@@ -178,20 +205,26 @@
       const thumbs = [];
 
       prop.imagenes.forEach((src, i) => {
+        /* Imagen en el carrusel */
         const img = document.createElement('img');
         img.src = src;
-        img.alt = `${prop.nombre} — ${i + 1}`;
+        img.alt = prop.nombre + ' — ' + (i + 1);
         if (i === 0) img.className = 'active';
+        /* Insertar antes de los botones de nav */
         track.insertBefore(img, track.querySelector('.cnav'));
         imgs.push(img);
 
+        /* Thumbnail */
         const th = document.createElement('div');
         th.className = 'thumb' + (i === 0 ? ' active' : '');
-        th.innerHTML = `<img src="${src}" alt="thumb ${i+1}">`;
+        th.innerHTML = '<img src="' + src + '" alt="thumb ' + (i + 1) + '" loading="lazy">';
         th.addEventListener('click', () => { goTo(i); resetTimer(); });
         thumbC.appendChild(th);
         thumbs.push(th);
       });
+
+      /* Ocultar thumbnails si solo hay 1 imagen */
+      if (prop.imagenes.length < 2) thumbC.style.display = 'none';
 
       function goTo(idx) {
         imgs[current].classList.remove('active');
@@ -200,17 +233,23 @@
         imgs[current].classList.add('active');
         thumbs[current].classList.add('active');
       }
-      function resetTimer() { clearInterval(timer); timer = setInterval(() => goTo(current + 1), 5500); }
 
-      // Exponer para botones inline
-      window.changeSlide = dir => { goTo(current + dir); resetTimer(); };
+      function resetTimer() {
+        clearInterval(timer);
+        timer = setInterval(() => goTo(current + 1), 5500);
+      }
+
+      /* Exponer para botones inline */
+      window.changeSlide = function(dir) { goTo(current + dir); resetTimer(); };
       resetTimer();
     }
 
     /* ── Scroll reveal ── */
     const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }});
-    }, { threshold: 0.1 });
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.08 });
     document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
   </script>
 </body>

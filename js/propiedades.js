@@ -11,7 +11,7 @@ const propiedades = [
     precio: "$450,000",
     ubicacion: "Km 25 Carretera a El Salvador",
     imagenes: [
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200",
+      "img/propiedades/KAES1.jpeg",
       "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1200",
       "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=1200"
     ],

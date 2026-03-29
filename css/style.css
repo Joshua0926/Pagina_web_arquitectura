@@ -735,6 +735,7 @@ section { padding: clamp(80px, 10vw, 140px) 0; }
   align-items: flex-end;
   background: #111;
   cursor: none;
+  /* Desktop: no aspect-ratio so grid-row controls height uniformly */
   min-height: 420px;
 }
  

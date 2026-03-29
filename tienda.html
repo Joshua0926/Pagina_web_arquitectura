@@ -38,9 +38,9 @@
   </div>
 
   <!-- ======================================================================
-       HEADER
+       HEADER — siempre sólido en esta página
   ====================================================================== -->
-  <header id="header">
+  <header id="header" class="scrolled">
     <div class="container nav">
       <a href="index.html" class="brand">
         <img src="logo.png" alt="AURÉA" class="brand-logo">
@@ -62,27 +62,9 @@
   </header>
 
   <!-- ======================================================================
-       HERO
-  ====================================================================== -->
-  <section class="hero-tienda">
-    <div class="container">
-      <div style="max-width:700px;">
-        <div class="eyebrow reveal">Objetos de diseño</div>
-        <span class="gold-line reveal delay-1"></span>
-        <h1 class="reveal delay-1">
-          Piezas únicas para<br>espacios con <span class="italic-accent">carácter.</span>
-        </h1>
-        <p class="lede reveal delay-2" style="margin-top:18px;">
-          Arte original, mobiliario artesanal e iluminación de autor, seleccionados por el criterio exigente del estudio AURÉA.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======================================================================
        BARRA DE CONTROLES (sticky)
   ====================================================================== -->
-  <div class="shop-controls" id="shopControls">
+  <div class="shop-controls" id="shopControls" style="top: 66px; margin-top: clamp(66px, 10vh, 90px);">
     <div class="container shop-controls-inner">
 
       <!-- Búsqueda -->
@@ -199,9 +181,7 @@
     /* ── Año ── */
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    /* ══════════════════════════════════════════════════════════════════════
-       CURSOR
-    ══════════════════════════════════════════════════════════════════════ */
+    /* ── Cursor ── */
     const dot  = document.getElementById('cursorDot');
     const ring = document.getElementById('cursorRing');
     let mx=0,my=0,rx=0,ry=0;
@@ -222,17 +202,13 @@
     }
     addHover('a, button, .producto-card, input, select');
 
-    /* ══════════════════════════════════════════════════════════════════════
-       HEADER SCROLL
-    ══════════════════════════════════════════════════════════════════════ */
+    /* ── Header: siempre scrolled en esta página ── */
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => {
       header.classList.toggle('scrolled', scrollY > 60);
     }, { passive: true });
 
-    /* ══════════════════════════════════════════════════════════════════════
-       MENÚ MÓVIL
-    ══════════════════════════════════════════════════════════════════════ */
+    /* ── Menú móvil ── */
     const hamburger  = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
     hamburger.addEventListener('click', () => {
@@ -247,9 +223,7 @@
       document.body.style.overflow = '';
     }
 
-    /* ══════════════════════════════════════════════════════════════════════
-       DRAWER DE FILTROS (móvil)
-    ══════════════════════════════════════════════════════════════════════ */
+    /* ── Drawer de filtros (móvil) ── */
     const filterDrawer = document.getElementById('filterDrawer');
     document.getElementById('filterDrawerBtn').addEventListener('click', () => {
       filterDrawer.classList.add('open');
@@ -260,30 +234,25 @@
       document.body.style.overflow = '';
     }
 
-    /* ══════════════════════════════════════════════════════════════════════
-       LÓGICA DE LA TIENDA
-    ══════════════════════════════════════════════════════════════════════ */
+    /* ── Lógica de la tienda ── */
     let estadoTienda = {
       categoriaActiva: 'Todos',
       busqueda: '',
       orden: 'default',
       pagina: 1,
-      ppp: TIENDA_CONFIG.productosPorPagina  // productos por página
+      ppp: TIENDA_CONFIG.productosPorPagina
     };
 
-    /* Construir filtros de categoría */
     const filterTabsEl = document.getElementById('filterTabs');
     const drawerCatsEl = document.getElementById('drawerCats');
 
     CATEGORIAS.forEach(cat => {
-      // Tab desktop
       const tab = document.createElement('button');
       tab.className = 'filter-tab';
       tab.dataset.cat = cat;
       tab.textContent = cat;
       filterTabsEl.appendChild(tab);
 
-      // Botón drawer móvil
       const dBtn = document.createElement('button');
       dBtn.className = 'drawer-cat';
       dBtn.dataset.cat = cat;
@@ -291,22 +260,18 @@
       drawerCatsEl.appendChild(dBtn);
     });
 
-    /* Aplicar filtro de categoría */
     function setCat(cat) {
       estadoTienda.categoriaActiva = cat;
       estadoTienda.pagina = 1;
-      // Actualizar tabs desktop
       document.querySelectorAll('.filter-tab').forEach(t => {
         t.classList.toggle('active', t.dataset.cat === cat);
       });
-      // Actualizar drawer
       document.querySelectorAll('.drawer-cat').forEach(t => {
         t.classList.toggle('active', t.dataset.cat === cat);
       });
       renderTienda();
     }
 
-    // Eventos en tabs y drawer
     document.querySelectorAll('.filter-tab, .drawer-cat').forEach(btn => {
       btn.addEventListener('click', () => {
         setCat(btn.dataset.cat);
@@ -314,7 +279,6 @@
       });
     });
 
-    /* Búsqueda con debounce */
     let searchTimer;
     document.getElementById('searchInput').addEventListener('input', e => {
       clearTimeout(searchTimer);
@@ -325,23 +289,17 @@
       }, 280);
     });
 
-    /* Orden */
     document.getElementById('sortSelect').addEventListener('change', e => {
       estadoTienda.orden = e.target.value;
       estadoTienda.pagina = 1;
       renderTienda();
     });
 
-    /* Filtrar y ordenar productos */
     function getProductosFiltrados() {
       let lista = [...productos];
-
-      // Filtro categoría
       if (estadoTienda.categoriaActiva !== 'Todos') {
         lista = lista.filter(p => p.categoria === estadoTienda.categoriaActiva);
       }
-
-      // Filtro búsqueda (nombre, descripción, tags, categoría)
       if (estadoTienda.busqueda) {
         const q = estadoTienda.busqueda;
         lista = lista.filter(p =>
@@ -351,28 +309,22 @@
           (p.tags && p.tags.some(t => t.includes(q)))
         );
       }
-
-      // Ordenar
       switch (estadoTienda.orden) {
-        case 'precio-asc':    lista.sort((a,b) => a.precio - b.precio);                      break;
-        case 'precio-desc':   lista.sort((a,b) => b.precio - a.precio);                      break;
-        case 'nombre-asc':    lista.sort((a,b) => a.nombre.localeCompare(b.nombre));          break;
-        case 'destacados':    lista.sort((a,b) => (b.destacado?1:0) - (a.destacado?1:0));    break;
+        case 'precio-asc':  lista.sort((a,b) => a.precio - b.precio); break;
+        case 'precio-desc': lista.sort((a,b) => b.precio - a.precio); break;
+        case 'nombre-asc':  lista.sort((a,b) => a.nombre.localeCompare(b.nombre)); break;
+        case 'destacados':  lista.sort((a,b) => (b.destacado?1:0) - (a.destacado?1:0)); break;
       }
-
       return lista;
     }
 
-    /* Formatear precio */
     function formatPrecio(p) {
       return 'Q ' + p.precio.toLocaleString('es-GT');
     }
 
-    /* Renderizar una tarjeta de producto */
     function crearTarjetaProducto(prod) {
       const card = document.createElement('div');
       card.className = 'producto-card reveal';
-
       const tieneSegundaImg = prod.imagenes.length > 1;
       const agotado = !prod.disponible;
 
@@ -417,33 +369,27 @@
         </div>
       `;
 
-      // Click en tarjeta → ir a detalle
       card.addEventListener('click', () => {
         window.location.href = `producto-detalle.html?id=${prod.id}`;
       });
-
       return card;
     }
 
-    /* Consultar producto por WhatsApp */
     function consultarProducto(id) {
       const prod = productos.find(p => p.id === id);
       if (!prod) return;
       const msg = TIENDA_CONFIG.mensajeWa(prod);
       window.open(`https://wa.me/${TIENDA_CONFIG.whatsappNumero}?text=${encodeURIComponent(msg)}`, '_blank');
     }
-    window.consultarProducto = consultarProducto; // exponer globalmente
+    window.consultarProducto = consultarProducto;
 
-    /* Renderizar paginación */
     function renderPaginacion(total) {
       const { pagina, ppp } = estadoTienda;
       const totalPags = Math.ceil(total / ppp);
       const paginacionEl = document.getElementById('pagination');
       paginacionEl.innerHTML = '';
-
       if (totalPags <= 1) return;
 
-      // Botón anterior
       const prev = document.createElement('button');
       prev.className = 'page-btn';
       prev.innerHTML = '←';
@@ -451,7 +397,6 @@
       prev.onclick = () => { estadoTienda.pagina--; renderTienda(); scrollToGrid(); };
       paginacionEl.appendChild(prev);
 
-      // Números de página
       for (let i = 1; i <= totalPags; i++) {
         const btn = document.createElement('button');
         btn.className = 'page-btn' + (i === pagina ? ' active' : '');
@@ -460,7 +405,6 @@
         paginacionEl.appendChild(btn);
       }
 
-      // Botón siguiente
       const next = document.createElement('button');
       next.className = 'page-btn';
       next.innerHTML = '→';
@@ -473,7 +417,6 @@
       document.getElementById('shopControls').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
-    /* Render principal */
     function renderTienda() {
       const lista = getProductosFiltrados();
       const total = lista.length;
@@ -481,11 +424,9 @@
       const inicio = (pagina - 1) * ppp;
       const paginaActual = lista.slice(inicio, inicio + ppp);
 
-      // Contador
       document.getElementById('resultsCount').textContent =
         `${total} ${total === 1 ? 'producto' : 'productos'}`;
 
-      // Grid
       const grid = document.getElementById('productosGrid');
       grid.innerHTML = '';
 
@@ -507,7 +448,6 @@
 
       renderPaginacion(total);
 
-      // Scroll reveal para nuevas tarjetas
       const revObs = new IntersectionObserver(entries => {
         entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revObs.unobserve(e.target); } });
       }, { threshold: 0.05 });

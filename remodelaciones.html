@@ -7,7 +7,7 @@
   <meta name="description" content="Estudio de arquitectura de alta gama. Planos técnicos, diseño arquitectónico e interiorismo." />
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="page-home">
 
   <!-- Cursor personalizado -->
   <div class="cursor-dot"  id="cursorDot"></div>
@@ -26,9 +26,9 @@
   </div>
 
   <!-- ======================================================================
-       HEADER
+       HEADER — siempre sólido en esta página
   ====================================================================== -->
-  <header id="header">
+  <header id="header" class="scrolled">
     <div class="container nav">
       <a href="index.html" class="brand">
         <img src="logo.png" alt="Logotipo de AURÉA" class="brand-logo">
@@ -51,39 +51,10 @@
 
 
   <!-- ======================================================================
-       HERO — EDITORIAL
-  ====================================================================== -->
-  <section id="inicio" class="hero-editorial">
-    <div class="container hero-editorial-inner">
-      <div>
-        <div class="eyebrow reveal">Arquitectura & Interiorismo</div>
-        <span class="gold-line reveal delay-1"></span>
-        <h1 class="reveal delay-1">Diseño de alto nivel para espacios que <span class="italic-accent">inspiran.</span></h1>
-        <p class="lede reveal delay-2">
-          Paquetes hechos a tu medida: desde <b>planos técnicos</b> hasta
-          <b>diseño interior y comercial</b> con <b>renders 3D</b>.
-        </p>
-        <div class="reveal delay-3" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:28px;">
-          <a href="#servicios" class="btn acc">Ver paquetes de diseño</a>
-          <a href="asesoria.html" class="btn">Solicitar asesoría</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div style="width:100%;height:1px;background:var(--border);"></div>
-
-
-  <!-- ======================================================================
        SERVICIOS — Cards de especialidades con imagen de fondo
-       Cada card tiene:
-         - data-package: nombre del servicio (usado para WhatsApp)
-         - .bg-img:      imagen de fondo
-         - .badge:       etiqueta de categoría
-         - [data-whatsapp]: su href es asignado dinámicamente por JS
   ====================================================================== -->
   <section id="servicios" class="dark-section" style="padding:0;">
-    <div style="padding: clamp(60px,8vw,100px) 0 clamp(30px,4vw,50px);">
+    <div style="padding: clamp(100px,14vh,130px) 0 clamp(30px,4vw,50px);">
       <div class="container">
         <div class="section-head">
           <div class="reveal">
@@ -160,91 +131,6 @@
 
 
   <!-- ======================================================================
-       QUIÉNES SOMOS
-  ====================================================================== -->
-  <section style="background:var(--bg-2);">
-    <div class="container">
-      <div class="manifesto-grid">
-        <div class="reveal">
-          <div class="manifesto-number">02</div>
-          <blockquote class="manifesto-quote">
-            "Un espacio bien diseñado no se nota. Se siente. Esa es nuestra obsesión."
-            <cite class="manifesto-cite">— El equipo de AURÉA</cite>
-          </blockquote>
-          <span class="gold-line" style="margin-top:28px;"></span>
-          <p class="lede" style="margin-top:20px;">
-            Somos un equipo multidisciplinario que integra arquitectura e ingeniería para ofrecer soluciones elegantes, eficientes y atemporales.
-          </p>
-        </div>
-        <div class="reveal delay-2">
-          <div class="eyebrow" style="margin-bottom:12px;">Nuestro enfoque</div>
-          <span class="gold-line"></span>
-          <p class="lede" style="margin-top:16px;">
-            Cada proyecto es una conversación entre el espacio y quien lo habita. Trabajamos con un proceso iterativo de diseño que garantiza que el resultado final supere las expectativas del cliente en cada detalle.
-          </p>
-          <div style="margin-top:32px;">
-            <a href="asesoria.html" class="btn acc">Iniciar un proyecto</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ======================================================================
-       GALERÍA — Portafolio de obras y renders
-       Cada figura tiene [data-lightbox] para activar el lightbox al hacer clic.
-  ====================================================================== -->
-  <section id="portafolio" style="padding:0;">
-    <div style="padding: clamp(60px,8vw,100px) 0 clamp(30px,4vw,50px);">
-      <div class="container">
-        <div class="section-head">
-          <div class="reveal">
-            <div class="eyebrow">Portafolio</div>
-            <span class="gold-line"></span>
-            <h2>Obras & Renders</h2>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="gallery">
-
-      <figure class="g-item wide reveal" data-lightbox>
-        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1600" alt="Fachada" loading="lazy">
-        <div class="g-label">Fachada Contemporánea</div>
-      </figure>
-
-      <figure class="g-item reveal" data-lightbox>
-        <img src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?q=80&w=1600" alt="Lobby" loading="lazy">
-        <div class="g-label">Lobby Residencial</div>
-      </figure>
-
-      <figure class="g-item reveal delay-1" data-lightbox>
-        <img src="https://tecnolite.lat/blog/wp-content/uploads/2011/07/Sala-c%C3%A1lida-big.jpg" alt="Sala" loading="lazy">
-        <div class="g-label">Sala Principal</div>
-      </figure>
-
-      <figure class="g-item reveal" data-lightbox>
-        <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1600" alt="Cocina" loading="lazy">
-        <div class="g-label">Cocina Gourmet</div>
-      </figure>
-
-      <figure class="g-item reveal delay-1" data-lightbox>
-        <img src="https://www.vbobilbao.com/wp-content/uploads/2024/03/vbobilbao-diseno-interiores-con-luz-artificial-01.jpg" alt="Iluminación" loading="lazy">
-        <div class="g-label">Diseño Lumínico</div>
-      </figure>
-
-      <figure class="g-item wide reveal" data-lightbox>
-        <img src="https://images.unsplash.com/photo-1536376072261-38c75010e6c9?q=80&w=1600" alt="Oficina" loading="lazy">
-        <div class="g-label">Espacio Corporativo</div>
-      </figure>
-
-    </div>
-  </section>
-
-
-  <!-- ======================================================================
        CTA FINAL
   ====================================================================== -->
   <section class="dark-section" style="text-align:center;">
@@ -296,28 +182,14 @@
 
 
   <!-- ======================================================================
-       LIGHTBOX — Visor de imagen ampliada (modal nativo <dialog>)
-       Se abre al hacer clic en cualquier figura con [data-lightbox].
-       Se cierra con el botón ✕ o haciendo clic en el fondo oscuro.
-  ====================================================================== -->
-  <dialog id="lightbox">
-    <img id="lightbox-img" alt="Vista ampliada" src="">
-    <button class="lightbox-close" onclick="document.getElementById('lightbox').close()">✕</button>
-  </dialog>
-
-
-  <!-- ======================================================================
        SCRIPTS
   ====================================================================== -->
   <script>
-    /* ── Constantes de contacto ── */
     const WHATSAPP_NUMBER = '50233667439';
     const waLink = (text) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
 
-    /* ── Año dinámico en el footer ── */
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    /* ── WhatsApp en el header y footer ── */
     document.getElementById('whats-header').href = waLink('Hola, me gustaría información sobre remodelaciones.');
     document.getElementById('wa-footer').href    = waLink('Hola, me gustaría información sobre remodelaciones.');
 
@@ -334,12 +206,12 @@
       ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
       requestAnimationFrame(loop);
     })();
-    document.querySelectorAll('a, button, .package-card, .g-item').forEach(el => {
+    document.querySelectorAll('a, button, .package-card').forEach(el => {
       el.addEventListener('mouseenter', () => ring.classList.add('hovered'));
       el.addEventListener('mouseleave', () => ring.classList.remove('hovered'));
     });
 
-    /* ── Header scroll ── */
+    /* ── Header: siempre scrolled en esta página ── */
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => {
       header.classList.toggle('scrolled', window.scrollY > 60);
@@ -360,7 +232,7 @@
       document.body.style.overflow = '';
     }
 
-    /* ── Animación de entrada al hacer scroll ── */
+    /* ── Scroll reveal ── */
     const revealObserver = new IntersectionObserver(
       entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revealObserver.unobserve(e.target); } }),
       { threshold: 0.08 }
@@ -371,20 +243,6 @@
     document.querySelectorAll('.package-card').forEach(card => {
       card.querySelector('[data-whatsapp]').href =
         waLink(`Hola, me interesa el servicio de: ${card.dataset.package}.`);
-    });
-
-    /* ── Lightbox ── */
-    const dialog      = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-
-    document.querySelectorAll('[data-lightbox]').forEach(figure => {
-      figure.addEventListener('click', () => {
-        lightboxImg.src = figure.querySelector('img').src;
-        dialog.showModal();
-      });
-    });
-    dialog.addEventListener('click', e => {
-      if (e.target === dialog) dialog.close();
     });
   </script>
 </body>

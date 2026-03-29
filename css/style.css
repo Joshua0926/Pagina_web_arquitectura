@@ -151,12 +151,12 @@ header.scrolled .brand-logo { height: 38px; }
 .menu a:hover, .menu a.active { color: var(--fg-dark); }
 .menu a:hover::after, .menu a.active::after { transform: scaleX(1); }
 
-/* Menu links light when header is transparent (over hero images) */
-header:not(.scrolled) .menu a { color: rgba(245,242,236,0.85); }
-header:not(.scrolled) .menu a:hover,
-header:not(.scrolled) .menu a.active { color: var(--fg-light); }
-header:not(.scrolled) .cta .btn { color: var(--fg-light); border-color: rgba(245,242,236,0.5); }
-header:not(.scrolled) .cta .btn:hover { border-color: var(--fg-light); }
+/* Texto blanco en header transparente — solo en la página de inicio */
+body.page-home header:not(.scrolled) .menu a { color: rgba(245,242,236,0.85); }
+body.page-home header:not(.scrolled) .menu a:hover,
+body.page-home header:not(.scrolled) .menu a.active { color: var(--fg-light); }
+body.page-home header:not(.scrolled) .cta .btn { color: var(--fg-light); border-color: rgba(245,242,236,0.5); }
+body.page-home header:not(.scrolled) .cta .btn:hover { border-color: var(--fg-light); }
 
 .cta { display: flex; gap: 12px; align-items: center; }
 

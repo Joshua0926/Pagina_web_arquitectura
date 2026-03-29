@@ -718,27 +718,47 @@ section { padding: clamp(80px, 10vw, 140px) 0; }
 .services-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: auto auto;
   gap: 2px;
   background: var(--border);
 }
-.package-card:nth-child(1) { grid-column: span 5; grid-row: 1; }
-.package-card:nth-child(2) { grid-column: span 7; grid-row: 1; }
-.package-card:nth-child(3) { grid-column: span 4; grid-row: 2; }
-.package-card:nth-child(4) { grid-column: span 4; grid-row: 2; }
-.package-card:nth-child(5) { grid-column: span 4; grid-row: 2; }
- 
+
+/* ================================
+   MOBILE (por defecto)
+   ================================ */
+.package-card:nth-child(1) { grid-column: span 5; }
+.package-card:nth-child(2) { grid-column: span 7; }
+.package-card:nth-child(3) { grid-column: span 4; }
+.package-card:nth-child(4) { grid-column: span 4; }
+.package-card:nth-child(5) { grid-column: span 4; }
+
+/* ================================
+   DESKTOP FIX
+   ================================ */
+@media (min-width: 1024px) {
+  .package-card:nth-child(1),
+  .package-card:nth-child(2) {
+    grid-column: span 6;
+  }
+
+  /* Igualamos alturas en desktop */
+  .package-card:nth-child(2) {
+    aspect-ratio: 4/2;
+  }
+}
+
 .package-card {
   position: relative;
+  aspect-ratio: 4/2; /* 🔥 menos alto (antes 4/5) */
   overflow: hidden;
   display: flex;
   align-items: flex-end;
   background: #111;
   cursor: none;
-  /* Desktop: no aspect-ratio so grid-row controls height uniformly */
-  min-height: 420px;
 }
- 
+
+/* ❌ Eliminado el aspect-ratio conflictivo */
+/* .package-card:nth-child(2) { aspect-ratio: 16/9; } */
+
 .bg-img {
   position: absolute;
   inset: 0;
@@ -747,20 +767,32 @@ section { padding: clamp(80px, 10vw, 140px) 0; }
   filter: brightness(0.72) saturate(0.82);
   transition: transform 1s var(--ease-luxury), filter 1s;
 }
-.package-card:hover .bg-img { transform: scale(1.09); filter: brightness(0.55) saturate(0.75); }
+
+.package-card:hover .bg-img {
+  transform: scale(1.09);
+  filter: brightness(0.55) saturate(0.75);
+}
+
 .package-card::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(10,10,8,0.88) 0%, rgba(10,10,8,0.15) 55%, transparent 100%);
+  background: linear-gradient(
+    to top,
+    rgba(10,10,8,0.88) 0%,
+    rgba(10,10,8,0.15) 55%,
+    transparent 100%
+  );
   z-index: 1;
 }
+
 .package-content {
   position: relative;
   z-index: 2;
   padding: clamp(20px, 3vw, 36px);
   width: 100%;
 }
+
 .badge {
   display: inline-block;
   font-size: 0.6rem;
@@ -771,13 +803,18 @@ section { padding: clamp(80px, 10vw, 140px) 0; }
   padding: 5px 12px;
   margin-bottom: 12px;
 }
+
 .package-content h3 {
   font-size: clamp(1.5rem, 2.3vw, 2.3rem);
   font-weight: 300;
   color: var(--fg-light) !important;
   transition: transform 0.5s var(--ease-luxury);
 }
-.package-card:hover .package-content h3 { transform: translateY(-4px); }
+
+.package-card:hover .package-content h3 {
+  transform: translateY(-4px);
+}
+
 .package-content p {
   font-size: 0.83rem;
   color: rgba(245,242,236,0.58) !important;
@@ -785,16 +822,29 @@ section { padding: clamp(80px, 10vw, 140px) 0; }
   overflow: hidden;
   opacity: 0;
   margin-top: 0;
-  transition: max-height 0.55s var(--ease-luxury), opacity 0.5s, margin-top 0.3s;
+  transition:
+    max-height 0.55s var(--ease-luxury),
+    opacity 0.5s,
+    margin-top 0.3s;
 }
-.package-card:hover .package-content p { max-height: 80px; opacity: 1; margin-top: 12px; }
+
+.package-card:hover .package-content p {
+  max-height: 80px;
+  opacity: 1;
+  margin-top: 12px;
+}
+
 .package-content .btn {
   margin-top: 20px;
   opacity: 0;
   transform: translateY(10px);
   transition: all 0.45s var(--ease-luxury) 0.12s;
 }
-.package-card:hover .package-content .btn { opacity: 1; transform: none; }
+
+.package-card:hover .package-content .btn {
+  opacity: 1;
+  transform: none;
+}
  
 /* ==========================================================================
    15. GALERÍA PORTAFOLIO

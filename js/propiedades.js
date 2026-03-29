@@ -1,14 +1,31 @@
 /**
  * AURÉA — Base de datos de propiedades
- * Consumido por: index.html (catálogo) y propiedad-detalle.html (detalle)
+ * Consumido por: propiedades.html (catálogo) y propiedad-detalle.html (detalle)
+ *
+ * tipo: 'venta' | 'renta' | 'ambos'
+ * Si tipo === 'ambos', usar precioVenta y precioRenta.
+ * Si tipo === 'venta' o 'renta', usar el campo precio.
  */
 const propiedades = [
   {
     id: "casa-1",
     nombre: "Lo De Ubieto",
+    tipo: "venta",
+    precio: "$1,600,000",
     descripcionCorta: "Una fusión perfecta entre concreto aparente y naturaleza virgen.",
-    descripcionLarga: `Ubicada en las afueras de la ciudad, esta propiedad cuenta con 450mt² de construcción, ventanales de piso a techo y acabados de lujo en madera de nogal.`,
-    precio: "$1,600,000 + impuestos",
+    descripcionLarga: {
+      resumen: "Residencia de autor ubicada en las afueras de la ciudad, donde la arquitectura dialoga con el entorno natural sin interrumpirlo. Materiales nobles, silencio y luz son los protagonistas de cada espacio.",
+      detalles: [
+        "450 mt² de construcción total",
+        "Ventanales de piso a techo con doble vidrio laminado",
+        "Acabados en madera de nogal importada",
+        "Cocina de concepto abierto con isla central",
+        "Terraza exterior con vista a jardín privado",
+        "Sistema de domótica integrado",
+        "Bodega climatizada y cuarto de servicio"
+      ],
+      ubicacion: "Km 8 Carretera a Santa Catarina Pinula. Acceso por portón privado, a 15 minutos del centro financiero de la ciudad."
+    },
     ubicacion: "Km 8 Carretera A Santa Catarina Pinula",
     imagenes: [
       "img/propiedades/SAN MIGUEL BUENAVISTA/1.jpeg",
@@ -31,9 +48,22 @@ const propiedades = [
   {
     id: "casa-2",
     nombre: "Torre Once",
-    descripcionCorta: "Diseño urbano con techos de doble altura en el corazón de la zona 4.",
-    descripcionLarga: "Ideal para solteros o parejas jóvenes. Este loft cuenta con acabados industriales, ladrillo visto y una terraza privada con vista a los volcanes.",
-    precio: "Q7,000",
+    tipo: "ambos",
+    precioVenta: "$320,000",
+    precioRenta: "Q7,000 / mes",
+    descripcionCorta: "Diseño urbano con techos de doble altura en el corazón de la zona 11.",
+    descripcionLarga: {
+      resumen: "Loft de diseño en una de las torres residenciales más reconocidas de la ciudad. Acabados industriales de alta gama en un espacio pensado para la vida contemporánea.",
+      detalles: [
+        "Techos de doble altura (5.2 m en sala)",
+        "Ladrillo visto original y piso de concreto pulido",
+        "Terraza privada con vista panorámica a los volcanes",
+        "Cocina italiana con electrodomésticos de acero inoxidable",
+        "Amenidades del edificio: gimnasio, rooftop y lobby con concierge",
+        "Seguridad 24/7 con acceso controlado"
+      ],
+      ubicacion: "Zona 11, Ciudad de Guatemala. A dos cuadras de centros comerciales y zona gastronómica de Mariscal."
+    },
     ubicacion: "Zona 11, Ciudad de Guatemala",
     imagenes: [
       "img/propiedades/TORRE ONCE/1.jpeg",
@@ -51,9 +81,22 @@ const propiedades = [
   {
     id: "casa-3",
     nombre: "Villas del Campo",
+    tipo: "renta",
+    precio: "$1,700 / mes",
     descripcionCorta: "Vistas panorámicas de la ciudad con acabados de mármol y vidrio.",
-    descripcionLarga: "Ubicado en el corazón del distrito financiero, este penthouse redefine el lujo urbano. Cuenta con acceso directo por elevador, techos de 3 metros de altura, cocina italiana de concepto abierto y una terraza privada de 80mt².",
-    precio: "$1,700",
+    descripcionLarga: {
+      resumen: "Penthouse que redefine el lujo urbano en el Km 13. Con acceso directo por elevador privado y techos de 3 metros de altura, cada detalle fue concebido para quienes no aceptan lo ordinario.",
+      detalles: [
+        "Acceso exclusivo por elevador privado de la unidad",
+        "Techos de 3 metros de altura en toda la planta",
+        "Cocina italiana de concepto abierto con isla de mármol",
+        "Terraza privada de 80 mt² con jacuzzi",
+        "Acabados en mármol Calacatta y madera de roble blanco",
+        "Sistema de audio Bose integrado en todos los ambientes",
+        "4 parqueos cubiertos asignados"
+      ],
+      ubicacion: "Km 13 Carretera a El Salvador, dentro de condominio privado con acceso controlado las 24 horas."
+    },
     ubicacion: "Km 13 Carretera a El Salvador",
     imagenes: [
       "img/propiedades/VILLAS DEL CAMPO/1.jpeg",
@@ -75,9 +118,22 @@ const propiedades = [
   {
     id: "casa-4",
     nombre: "La Herradura de Kanajuyú",
-    descripcionCorta: "Fusión entre arquitectura colonial y minimalismo moderno en Antigua.",
-    descripcionLarga: "Una joya arquitectónica situada frente a ruinas históricas. Esta propiedad integra muros de piedra original con estructuras de acero y vidrio, creando un ambiente de paz y sofisticación inigualable.",
-    precio: "$466,000 + impuestos",
+    tipo: "venta",
+    precio: "$466,000",
+    descripcionCorta: "Fusión entre arquitectura colonial y minimalismo moderno.",
+    descripcionLarga: {
+      resumen: "Joya arquitectónica que integra muros de piedra original con estructuras de acero y vidrio. Un ambiente de paz y sofisticación inigualable en uno de los sectores residenciales más exclusivos de la ciudad.",
+      detalles: [
+        "Muros originales de piedra volcánica conservados",
+        "Estructura nueva de acero y vidrio templado",
+        "Jardín interior con fuente y vegetación nativa",
+        "5 suites con baño privado y closet walk-in",
+        "Estudio/biblioteca con estantería de cedro",
+        "Piscina climatizada con deck de piedra laja",
+        "Área de BBQ y lounge exterior cubierto"
+      ],
+      ubicacion: "Zona 16, Ciudad de Guatemala. Dentro de residencial privado, acceso por garita de seguridad."
+    },
     ubicacion: "Zona 16, Ciudad de Guatemala",
     imagenes: [
       "img/propiedades/LA HERRADURA/1.jpeg",
@@ -95,9 +151,22 @@ const propiedades = [
   {
     id: "casa-5",
     nombre: "Vertical El Zapote",
-    descripcionCorta: "Arquitectura orgánica suspendida sobre el lago más bello del mundo.",
-    descripcionLarga: "Diseñada para minimizar el impacto ambiental, esta villa utiliza energía solar y sistemas de recolección de agua. Sus amplios ventanales ofrecen una vista ininterrumpida a los tres volcanes principales del lago.",
-    precio: "Q4,750",
+    tipo: "renta",
+    precio: "Q4,750 / mes",
+    descripcionCorta: "Arquitectura vertical en el corazón histórico de la Zona 2.",
+    descripcionLarga: {
+      resumen: "Apartamento de diseño contemporáneo en un edificio boutique de la Zona 2, pensado para quienes valoran la proximidad al centro histórico sin renunciar a los estándares de vida más exigentes.",
+      detalles: [
+        "Planta abierta de 85 mt² con ventilación cruzada",
+        "Ventanales de piso a techo con vista a la ciudad histórica",
+        "Cocina equipada con electrodomésticos de acero",
+        "Sistema de energía solar en el edificio",
+        "Recolección y reutilización de aguas grises",
+        "Área social en rooftop compartido",
+        "Bicicleta de uso exclusivo incluida"
+      ],
+      ubicacion: "Zona 2, Ciudad de Guatemala. A 5 minutos caminando del Parque Jocotenango y principales instituciones del centro histórico."
+    },
     ubicacion: "Zona 2, Ciudad de Guatemala",
     imagenes: [
       "img/propiedades/EL ZAPOTE/1.jpeg",
@@ -117,9 +186,23 @@ const propiedades = [
   {
     id: "casa-6",
     nombre: "Zona Pradera",
-    descripcionCorta: "Privacidad absoluta rodeada de bosque nuboso y diseño contemporáneo.",
-    descripcionLarga: "Ubicada en uno de los sectores más exclusivos de Muxbal, esta residencia destaca por su uso de materiales crudos: concreto expuesto, madera de cedro y piedra volcánica. Cuenta con un estudio privado y piscina climatizada.",
-    precio: "$1,280",
+    tipo: "ambos",
+    precioVenta: "$980,000",
+    precioRenta: "$1,280 / mes",
+    descripcionCorta: "Privacidad absoluta con materiales crudos en Zona 10.",
+    descripcionLarga: {
+      resumen: "Residencia que destaca por su uso honesto de materiales crudos: concreto expuesto, madera de cedro y piedra volcánica. Diseñada para quienes entienden que el verdadero lujo es la privacidad.",
+      detalles: [
+        "Concreto expuesto en paredes y cielos estructurales",
+        "Madera de cedro guatemalteco en pisos y closets",
+        "Piedra volcánica en fachada y jardín perimetral",
+        "Estudio privado con acceso independiente",
+        "Piscina climatizada con sistema de sal",
+        "4 suites con baño de mármol y terraza privada",
+        "Sala de cine privada y cuarto de juegos"
+      ],
+      ubicacion: "Zona 10, Ciudad de Guatemala. Área de La Pradera, a dos cuadras de colegios internacionales y zonas gastronómicas premium."
+    },
     ubicacion: "Zona 10, Ciudad de Guatemala",
     imagenes: [
       "img/propiedades/ZONA PRADERA/1.jpeg",
@@ -137,9 +220,21 @@ const propiedades = [
   {
     id: "casa-7",
     nombre: "Edificio Viro",
-    descripcionCorta: "Privacidad absoluta rodeada de bosque nuboso y diseño contemporáneo.",
-    descripcionLarga: "Ubicada en uno de los sectores más exclusivos de Muxbal, esta residencia destaca por su uso de materiales crudos: concreto expuesto, madera de cedro y piedra volcánica. Cuenta con un estudio privado y piscina climatizada.",
-    precio: "Q1,475",
+    tipo: "renta",
+    precio: "Q1,475 / mes",
+    descripcionCorta: "Vida urbana sofisticada en el corazón de Mariscal, Zona 11.",
+    descripcionLarga: {
+      resumen: "Unidad residencial en uno de los edificios boutique más reconocidos de la Zona 11. Diseño contemporáneo, acabados de primera y una ubicación que lo tiene todo a pocos pasos.",
+      detalles: [
+        "Planta funcional con distribución inteligente de espacios",
+        "Acabados premium en piso, baños y cocina",
+        "Luz natural en todos los ambientes principales",
+        "Áreas comunes: lobby, gimnasio y rooftop",
+        "Parqueo asignado en sótano privado",
+        "Servicio de concierge y seguridad permanente"
+      ],
+      ubicacion: "Zona 11, Mariscal, Ciudad de Guatemala. Rodeado de restaurantes, cafeterías, bancos y supermercados de alto nivel."
+    },
     ubicacion: "Zona 11, Mariscal",
     imagenes: [
       "img/propiedades/EDIFICIO VIRO/1.jpeg",
@@ -155,9 +250,22 @@ const propiedades = [
   {
     id: "casa-8",
     nombre: "Finca Teculután Zacapa",
-    descripcionCorta: "Privacidad absoluta rodeada de bosque nuboso y diseño contemporáneo.",
-    descripcionLarga: "Ubicada en uno de los sectores más exclusivos de Muxbal, esta residencia destaca por su uso de materiales crudos: concreto expuesto, madera de cedro y piedra volcánica. Cuenta con un estudio privado y piscina climatizada.",
+    tipo: "venta",
     precio: "Q2,300,000",
+    descripcionCorta: "Extensión productiva con infraestructura completa en el oriente del país.",
+    descripcionLarga: {
+      resumen: "Finca de gran extensión con infraestructura completa para uso residencial, agrícola o de inversión. Una oportunidad única en una de las regiones de mayor crecimiento del oriente guatemalteco.",
+      detalles: [
+        "45 manzanas con título de propiedad",
+        "Casa principal de 3 habitaciones con acabados rústicos de lujo",
+        "Sistema de riego tecnificado por goteo",
+        "Pozo de agua propio con bomba eléctrica y manual",
+        "Bodega de 300 mt² con electricidad y acceso vehicular",
+        "Cultivos actuales de limón persa y mango Tommy",
+        "Acceso directo desde carretera asfaltada principal"
+      ],
+      ubicacion: "Aldea San José, Teculután, Zacapa. A 2 horas de Ciudad de Guatemala por la ruta al Atlántico (CA-9)."
+    },
     ubicacion: "Aldea San José, Teculután Zacapa",
     imagenes: [
       "img/propiedades/FINCA ZACAPA/1.jpeg",
@@ -167,6 +275,6 @@ const propiedades = [
       "img/propiedades/FINCA ZACAPA/5.jpeg",
       "img/propiedades/FINCA ZACAPA/6.jpeg"
     ],
-    specs: { cuartos: 4, baños: 4.5, parqueos: 4 }
+    specs: { cuartos: 3, baños: 2, parqueos: 4 }
   }
 ];

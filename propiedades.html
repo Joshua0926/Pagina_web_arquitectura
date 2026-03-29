@@ -26,9 +26,9 @@
   </div>
 
   <!-- ======================================================================
-       HEADER
+       HEADER — siempre sólido en esta página (sin hero de fondo)
   ====================================================================== -->
-  <header id="header">
+  <header id="header" class="scrolled">
     <div class="container nav">
       <a href="index.html" class="brand">
         <img src="logo.png" alt="AURÉA" class="brand-logo">
@@ -51,40 +51,10 @@
 
 
   <!-- ======================================================================
-       HERO — PANTALLA COMPLETA
-  ====================================================================== -->
-  <section class="hero-full" id="hero">
-    <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2000');"></div>
-
-    <!-- Contador flotante -->
-    <div class="hero-counter reveal">
-      <div class="num" id="propCount">6</div>
-      <div class="lbl">Propiedades<br>Exclusivas</div>
-    </div>
-
-    <div class="container hero-content">
-      <div class="eyebrow reveal">Grupo Auréa — Guatemala</div>
-      <h1 class="reveal delay-1">Encuentra el espacio<br>donde <span class="italic-accent">tu historia</span> comienza.</h1>
-      <p class="lede reveal delay-2">Seleccionamos propiedades con arquitectura excepcional<br>y potencial de vida inigualable.</p>
-      <div class="reveal delay-3" style="display:flex;gap:14px;flex-wrap:wrap;">
-        <a href="#catalogo" class="btn acc">Ver catálogo</a>
-        <a href="asesoria.html" class="btn light">Hablar con un asesor</a>
-      </div>
-    </div>
-
-    <!-- Indicador de scroll -->
-    <div class="scroll-indicator">
-      <div class="scroll-line"></div>
-      <span>Scroll</span>
-    </div>
-  </section>
-
-
-  <!-- ======================================================================
        CATÁLOGO DE PROPIEDADES
   ====================================================================== -->
   <section id="catalogo" style="padding:0;">
-    <div style="padding: clamp(60px,8vw,110px) 0 clamp(30px,4vw,50px);">
+    <div style="padding: clamp(100px,14vh,130px) 0 clamp(30px,4vw,50px);">
       <div class="container">
         <div class="section-head">
           <div class="reveal">
@@ -92,57 +62,15 @@
             <span class="gold-line"></span>
             <h2>Propiedades Disponibles</h2>
           </div>
-          <!--<p class="lede reveal delay-1" style="max-width:38ch;text-align:right;">
-            Cada propiedad es seleccionada por su arquitectura, ubicación y potencial de inversión.
-          </p>-->
+          <p class="lede reveal delay-1" style="max-width:38ch;text-align:right;">
+            Seleccionamos las mejores viviendas de toda Guatemala.
+          </p>
         </div>
       </div>
     </div>
 
     <!-- Grid de tarjetas (generado por JS) -->
     <div class="propiedades-grid" id="grid-propiedades"></div>
-  </section>
-
-
-  <!-- ======================================================================
-       MANIFESTO / QUIÉNES SOMOS
-  ====================================================================== -->
-  <section style="background: var(--bg-2);">
-    <div class="container">
-      <div class="manifesto-grid">
-        <!-- Cita -->
-        <div class="reveal">
-          <div class="manifesto-number">01</div>
-          <blockquote class="manifesto-quote">
-            "Materiales nobles, proporciones correctas y buena luz. Eso es todo lo que un gran espacio necesita."
-            <cite class="manifesto-cite">— Principio fundacional de AURÉA</cite>
-          </blockquote>
-          <span class="gold-line" style="margin-top:28px;"></span>
-          <p class="lede" style="margin-top:20px;">
-            Somos un equipo multidisciplinario que integra arquitectura, diseño e ingeniería para ofrecer soluciones elegantes, eficientes y atemporales.
-          </p>
-        </div>
-        <!-- Stats -->
-        <div class="stats-grid reveal delay-2">
-          <div class="stat-box">
-            <div class="stat-num">12+</div>
-            <div class="stat-label">Años de experiencia</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-num">80+</div>
-            <div class="stat-label">Proyectos entregados</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-num">6</div>
-            <div class="stat-label">Propiedades activas</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-num">100%</div>
-            <div class="stat-label">Clientes satisfechos</div>
-          </div>
-        </div>
-      </div>
-    </div>
   </section>
 
 
@@ -215,7 +143,6 @@
       dot.style.left = mouseX + 'px';
       dot.style.top  = mouseY + 'px';
     });
-    /* El ring sigue con suavidad (lerp) */
     function animateCursor() {
       ringX += (mouseX - ringX) * 0.12;
       ringY += (mouseY - ringY) * 0.12;
@@ -225,20 +152,16 @@
     }
     animateCursor();
 
-    /* Hover sobre elementos interactivos */
     document.querySelectorAll('a, button, .prop-card').forEach(el => {
       el.addEventListener('mouseenter', () => ring.classList.add('hovered'));
       el.addEventListener('mouseleave', () => ring.classList.remove('hovered'));
     });
 
-    /* ── Header scroll ── */
+    /* ── Header: siempre scrolled en esta página ── */
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => {
       header.classList.toggle('scrolled', window.scrollY > 60);
     }, { passive: true });
-
-    /* ── Hero: animación de entrada de imagen ── */
-    setTimeout(() => document.getElementById('hero').classList.add('loaded'), 100);
 
     /* ── Menú móvil ── */
     const hamburger  = document.getElementById('hamburger');
@@ -263,9 +186,18 @@
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
+    /* ── Helper: construir label de tipo ── */
+    function buildTipoBadge(prop) {
+      if (prop.tipo === 'ambos') {
+        return `<span class="tipo-badge tipo-venta">Venta</span><span class="tipo-badge tipo-renta">Renta</span>`;
+      }
+      const cls = prop.tipo === 'venta' ? 'tipo-venta' : 'tipo-renta';
+      const label = prop.tipo === 'venta' ? 'Venta' : 'Renta';
+      return `<span class="tipo-badge ${cls}">${label}</span>`;
+    }
+
     /* ── Generar tarjetas de propiedades ── */
     const grid = document.getElementById('grid-propiedades');
-    document.getElementById('propCount').textContent = propiedades.length;
 
     propiedades.forEach((prop, i) => {
       const card = document.createElement('div');
@@ -276,7 +208,9 @@
         <div class="prop-img">
           <img src="${prop.imagenes[0]}" alt="${prop.nombre}" loading="${i === 0 ? 'eager' : 'lazy'}">
         </div>
-        <div class="price-badge">${prop.precio}</div>
+        <div class="tipo-badges">
+          ${buildTipoBadge(prop)}
+        </div>
         <div class="prop-overlay">
           <div class="prop-location">${prop.ubicacion}</div>
           <h3>${prop.nombre}</h3>
@@ -291,7 +225,6 @@
       `;
       grid.appendChild(card);
 
-      /* Observar cada tarjeta para reveal */
       if (i > 1) revealObs.observe(card);
     });
   </script>

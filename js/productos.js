@@ -28,7 +28,7 @@
  */
 
 const productos = [
-
+ 
   // ══════════════════════════════════════════════════════════════════════════
   // AIRE ACONDICIONADO
   // ══════════════════════════════════════════════════════════════════════════
@@ -36,10 +36,10 @@ const productos = [
     id: "aire-acondicionado-01",
     nombre: "Mini Split · York",
     categoria: "Aire Acondicionado",
-    precio: 2500,
+    precio: "",
     moneda: "GTQ",
-    descripcion: "Mini Split de 12,000 BTU con tecnología inverter.",
-    descripcionLarga: "Mini Split de 12,000 BTU con tecnología inverter para máxima eficiencia energética. Ideal para habitaciones de hasta 25m². Incluye unidad interior, unidad exterior, control remoto y kit de instalación básica. Garantía de 5 años en compresor y 2 años en partes eléctricas.",
+    descripcion: "Inverter de alta eficiencia con refrigerante R410A, flujo de aire 3D y conectividad WiFi opcional. Disponible de 12,000 a 24,000 BTU.",
+    descripcionLarga: "El Mini Split York combina tecnología inverter con un diseño de pantalla oculta y flujo de aire 3D para una climatización silenciosa y precisa. Su sistema inverter adapta continuamente la potencia del compresor para mantener la temperatura deseada con un consumo energético muy bajo, equivalente a 16–18 SEER. Compatible con refrigerante R410A y disponible con conectividad WiFi opcional para control remoto desde cualquier dispositivo. Funciones de solo frío según modelo.",
     imagenes: [
       "img/productos/AIRE ACONDICIONADO/MINI SPLIT/YORK/1.png",
       "img/productos/AIRE ACONDICIONADO/MINI SPLIT/YORK/2.png"
@@ -57,15 +57,15 @@ const productos = [
     },
     tags: ["aire acondicionado", "mini split", "york", "inverter", "eficiencia energética"]
   },
-
+ 
   {
     id: "aire-acondicionado-02",
     nombre: "Mini Split · Samsung",
     categoria: "Aire Acondicionado",
-    precio: 2700,
+    precio: "",
     moneda: "GTQ",
-    descripcion: "Mini Split de 12,000 BTU con tecnología inverter.",
-    descripcionLarga: "Mini Split de 12,000 BTU con tecnología inverter para máxima eficiencia energética. Ideal para habitaciones de hasta 25m². Incluye unidad interior, unidad exterior, control remoto y kit de instalación básica. Garantía de 5 años en compresor y 2 años en partes eléctricas.",
+    descripcion: "Mini Split inverter de 12,000 BTU para espacios de hasta 25 m². Incluye unidad interior, exterior, control remoto y kit de instalación.",
+    descripcionLarga: "El Mini Split Samsung es una solución de climatización residencial de confianza respaldada por una de las marcas tecnológicas más reconocidas del mundo. Su tecnología inverter regula la velocidad del compresor de forma continua, logrando la temperatura ideal con menor consumo eléctrico y sin arranques bruscos. Con capacidad para 12,000 BTU, cubre habitaciones de hasta 25 m² de forma eficiente y silenciosa. El paquete incluye unidad interior, unidad exterior, control remoto y kit de instalación básica.",
     imagenes: [
       "https://i0.wp.com/www.estpace-company.com/wp-content/uploads/2024/04/Mini-Split-Marca-Samsung.webp?resize=1024%2C1024&ssl=1",
       "https://iprpartesyrepuestos.com/wp-content/uploads/2020/10/614-0057-4-1-700x700.jpg"
@@ -75,21 +75,20 @@ const productos = [
     specs: {
       "Capacidad": "12,000 BTU",
       "Tecnología": "Inverter",
-      "Área recomendada": "Hasta 25m²",
-      "Incluye": "Unidad interior, unidad exterior, control remoto, kit de instalación",
-      "Garantía": "5 años en compresor, 2 años en partes eléctricas"
+      "Área recomendada": "Hasta 25 m²",
+      "Incluye": "Unidad interior, unidad exterior, control remoto, kit de instalación"
     },
     tags: ["aire acondicionado", "mini split", "samsung", "inverter", "eficiencia energética"]
   },
-
+ 
   {
     id: "aire-acondicionado-03",
     nombre: "Mini Split · Carrier",
     categoria: "Aire Acondicionado",
-    precio: 2400,
+    precio: "",
     moneda: "GTQ",
-    descripcion: "Mini Split de 12,000 BTU con tecnología inverter.",
-    descripcionLarga: "Mini Split de 12,000 BTU con tecnología inverter para máxima eficiencia energética. Ideal para habitaciones de hasta 25m². Incluye unidad interior, unidad exterior, control remoto y kit de instalación básica. Garantía de 5 años en compresor y 2 años en partes eléctricas.",
+    descripcion: "Inverter de alta gama con hasta 21 SEER y enfriamiento hasta 65% más rápido. Disponible de 12,000 a 24,000 BTU con refrigerante R410A.",
+    descripcionLarga: "El Mini Split Carrier representa lo más alto en eficiencia y rendimiento dentro de la categoría inverter. Con una calificación de hasta 21 SEER, está entre los equipos de menor consumo eléctrico disponibles en el mercado. Su tecnología de enfriamiento rápido alcanza la temperatura deseada hasta un 65% más veloz que los equipos convencionales, ideal para ambientes que requieren confort inmediato. Fabricado con estándares de durabilidad alta y disponible en capacidades de 12,000 a 24,000 BTU con refrigerante ecológico R410A.",
     imagenes: [
       "img/productos/AIRE ACONDICIONADO/MINI SPLIT/CARRIER/1.png",
       "img/productos/AIRE ACONDICIONADO/MINI SPLIT/CARRIER/2.png"
@@ -107,15 +106,15 @@ const productos = [
     },
     tags: ["aire acondicionado", "mini split", "carrier", "inverter", "eficiencia energética"]
   },
-
+ 
   {
     id: "aire-acondicionado-04",
     nombre: "Mini Split · Lennox",
     categoria: "Aire Acondicionado",
-    precio: 2800,
+    precio: "",
     moneda: "GTQ",
-    descripcion: "Mini Split de 12,000 BTU con tecnología inverter.",
-    descripcionLarga: "Mini Split de 12,000 BTU con tecnología inverter para máxima eficiencia energética. Ideal para habitaciones de hasta 25m². Incluye unidad interior, unidad exterior, control remoto y kit de instalación básica. Garantía de 5 años en compresor y 2 años en partes eléctricas.",
+    descripcion: "Inverter con hasta 18 SEER, disponible en 12,000, 18,000 y 24,000 BTU. Funciones de frío o frío/calor según modelo.",
+    descripcionLarga: "El Mini Split Lennox ofrece una combinación equilibrada de eficiencia, silencio y versatilidad. Con tecnología inverter y una eficiencia de hasta 18 SEER, mantiene un consumo eléctrico bajo a medio sin sacrificar potencia. Funciona con voltaje estándar de 208–230V y refrigerante R410A, y está disponible en tres capacidades: 12,000, 18,000 y 24,000 BTU. Dependiendo del modelo, puede operar en modo solo frío o frío/calor, adaptándose a distintas necesidades climáticas durante todo el año.",
     imagenes: [
       "img/productos/AIRE ACONDICIONADO/MINI SPLIT/LENNOX/1.png",
       "img/productos/AIRE ACONDICIONADO/MINI SPLIT/LENNOX/2.png"

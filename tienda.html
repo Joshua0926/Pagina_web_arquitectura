@@ -318,8 +318,18 @@
       return lista;
     }
 
-    function formatPrecio(p) {
-      return 'Q ' + p.precio.toLocaleString('es-GT');
+    /* ── Helper: renderiza el precio solo si existe ── */
+    function renderPrecioCard(prod, agotado) {
+      /* precio vacío, null, 0 o undefined → no mostrar nada */
+      const tienePrecio = prod.precio !== null &&
+                          prod.precio !== undefined &&
+                          prod.precio !== '' &&
+                          prod.precio !== 0;
+      if (!tienePrecio) return '';
+      return `
+        <div class="prod-precio ${agotado ? 'agotado' : ''}">
+          Q ${prod.precio.toLocaleString('es-GT')} <small>${prod.moneda}</small>
+        </div>`;
     }
 
     function crearTarjetaProducto(prod) {
@@ -358,9 +368,7 @@
           <h3 class="prod-nombre">${prod.nombre}</h3>
           <p class="prod-descripcion">${prod.descripcion}</p>
           <div class="prod-footer">
-            <div class="prod-precio ${agotado ? 'agotado' : ''}">
-              ${formatPrecio(prod)} <small>${prod.moneda}</small>
-            </div>
+            ${renderPrecioCard(prod, agotado)}
             <span class="prod-ver-btn">
               ${agotado ? 'Agotado' : 'Ver más'}
               <span class="mini-arrow"></span>

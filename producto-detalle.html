@@ -78,10 +78,9 @@
         <div class="eyebrow" id="detailCat">Categoría</div>
         <span class="gold-line"></span>
         <h1 id="detailNombre">—</h1>
-        <div class="prod-detail-price">
-          <span id="detailPrecio">Q 0</span>
-          <small id="detailMoneda">GTQ</small>
-        </div>
+
+        <!-- Precio: solo se renderiza si existe en el JS -->
+        <div id="detailPrecioWrap"></div>
 
         <div class="disponibilidad" id="disponibilidadPill">
           <span class="dot"></span>
@@ -184,6 +183,14 @@
     hamburger.addEventListener('click',()=>{ const open=mobileMenu.classList.toggle('open'); hamburger.classList.toggle('open',open); document.body.style.overflow=open?'hidden':''; });
     function closeMobile(){ mobileMenu.classList.remove('open'); hamburger.classList.remove('open'); document.body.style.overflow=''; }
 
+    /* ── Helper: precio existe si no es null, undefined, '' ni 0 ── */
+    function tienePrecio(prod) {
+      return prod.precio !== null &&
+             prod.precio !== undefined &&
+             prod.precio !== '' &&
+             prod.precio !== 0;
+    }
+
     /* ── Leer producto de la URL ── */
     const prodId = new URLSearchParams(location.search).get('id');
     const prod   = productos.find(p => p.id === prodId);
@@ -191,7 +198,6 @@
     if (!prod) {
       document.querySelector('h1').textContent = 'Producto no encontrado';
     } else {
-      /* Actualizar <title> */
       document.title = `${prod.nombre} — AURÉA Tienda`;
 
       /* Breadcrumb */
@@ -201,9 +207,18 @@
       /* Info básica */
       document.getElementById('detailCat').textContent    = prod.categoria;
       document.getElementById('detailNombre').textContent = prod.nombre;
-      document.getElementById('detailPrecio').textContent = 'Q ' + prod.precio.toLocaleString('es-GT');
-      document.getElementById('detailMoneda').textContent = prod.moneda;
       document.getElementById('detailDesc').textContent   = prod.descripcionLarga;
+
+      /* ── Precio: solo si existe ── */
+      const precioWrap = document.getElementById('detailPrecioWrap');
+      if (tienePrecio(prod)) {
+        precioWrap.innerHTML = `
+          <div class="prod-detail-price">
+            <span id="detailPrecio">Q ${prod.precio.toLocaleString('es-GT')}</span>
+            <small id="detailMoneda">${prod.moneda}</small>
+          </div>`;
+      }
+      /* Si precio está vacío, precioWrap queda vacío y no ocupa espacio */
 
       /* Disponibilidad */
       const dispPill = document.getElementById('disponibilidadPill');
@@ -275,17 +290,16 @@
         th.addEventListener('click', () => {
           mainImg.src = src;
           mainImg.style.animation = 'none';
-          void mainImg.offsetWidth; // force reflow
+          void mainImg.offsetWidth;
           mainImg.style.animation = '';
           thumbRow.querySelectorAll('.prod-thumb').forEach(t => t.classList.remove('active'));
           th.classList.add('active');
         });
         thumbRow.appendChild(th);
       });
-      // Ocultar thumbs si solo hay 1 imagen
       if (prod.imagenes.length === 1) thumbRow.style.display = 'none';
 
-      /* ── Productos relacionados (misma categoría, excluyendo el actual) ── */
+      /* ── Productos relacionados ── */
       const relGrid = document.getElementById('relatedGrid');
       const relacionados = productos
         .filter(p => p.categoria === prod.categoria && p.id !== prod.id)
@@ -299,6 +313,12 @@
           card.className = 'producto-card reveal';
           card.style.cursor = 'none';
           card.onclick = () => { location.href = `producto-detalle.html?id=${rel.id}`; };
+
+          /* Precio en tarjeta relacionada: solo si existe */
+          const precioRelHtml = (rel.precio !== null && rel.precio !== undefined && rel.precio !== '' && rel.precio !== 0)
+            ? `<div class="prod-precio">Q ${rel.precio.toLocaleString('es-GT')} <small>${rel.moneda}</small></div>`
+            : '';
+
           card.innerHTML = `
             <div class="prod-img-wrap">
               <img src="${rel.imagenes[0]}" alt="${rel.nombre}" loading="lazy">
@@ -307,7 +327,7 @@
               <div class="prod-categoria">${rel.categoria}</div>
               <h3 class="prod-nombre">${rel.nombre}</h3>
               <div class="prod-footer">
-                <div class="prod-precio">Q ${rel.precio.toLocaleString('es-GT')} <small>${rel.moneda}</small></div>
+                ${precioRelHtml}
                 <span class="prod-ver-btn">Ver más <span class="mini-arrow"></span></span>
               </div>
             </div>

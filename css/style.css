@@ -1002,6 +1002,8 @@ dialog#lightbox::backdrop { background: transparent; }
   grid-template-columns: 1.35fr 0.65fr;
   gap: 0;
   background: var(--bg-dark);
+  width: 100%;
+  box-sizing: border-box;
 }
 .carousel {
   position: relative;
@@ -1063,6 +1065,10 @@ dialog#lightbox::backdrop { background: transparent; }
   top: 0;
   min-height: 100vh;
   overflow: visible;
+  /* Prevent horizontal overflow */
+  width: 100%;
+  box-sizing: border-box;
+  max-width: 100%;
 }
 .detail-info .eyebrow { margin-bottom: 10px; }
 .detail-info h1 {
@@ -1168,7 +1174,7 @@ footer {
   .hero-editorial-inner { grid-template-columns: 1fr; }
   .contact-split { grid-template-columns: 1fr; }
   .detail-grid { grid-template-columns: 1fr; }
-  .detail-info { position: static; max-height: none; }
+  .detail-info { position: static; max-height: none; overflow: visible; width: 100%; box-sizing: border-box; padding: 28px 20px; min-height: 0; }
   .detail-tab-content { max-height: 180px; }
   .carousel-track { height: 56vw; min-height: 280px; }
   .footer-grid { grid-template-columns: 1fr 1fr; }

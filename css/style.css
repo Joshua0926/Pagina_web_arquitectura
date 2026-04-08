@@ -1061,8 +1061,8 @@ dialog#lightbox::backdrop { background: transparent; }
   justify-content: center;
   position: sticky;
   top: 0;
-  max-height: 100vh;
-  overflow-y: auto;
+  min-height: 100vh;
+  overflow: visible;
 }
 .detail-info .eyebrow { margin-bottom: 10px; }
 .detail-info h1 {
@@ -1169,6 +1169,7 @@ footer {
   .contact-split { grid-template-columns: 1fr; }
   .detail-grid { grid-template-columns: 1fr; }
   .detail-info { position: static; max-height: none; }
+  .detail-tab-content { max-height: 180px; }
   .carousel-track { height: 56vw; min-height: 280px; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
 
@@ -1913,25 +1914,63 @@ footer {
   color: var(--accent);
   border-bottom-color: var(--accent);
 }
+ 
+/* El contenido de cada tab tiene altura máxima y scroll propio */
 .detail-tab-content {
   display: none;
-  padding: 22px 0 0;
+  padding: 22px 4px 0 0;
+  max-height: 220px;
+  overflow-y: auto;
   animation: tabIn 0.35s var(--ease-appear);
+ 
+  /* Scrollbar estilizada — Webkit (Chrome, Safari, Edge) */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(201,169,110,0.4) transparent;
 }
 .detail-tab-content.active { display: block; }
+ 
+/* Scrollbar Webkit */
+.detail-tab-content::-webkit-scrollbar {
+  width: 2px;
+}
+.detail-tab-content::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.04);
+}
+.detail-tab-content::-webkit-scrollbar-thumb {
+  background: rgba(201,169,110,0.45);
+  border-radius: 0;
+  transition: background 0.3s;
+}
+.detail-tab-content::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+ 
+/* Fade inferior para indicar que hay más contenido */
+.detail-tab-content.active::after {
+  content: '';
+  display: block;
+  height: 32px;
+  background: linear-gradient(to bottom, transparent, rgba(24,24,21,0.85));
+  position: sticky;
+  bottom: 0;
+  margin-top: -32px;
+  pointer-events: none;
+}
+ 
 @keyframes tabIn {
   from { opacity: 0; transform: translateY(8px); }
   to   { opacity: 1; transform: none; }
 }
-
+ 
 /* Texto de resumen / ubicación */
 .detail-resumen {
   font-size: 0.9rem;
   line-height: 1.95;
   color: rgba(245,242,236,0.55);
   margin: 0;
+  padding-bottom: 16px;
 }
-
+ 
 /* Lista de características estilizada */
 .detail-features {
   list-style: none;

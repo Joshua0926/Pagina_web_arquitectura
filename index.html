@@ -195,12 +195,6 @@
 
 
   <!-- ======================================================================
-       MANIFESTO / FILOSOFÍA — SECCIÓN OSCURA
-  ====================================================================== -->
-  
-
-
-  <!-- ======================================================================
        PROPIEDAD DESTACADA — FEATURE SECTION
   ====================================================================== -->
   <section class="home-featured">
@@ -298,68 +292,6 @@
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-
-  <!-- ======================================================================
-       TESTIMONIOS
-  ====================================================================== -->
-  <section class="home-testimonials dark-section">
-    <div class="container">
-      <div class="reveal" style="text-align:center;margin-bottom:clamp(40px,6vw,70px);">
-        <div class="eyebrow">Testimonios</div>
-        <span class="gold-line center"></span>
-        <h2 style="color:var(--fg-light);">Lo que dicen<br><span class="italic-accent">nuestros clientes</span></h2>
-      </div>
-
-      <div class="testimonials-track" id="testimonialsTrack">
-
-        <div class="testimonial-card active">
-          <div class="testi-quote-mark">"</div>
-          <p class="testi-text">AURÉA transformó completamente la forma en que entendía el proceso de compra de una propiedad. No es una transacción. Es una experiencia de diseño en sí misma.</p>
-          <div class="testi-author">
-            <div class="testi-initials">RC</div>
-            <div>
-              <strong>Ricardo C.</strong>
-              <small>Empresario — Ciudad de Guatemala</small>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial-card">
-          <div class="testi-quote-mark">"</div>
-          <p class="testi-text">La remodelación de nuestra residencia superó cada expectativa. Cada material elegido, cada proporción, cada detalle fue pensado con una precisión que pocas veces se ve.</p>
-          <div class="testi-author">
-            <div class="testi-initials">ML</div>
-            <div>
-              <strong>María L.</strong>
-              <small>Arquitecta — Antigua Guatemala</small>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial-card">
-          <div class="testi-quote-mark">"</div>
-          <p class="testi-text">La discreción, la atención y el criterio estético del equipo AURÉA son incomparables. Encontraron el penthouse exacto que buscaba antes de que yo supiera que lo buscaba.</p>
-          <div class="testi-author">
-            <div class="testi-initials">AV</div>
-            <div>
-              <strong>Alejandro V.</strong>
-              <small>Inversionista — Zona 10, Guatemala</small>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Dots de navegación -->
-      <div class="testi-dots" id="testiDots">
-        <button class="tdot active" onclick="goTestimonial(0)"></button>
-        <button class="tdot" onclick="goTestimonial(1)"></button>
-        <button class="tdot" onclick="goTestimonial(2)"></button>
-      </div>
-
     </div>
   </section>
 
@@ -485,37 +417,6 @@
       el.classList.add('reveal');
       revealObs.observe(el);
     });
-
-    /* ── Testimoniales ── */
-    let currentTesti = 0;
-    const testiCards = document.querySelectorAll('.testimonial-card');
-    const testiDots  = document.querySelectorAll('.tdot');
-    let testiTimer;
-
-    function goTestimonial(idx) {
-      testiCards[currentTesti].classList.remove('active');
-      testiDots[currentTesti].classList.remove('active');
-      currentTesti = idx;
-      testiCards[currentTesti].classList.add('active');
-      testiDots[currentTesti].classList.add('active');
-    }
-
-    function nextTestimonial() {
-      goTestimonial((currentTesti + 1) % testiCards.length);
-    }
-
-    function resetTestiTimer() {
-      clearInterval(testiTimer);
-      testiTimer = setInterval(nextTestimonial, 6000);
-    }
-
-    // Exponer para los botones inline
-    window.goTestimonial = function(idx) {
-      goTestimonial(idx);
-      resetTestiTimer();
-    };
-
-    resetTestiTimer();
   </script>
 </body>
 </html>

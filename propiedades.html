@@ -191,13 +191,42 @@
       if (prop.tipo === 'ambos') {
         return `<span class="tipo-badge tipo-venta">Venta</span><span class="tipo-badge tipo-renta">Renta</span>`;
       }
-      const cls = prop.tipo === 'venta' ? 'tipo-venta' : 'tipo-renta';
+      const cls   = prop.tipo === 'venta' ? 'tipo-venta' : 'tipo-renta';
       const label = prop.tipo === 'venta' ? 'Venta' : 'Renta';
       return `<span class="tipo-badge ${cls}">${label}</span>`;
     }
 
+    /* ── Calcular clases para la última fila incompleta ──
+       El grid es de 3 columnas, pero la primera card ocupa 2,
+       así que la distribución efectiva por fila es:
+         Fila 1: card[0] (span 2) + card[1] (span 1)  → 2 cards
+         Resto:  3 cards por fila
+       Para detectar cuántas quedan en la última fila calculamos
+       cuántas cards hay a partir de la fila 2 (índice 2 en adelante)
+       y el resto de dividir entre 3.
+    ── */
+    function getLastRowClass(cards) {
+      const total = cards.length;
+      if (total <= 2) return; // primera fila siempre completa con 2 cards
+
+      const afterFirstRow = total - 2;      // cards desde índice 2
+      const remainder     = afterFirstRow % 3; // sobrante en última fila
+
+      if (remainder === 0) return; // última fila completa, nada que hacer
+
+      if (remainder === 1) {
+        // 1 card sola → span 3 (ocupa todo el ancho)
+        cards[total - 1].classList.add('last-solo');
+      } else if (remainder === 2) {
+        // 2 cards → primera span 2, segunda span 1
+        cards[total - 2].classList.add('last-duo-a');
+        cards[total - 1].classList.add('last-duo-b');
+      }
+    }
+
     /* ── Generar tarjetas de propiedades ── */
-    const grid = document.getElementById('grid-propiedades');
+    const grid  = document.getElementById('grid-propiedades');
+    const cards = [];
 
     propiedades.forEach((prop, i) => {
       const card = document.createElement('div');
@@ -223,10 +252,15 @@
           </div>
         </div>
       `;
+
       grid.appendChild(card);
+      cards.push(card);
 
       if (i > 1) revealObs.observe(card);
     });
+
+    /* Aplicar clases de última fila una vez que todas las cards están en el DOM */
+    getLastRowClass(cards);
   </script>
 </body>
 </html>

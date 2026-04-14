@@ -110,7 +110,7 @@ const propiedades = [
     id: "casa-3",
     nombre: "Villas del Campo",
     tipo: "renta",
-    precio: "$1,700 / mes",
+    precio: "US$1,700 / mes",
     descripcionCorta: "Casa de 404 m² con jardín amplio, sala con chimenea y 3 dormitorios en condominio privado al Km 13.",
     descripcionLarga: {
       resumen: "Residencia amplia dentro de condominio privado sobre la carretera a El Salvador, ideal para familia. Distribución generosa con sala familiar, dormitorio de servicio, jardín y múltiples ambientes que equilibran comodidad y privacidad.",
@@ -155,7 +155,7 @@ const propiedades = [
     id: "casa-4",
     nombre: "La Herradura de Kanajuyú",
     tipo: "venta",
-    precio: "$466,000",
+    precio: "US$466,000",
     descripcionCorta: "Casa de 260 m² en garita privada, Zona 16, con garage para 4 vehículos y sala familiar.",
     descripcionLarga: {
       resumen: "Casa dentro de condominio con garita en uno de los sectores más consolidados de la Zona 16. Distribución práctica y bien aprovechada, con espacios para toda la familia y estacionamiento generoso.",

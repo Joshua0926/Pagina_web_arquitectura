@@ -6,7 +6,6 @@
   <title>Propiedad — AURÉA</title>
   <link rel="stylesheet" href="css/style.css">
   <style>
-    /* Contener desbordamiento horizontal en esta página */
     html, body { overflow-x: hidden; max-width: 100%; }
   </style>
 </head>
@@ -62,7 +61,6 @@
       <div class="detail-gallery">
         <div class="carousel">
           <div class="carousel-track" id="carousel">
-            <!-- Imágenes inyectadas por JS -->
             <button class="cnav prev" onclick="changeSlide(-1)" aria-label="Anterior">&#10094;</button>
             <button class="cnav next" onclick="changeSlide(1)"  aria-label="Siguiente">&#10095;</button>
           </div>
@@ -73,40 +71,31 @@
       <!-- Columna derecha: Info -->
       <div class="detail-info" id="detailInfo">
 
-        <!-- Tipo de operación -->
         <div class="tipo-badges" id="tipoBadges" style="margin-bottom:14px;"></div>
-
         <div class="eyebrow" id="propLoc">Cargando…</div>
         <span class="gold-line"></span>
         <h1 id="propName">—</h1>
-
-        <!-- Precio(s) -->
         <div id="precioWrap"></div>
-
         <div class="spec-row" id="propSpecs"></div>
 
-        <!-- ── TABS EDITORIALES ── -->
+        <!-- TABS EDITORIALES -->
         <div class="detail-tabs">
           <div class="detail-tab-nav">
             <button class="detail-tab-btn active" data-tab="resumen">Descripción</button>
             <button class="detail-tab-btn" data-tab="detalles">Características</button>
             <button class="detail-tab-btn" data-tab="ubicacion">Ubicación</button>
           </div>
-
           <div class="detail-tab-content active" id="tab-resumen">
             <p id="propResumen" class="detail-resumen">—</p>
           </div>
-
           <div class="detail-tab-content" id="tab-detalles">
             <ul class="detail-features" id="propDetalles"></ul>
           </div>
-
           <div class="detail-tab-content" id="tab-ubicacion">
             <p id="propUbicacion" class="detail-resumen">—</p>
           </div>
         </div>
 
-        <!-- Acciones -->
         <a id="btnWa" href="#" class="btn acc" style="width:100%;justify-content:center;padding:18px 30px;gap:12px;margin-top:8px;">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
             <path d="M20 3.5A10.5 10.5 0 0 0 3.4 16.9L2 22l5.3-1.4A10.5 10.5 0 1 0 20 3.5Z"/>
@@ -168,8 +157,12 @@
   <!-- ======================================================================
        SCRIPTS
   ====================================================================== -->
-  <script src="js/propiedades.js"></script>
   <script>
+    /* ══════════════════════════════════════════════════════════════════════
+       ⚠️  MISMA URL que en propiedades.html — reemplaza con la tuya
+    ══════════════════════════════════════════════════════════════════════ */
+    const PROPIEDADES_URL = 'https://raw.githubusercontent.com/Joshua0926/aurea-data/refs/heads/main/propiedades.json';
+
     document.getElementById('year').textContent = new Date().getFullYear();
 
     /* ── Cursor ── */
@@ -178,8 +171,7 @@
     let mx = 0, my = 0, rx = 0, ry = 0;
     document.addEventListener('mousemove', e => {
       mx = e.clientX; my = e.clientY;
-      dot.style.left = mx + 'px';
-      dot.style.top  = my + 'px';
+      dot.style.left = mx + 'px'; dot.style.top = my + 'px';
     });
     (function loop() {
       rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
@@ -205,16 +197,20 @@
       document.body.style.overflow = '';
     }
 
-    /* ── Leer propiedad de la URL ── */
-    const propId = new URLSearchParams(window.location.search).get('id');
-    const prop   = propiedades.find(p => p.id === propId);
+    /* ── Renderizar propiedad ── */
+    function renderPropiedad(propiedades) {
+      const propId = new URLSearchParams(window.location.search).get('id');
+      const prop   = propiedades.find(p => p.id === propId);
 
-    if (!prop) {
-      document.getElementById('propName').textContent = 'Propiedad no encontrada';
-    } else {
+      if (!prop) {
+        document.getElementById('propName').textContent = 'Propiedad no encontrada';
+        document.getElementById('propLoc').textContent  = '';
+        return;
+      }
+
       document.title = prop.nombre + ' — AURÉA';
 
-      /* ── Tipo badge ── */
+      /* Tipo badge */
       const tipoBadgesEl = document.getElementById('tipoBadges');
       if (prop.tipo === 'ambos') {
         tipoBadgesEl.innerHTML = `<span class="tipo-badge tipo-venta">Venta</span><span class="tipo-badge tipo-renta">Renta</span>`;
@@ -224,11 +220,10 @@
         tipoBadgesEl.innerHTML = `<span class="tipo-badge ${cls}">${label}</span>`;
       }
 
-      /* ── Ubicación y nombre ── */
       document.getElementById('propLoc').textContent  = prop.ubicacion;
       document.getElementById('propName').textContent = prop.nombre;
 
-      /* ── Precio(s) ── */
+      /* Precio(s) */
       const precioWrap = document.getElementById('precioWrap');
       if (prop.tipo === 'ambos') {
         precioWrap.innerHTML = `
@@ -247,14 +242,14 @@
         precioWrap.innerHTML = `<div class="detail-price">${prop.precio}</div>`;
       }
 
-      /* ── Specs ── */
+      /* Specs */
       document.getElementById('propSpecs').innerHTML =
         `<div class="spec-box"><b>${prop.specs.cuartos}</b><small>Habitaciones</small></div>` +
         `<div class="spec-box"><b>${prop.specs.baños}</b><small>Baños</small></div>` +
         `<div class="spec-box"><b>${prop.specs.parqueos}</b><small>Parqueos</small></div>`;
 
-      /* ── Tabs: descripción estructurada ── */
-      document.getElementById('propResumen').textContent = prop.descripcionLarga.resumen;
+      /* Tabs */
+      document.getElementById('propResumen').textContent   = prop.descripcionLarga.resumen;
       document.getElementById('propUbicacion').textContent = prop.descripcionLarga.ubicacion;
 
       const detList = document.getElementById('propDetalles');
@@ -265,7 +260,6 @@
         detList.appendChild(li);
       });
 
-      /* ── Tab switching ── */
       document.querySelectorAll('.detail-tab-btn').forEach(btn => {
         btn.addEventListener('click', () => {
           const tab = btn.dataset.tab;
@@ -276,11 +270,11 @@
         });
       });
 
-      /* ── WhatsApp ── */
+      /* WhatsApp */
       document.getElementById('btnWa').href =
         'https://wa.me/50233667439?text=' + encodeURIComponent('Hola, me interesa la propiedad: ' + prop.nombre);
 
-      /* ── Carrusel ── */
+      /* Carrusel */
       let current = 0;
       let timer;
       const track  = document.getElementById('carousel');
@@ -320,6 +314,19 @@
       window.changeSlide = function(dir) { goTo(current + dir); resetTimer(); };
       resetTimer();
     }
+
+    /* ── Cargar datos desde GitHub ── */
+    fetch(PROPIEDADES_URL)
+      .then(res => {
+        if (!res.ok) throw new Error('No se pudo cargar la propiedad.');
+        return res.json();
+      })
+      .then(data => renderPropiedad(data))
+      .catch(err => {
+        console.error(err);
+        document.getElementById('propName').textContent = 'No se pudo cargar la propiedad.';
+        document.getElementById('propLoc').textContent  = 'Por favor intenta más tarde.';
+      });
 
     /* ── Scroll reveal ── */
     const obs = new IntersectionObserver(entries => {

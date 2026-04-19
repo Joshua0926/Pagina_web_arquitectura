@@ -1008,7 +1008,7 @@ dialog#lightbox::backdrop { background: transparent; }
   display: grid;
   grid-template-columns: 1.35fr 0.65fr;
   gap: 0;
-  background: var(--border);
+  background: var(--bg-dark);
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
